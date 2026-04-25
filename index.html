@@ -3,148 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Juntos | Autonomía y Recreación</title>
+    <title>Club Juntos | Escuela de Natación y Recreación en Mar del Plata</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
-        body { font-family: 'Montserrat', sans-serif; }
-        .bg-empate-blue { background-color: #0046ad; }
-        .bg-empate-green { background-color: #28a745; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; scroll-behavior: smooth; }
+        .bg-cañada-blue { background-color: #002d72; } 
+        .text-cañada-blue { color: #002d72; }
+        .bg-cañada-gold { background-color: #ffb81c; } 
+        .hero-modern { background: linear-gradient(135deg, rgba(0,45,114,0.9) 0%, rgba(0,20,50,0.8) 100%), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80'); background-size: cover; background-position: center; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .sede-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; border-radius: 50px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; transition: all 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
     </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="bg-white">
 
-    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-empate-blue">
+    <a href="https://wa.me/5492236808522" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <nav class="glass sticky top-0 z-50 border-b border-gray-100">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-3xl font-black text-blue-900 italic tracking-tighter uppercase">CLUB JUNTOS</div>
-            <div class="hidden md:flex space-x-6 font-bold text-xs uppercase text-gray-600">
-                <a href="#inicio" class="hover:text-blue-700 transition">Inicio</a>
-                <a href="#actividades" class="hover:text-blue-700 transition">Actividades</a>
-                <a href="#equipo" class="hover:text-blue-700 transition">Nuestro Staff</a>
-                <a href="https://wa.me/5492230000000" class="bg-empate-green text-white px-5 py-2 rounded font-black shadow-md hover:bg-green-600 transition">Contacto</a>
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-cañada-blue rounded-lg flex items-center justify-center text-white font-bold italic">CJ</div>
+                <span class="text-xl font-extrabold text-cañada-blue tracking-tighter uppercase">CLUB JUNTOS</span>
+            </div>
+            <div class="hidden lg:flex space-x-8 font-semibold text-xs tracking-widest uppercase text-gray-500">
+                <a href="#quienes-somos" class="hover:text-cañada-blue transition">Nosotros</a>
+                <a href="#sedes" class="hover:text-cañada-blue transition">Sedes</a>
+                <a href="#actividades" class="hover:text-cañada-blue transition">Clases</a>
+                <a href="https://wa.me/5492236808522" class="bg-cañada-blue text-white px-6 py-2 rounded-full hover:bg-blue-900 transition shadow-md">Contacto</a>
             </div>
         </div>
     </nav>
 
-    <section id="inicio" class="relative bg-empate-blue text-white py-24">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-6xl md:text-8xl font-black mb-6 uppercase italic tracking-tighter">¡Sumate!</h1>
-            <p class="text-xl md:text-3xl font-bold mb-12 max-w-4xl mx-auto opacity-90">Acompañamos el camino hacia la autonomía a través de actividades recreativas.</p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#actividades" class="bg-white text-blue-900 px-12 py-5 rounded font-black uppercase text-xl shadow-xl">Actividades</a>
-                <a href="https://wa.me/5492230000000" class="bg-empate-green text-white px-12 py-5 rounded font-black uppercase text-xl shadow-xl">Quiero Consultar</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="actividades" class="py-20 bg-gray-50">
+    <section class="hero-modern h-[500px] flex items-center text-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-black text-center mb-16 text-blue-900 uppercase italic">Actividades</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-lg border-t-8 border-empate-blue hover:scale-105 transition">
-                    <h3 class="text-2xl font-black mb-4 uppercase">Club Recreativo</h3>
-                    <p class="text-sm font-bold text-blue-700 mb-4 tracking-widest uppercase">7 a 17 años</p>
-                    <p class="text-gray-600 leading-relaxed">Espacio grupal con propuestas deportivas y acuáticas profesionales. Trabajamos el juego, la socialización y la autonomía.</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg border-t-8 border-orange-400 hover:scale-105 transition">
-                    <h3 class="text-2xl font-black mb-4 uppercase">🌱 Club Kids</h3>
-                    <p class="text-sm font-bold text-orange-600 mb-4 tracking-widest uppercase">3 a 6 años</p>
-                    <p class="text-gray-600 leading-relaxed">Primeras experiencias grupales. Favorecemos la comunicación y la confianza a través del agua y el movimiento.</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg border-t-8 border-purple-600 hover:scale-105 transition">
-                    <h3 class="text-2xl font-black mb-4 uppercase">🚀 Club Joven</h3>
-                    <p class="text-sm font-bold text-purple-600 mb-4 tracking-widest uppercase">+16 años</p>
-                    <p class="text-gray-600 leading-relaxed">Promovemos la participación social y la autonomía en jóvenes y adultos. Fortalecemos vínculos y calidad de vida.</p>
-                </div>
-                <div class="bg-blue-900 text-white p-8 rounded-lg shadow-lg hover:scale-105 transition">
-                    <h3 class="text-2xl font-black mb-4 uppercase">🏊 Pileta Individual</h3>
-                    <p class="text-gray-300 leading-relaxed">Intervención 1 a 1 profesional. Trabajamos objetivos personalizados de seguridad y autonomía acuática.</p>
-                </div>
-                <div class="bg-blue-600 text-white p-8 rounded-lg shadow-lg hover:scale-105 transition">
-                    <h3 class="text-2xl font-black mb-4 uppercase">🏊 Pileta Familiar</h3>
-                    <p class="text-gray-100 leading-relaxed">Espacio de disfrute y vínculo junto a un familiar, con asistencia y acompañamiento profesional.</p>
-                </div>
-                <div class="bg-blue-400 text-white p-8 rounded-lg shadow-lg hover:scale-105 transition">
-                    <h3 class="text-2xl font-black mb-4 uppercase">🤱 Matronatación</h3>
-                    <p class="text-gray-100 leading-relaxed">Primer acercamiento al agua junto a un referente. Estimulación temprana y juego lúdico.</p>
+            <div class="max-w-3xl">
+                <span class="bg-cañada-gold text-cañada-blue px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">Desde 2022</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold mt-6 mb-6 leading-none uppercase">Liderando el camino a la autonomía.</h1>
+                <p class="text-xl opacity-80 mb-10 font-light italic">"Entendemos que acompañando el desarrollo, ganamos todos".</p>
+                <div class="flex space-x-4">
+                    <a href="#quienes-somos" class="bg-white text-cañada-blue px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">Conocenos</a>
+                    <a href="#actividades" class="bg-cañada-gold text-cañada-blue px-8 py-4 rounded-full font-bold hover:shadow-xl transition">Ver Clases</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="equipo" class="py-20 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-5xl font-black mb-16 text-blue-900 uppercase italic text-center w-full">Nuestro Staff</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 justify-items-center">
-                <div class="group text-center">
-                    <div class="w-40 h-40 bg-gray-200 rounded-lg mb-4 overflow-hidden border-b-4 border-empate-blue shadow-md">
-                        <img src="WhatsApp Image 2026-04-25 at 12.50.51 AM.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Sofia">
+    <section id="quienes-somos" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-extrabold text-cañada-blue uppercase tracking-tighter mb-8 italic">Quiénes Somos</h2>
+                    <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+                        <p>
+                            Fundado en el año 2022 en la ciudad de Mar del Plata, el <span class="font-bold text-cañada-blue uppercase">Club Juntos Asociación Civil</span> nació con la convicción de que el deporte y la recreación son los motores fundamentales para el desarrollo humano.
+                        </p>
+                        <p>
+                            Bajo la dirección del <span class="font-bold">Presidente Nicolás Adalberto Maidana</span>, nuestro club se ha consolidado como un espacio de referencia en la región, donde el foco no está puesto en la competencia tradicional, sino en la <span class="text-cañada-blue font-bold">autonomía</span> y el fortalecimiento de las capacidades individuales de cada alumno.
+                        </p>
+                        <p>
+                            Contamos con un staff profesional interdisciplinario que diseña cada actividad —ya sea en el agua o en el espacio seco— bajo protocolos de seguridad y respeto por los tiempos personales, promoviendo una verdadera <span class="italic underline">calidad de vida</span> para niños, jóvenes y adultos.
+                        </p>
                     </div>
-                    <h4 class="font-black uppercase text-sm">Sofia</h4>
+                    <div class="mt-10 p-6 border-l-4 border-cañada-gold bg-gray-50 rounded-r-2xl">
+                        <p class="text-cañada-blue font-bold uppercase text-sm tracking-widest mb-2 italic">Nuestra Misión</p>
+                        <p class="text-gray-700 italic">"Transformar la vida de las familias marplatenses a través de una propuesta educativa acuática y deportiva que priorice la libertad de movimiento y la inclusión real."</p>
+                    </div>
                 </div>
-                <div class="group text-center">
-                    <div class="w-40 h-40 bg-gray-200 rounded-lg mb-4 overflow-hidden border-b-4 border-empate-blue shadow-md">
-                        <img src="WhatsApp Image 2026-04-25 at 12.50.51 AM (1).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Agustina">
-                    </div>
-                    <h4 class="font-black uppercase text-sm">Agustina</h4>
-                </div>
-                <div class="group text-center">
-                    <div class="w-40 h-40 bg-gray-200 rounded-lg mb-4 overflow-hidden border-b-4 border-empate-blue shadow-md">
-                        <img src="WhatsApp Image 2026-04-25 at 12.50.51 AM (2).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Maria Jose">
-                    </div>
-                    <h4 class="font-black uppercase text-sm">Maria Jose</h4>
-                </div>
-                <div class="group text-center">
-                    <div class="w-40 h-40 bg-gray-200 rounded-lg mb-4 overflow-hidden border-b-4 border-empate-blue shadow-md">
-                        <img src="WhatsApp Image 2026-04-25 at 12.50.51 AM (3).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Rocio">
-                    </div>
-                    <h4 class="font-black uppercase text-sm">Rocio</h4>
-                </div>
-                <div class="group text-center">
-                    <div class="w-40 h-40 bg-gray-200 rounded-lg mb-4 overflow-hidden border-b-4 border-empate-blue shadow-md">
-                        <img src="WhatsApp Image 2026-04-25 at 12.50.52 AM.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Morena">
-                    </div>
-                    <h4 class="font-black uppercase text-sm">Morena</h4>
-                </div>
-                <div class="group text-center">
-                    <div class="w-40 h-40 bg-gray-200 rounded-lg mb-4 overflow-hidden border-b-4 border-empate-blue shadow-md">
-                        <img src="WhatsApp Image 2026-04-25 at 12.50.52 AM (1).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Milagros">
-                    </div>
-                    <h4 class="font-black uppercase text-sm italic">AT Milagros</h4>
-                </div>
-                <div class="group text-center">
-                    <div class="w-40 h-40 bg-gray-200 rounded-lg mb-4 overflow-hidden border-b-4 border-empate-blue shadow-md">
-                        <img src="WhatsApp Image 2026-04-25 at 12.50.52 AM (2).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Ailin">
-                    </div>
-                    <h4 class="font-black uppercase text-sm">Ailin</h4>
-                </div>
-                <div class="group text-center">
-                    <div class="w-40 h-40 bg-gray-200 rounded-lg mb-4 overflow-hidden border-b-4 border-empate-blue shadow-md">
-                        <img src="WhatsApp Image 2026-04-25 at 12.50.53 AM.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Belen">
-                    </div>
-                    <h4 class="font-black uppercase text-sm">Belen</h4>
-                </div>
-                <div class="group text-center">
-                    <div class="w-40 h-40 bg-gray-200 rounded-lg mb-4 overflow-hidden border-b-4 border-empate-blue shadow-md">
-                        <img src="WhatsApp Image 2026-04-25 at 12.50.53 AM (1).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition" alt="Celeste">
-                    </div>
-                    <h4 class="font-black uppercase text-sm">Celeste</h4>
+                <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+                    <div class="bg-gray-100 h-64 rounded-3xl flex items-center justify-center text-cañada-blue opacity-30"><i class="fas fa-users text-7xl"></i></div>
+                    <div class="bg-cañada-blue h-64 rounded-3xl mt-12 flex items-center justify-center text-white"><i class="fas fa-heart text-7xl"></i></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-empate-blue text-white py-16 border-t-8 border-empate-green">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="text-4xl font-black italic mb-6 uppercase">CLUB JUNTOS</h3>
-            <p class="font-bold text-lg uppercase tracking-widest mb-10">Mar del Plata, Argentina</p>
-            <div class="flex justify-center space-x-10 text-4xl mb-12">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5492230000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <section id="inscripcion" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="bg-cañada-blue rounded-[3.5rem] p-12 md:p-20 text-white text-center relative overflow-hidden shadow-2xl">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-8 uppercase tracking-tighter italic">Sumate a Club Juntos</h2>
+                <p class="text-xl mb-12 opacity-70 max-w-2xl mx-auto italic font-light tracking-wide italic">"Por una autonomía sin límites, acompañados por profesionales."</p>
+                <a href="https://wa.me/5492236808522" class="bg-cañada-gold text-cañada-blue px-12 py-5 rounded-full font-black text-xl hover:scale-105 transition-transform inline-block">MÁS INFORMACIÓN</a>
             </div>
-            <p class="text-xs font-bold opacity-50 uppercase tracking-widest">Unidos por la autonomía.</p>
-            <p class="text-[10px] opacity-30 mt-4">Presidente Nicolás Adalberto Maidana | Matrícula 51194</p>
+        </div>
+    </section>
+
+    <footer class="bg-white py-16 border-t">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12 items-center text-center md:text-left">
+            <div>
+                <h3 class="text-2xl font-black text-cañada-blue italic uppercase tracking-tighter">CLUB JUNTOS</h3>
+                <p class="text-xs text-gray-400 mt-2 font-bold tracking-widest uppercase italic">Asociación Civil | Personería Jurídica 2026</p>
+            </div>
+            <div class="flex justify-center space-x-10 text-2xl text-gray-300">
+                <a href="https://instagram.com/clubjuntosmdq" class="hover:text-cañada-blue transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/clubjuntosmdq" class="hover:text-cañada-blue transition"><i class="fab fa-facebook"></i></a>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-sm font-bold text-cañada-blue">Mar del Plata, Argentina</p>
+                <p class="text-xs text-gray-400 mt-1">clubjuntosmdq@gmail.com</p>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-[9px] text-gray-300 uppercase tracking-[0.5em] font-bold">
+            © 2026 Club Juntos | Gestión Nicolás Adalberto Maidana
         </div>
     </footer>
 
