@@ -1,126 +1,1189 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Juntos Mar del Plata - Club para personas con discapacidad</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        body { font-family: 'Inter', sans-serif; color: #1a1a1a; scroll-behavior: smooth; }
-        .bg-cañada-blue { background-color: #002d72; } 
-        .text-cañada-blue { color: #002d72; }
-        .bg-cañada-gold { background-color: #ffb81c; } 
-        /* Fondo con imagen de Mar del Plata */
-        .hero-modern { 
-            background: linear-gradient(135deg, rgba(0,45,114,0.85) 0%, rgba(0,20,50,0.7) 100%), 
-            url('https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&q=80'); 
-            background-size: cover; 
-            background-position: center; 
-        }
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .sede-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; border-radius: 50px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; transition: all 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Club Juntos — Equipo de Salud</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--az:#1B2A6B;--tu:#2DC8C8;--am:#F5C842;--ro:#E8538F;--cr:#FDF9F3;--bl:#FFFFFF;--gr:#9B9B9B;--bo:#EDE9E0;--tus:#E8F9F9;--ros:#FDE8F2;--ams:#FEF9E7;--azs:#EEF0F8;--ok:#34d399}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Nunito',sans-serif;background:var(--cr);color:#2D2D2D;min-height:100vh;overflow-x:hidden}
+
+/* BIENVENIDA */
+#welcome{position:fixed;inset:0;background:var(--cr);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;transition:opacity .6s,transform .6s}
+#welcome.out{opacity:0;transform:scale(.97);pointer-events:none}
+.wlogo{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:1.8rem}
+.wlogo-ic{width:42px;height:42px;background:var(--az);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.wlogo-t{font-size:.95rem;font-weight:800;color:var(--az);line-height:1.2;text-align:left}
+.wlogo-t span{color:var(--tu);display:block;font-size:.78rem;font-weight:700}
+.wtitle{font-size:clamp(1.7rem,6vw,2.4rem);font-weight:900;color:var(--az);line-height:1.15;margin-bottom:.65rem}
+.wtitle em{color:var(--tu);font-style:normal}
+.wsub{font-size:.88rem;color:var(--gr);line-height:1.7;max-width:300px;margin:0 auto 2rem;font-weight:500}
+.wcards{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;width:100%;max-width:330px}
+.wcard{background:var(--bl);border:2px solid var(--bo);border-radius:22px;padding:1.3rem 1rem;cursor:pointer;transition:all .2s;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.wcard:hover{border-color:var(--tu);transform:translateY(-3px);box-shadow:0 8px 24px rgba(45,200,200,.14)}
+.wcard .wico{font-size:2rem;margin-bottom:.55rem;display:block}
+.wcard h3{font-size:.86rem;font-weight:800;color:var(--az);margin-bottom:.22rem}
+.wcard p{font-size:.7rem;color:var(--gr);line-height:1.4;font-weight:500}
+
+/* APP */
+#app{display:none;min-height:100vh;flex-direction:column}
+#app.on{display:flex}
+
+/* NAV */
+nav{background:var(--bl);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;position:sticky;top:0;z-index:50;border-bottom:1.5px solid var(--bo);box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.nlogo{display:flex;align-items:center;gap:6px}
+.nlogo-ic{width:30px;height:30px;background:var(--az);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.nlogo-t{font-size:.84rem;font-weight:800;color:var(--az);line-height:1.15}
+.nlogo-t span{color:var(--tu);display:block;font-size:.68rem;font-weight:700}
+.npills{display:flex;gap:2px;background:var(--cr);border-radius:10px;padding:3px}
+.np{padding:4px 9px;border-radius:8px;font-size:.7rem;font-weight:800;cursor:pointer;color:var(--gr);border:none;background:transparent;transition:.15s;font-family:'Nunito',sans-serif}
+.np.on{background:var(--az);color:white}
+.nbell{position:relative;cursor:pointer;width:34px;height:34px;background:var(--cr);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.nbell-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:var(--ro);border-radius:50%;border:2px solid var(--bl)}
+
+/* VISTAS */
+.vista{display:none}.vista.on{display:block}
+
+/* HERO */
+.hero{background:var(--bl);padding:1.8rem 1.2rem 1.2rem;border-bottom:1.5px solid var(--bo)}
+.hero-inner{max-width:560px;margin:0 auto}
+.hero-chip{display:inline-flex;align-items:center;gap:5px;background:var(--tus);color:var(--tu);padding:4px 12px;border-radius:20px;font-size:.7rem;font-weight:800;letter-spacing:.03em;margin-bottom:.85rem}
+.hero h1{font-size:clamp(1.45rem,5vw,2.1rem);font-weight:900;color:var(--az);line-height:1.2;margin-bottom:.6rem}
+.hero h1 em{color:var(--tu);font-style:normal}
+.hero-sub{font-size:.86rem;color:var(--gr);line-height:1.7;max-width:400px;margin-bottom:1.3rem;font-weight:500}
+.sbox{background:var(--cr);border:2px solid var(--bo);border-radius:18px;padding:.95rem;transition:.18s}
+.sbox:focus-within{border-color:var(--tu);background:var(--bl)}
+.sbox textarea{width:100%;background:transparent;border:none;outline:none;color:#2D2D2D;font-family:'Nunito',sans-serif;font-size:.86rem;resize:none;min-height:50px;font-weight:500}
+.sbox textarea::placeholder{color:#C5C0B8}
+.sbox-ft{display:flex;align-items:center;justify-content:space-between;margin-top:.55rem;padding-top:.55rem;border-top:1.5px solid var(--bo)}
+.sbox-hint{font-size:.67rem;color:#C5C0B8;font-weight:600}
+.btn-ia{background:var(--az);color:white;border:none;border-radius:12px;padding:9px 16px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.76rem;cursor:pointer;display:flex;align-items:center;gap:5px;transition:.15s}
+.btn-ia:hover{background:var(--tu)}.btn-ia:disabled{opacity:.5;cursor:not-allowed}
+
+/* FILTROS */
+.filtros-wrap{background:var(--bl);border-bottom:1.5px solid var(--bo);padding:.75rem 1rem}
+.filtros-label{font-size:.65rem;font-weight:800;color:var(--gr);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.45rem}
+.filtros-row{display:flex;gap:.32rem;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-bottom:.5rem}
+.filtros-row:last-child{margin-bottom:0}
+.filtros-row::-webkit-scrollbar{display:none}
+.ftipo{padding:5px 12px;border-radius:20px;border:2px solid var(--bo);font-size:.72rem;font-weight:800;cursor:pointer;transition:.14s;background:transparent;color:#555;white-space:nowrap;flex-shrink:0;font-family:'Nunito',sans-serif}
+.ftipo.on{background:var(--az);color:white;border-color:var(--az)}
+.fchip{padding:5px 12px;border-radius:20px;border:2px solid var(--bo);font-size:.72rem;font-weight:700;cursor:pointer;transition:.14s;background:transparent;color:#555;white-space:nowrap;flex-shrink:0;font-family:'Nunito',sans-serif}
+.fchip.on{background:var(--tus);color:var(--tu);border-color:var(--tu)}
+
+/* IA RESULT */
+.iares{margin:.85rem 1rem;background:var(--tus);border:1.5px solid rgba(45,200,200,.22);border-radius:18px;padding:.9rem 1rem;display:none}
+.iares.on{display:block}
+.iares-hd{font-size:.68rem;font-weight:800;color:var(--tu);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.38rem}
+.iares p{font-size:.85rem;line-height:1.7;color:#2D2D2D;font-weight:500}
+
+/* GRID */
+.gwrap{padding:1rem;max-width:980px;margin:0 auto}
+.ghd{display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem}
+.ghd h2{font-size:.92rem;font-weight:800;color:var(--az)}
+.ghd span{font-size:.74rem;color:var(--gr);font-weight:600}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:.8rem}
+
+/* CARD */
+.pcard{background:var(--bl);border:2px solid var(--bo);border-radius:22px;overflow:hidden;transition:all .2s;cursor:pointer;position:relative}
+.pcard:hover{border-color:var(--tu);box-shadow:0 8px 28px rgba(45,200,200,.12);transform:translateY(-3px)}
+.pcard-verif{position:absolute;top:10px;right:10px;background:var(--tus);color:var(--tu);font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:20px}
+.pcard-hd{padding:.9rem .9rem .65rem;display:flex;gap:.65rem;align-items:flex-start}
+.pav-wrap{position:relative;flex-shrink:0}
+.pav{width:52px;height:52px;border-radius:14px;object-fit:cover;display:block}
+.pav-placeholder{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;flex-shrink:0}
+.pci h3{font-size:.86rem;font-weight:800;color:var(--az)}
+.psub{font-size:.69rem;color:var(--gr);margin:2px 0 5px;font-weight:600}
+.ptags{display:flex;flex-wrap:wrap;gap:3px}
+.ptag{font-size:.61rem;padding:2px 6px;border-radius:8px;font-weight:800}
+.ptag-tipo{background:var(--azs);color:var(--az)}
+.ptag-disc{background:var(--ros);color:var(--ro)}
+.ptag-zona{background:var(--ams);color:#8a6000}
+.pcard-body{padding:0 .9rem .9rem}
+.pdiv{height:1.5px;background:var(--bo);margin-bottom:.6rem}
+.prow{display:flex;align-items:center;gap:6px;font-size:.76rem;color:#666;margin-bottom:3px;font-weight:600}
+.pcard-ft{padding:.65rem .9rem;background:var(--cr);display:flex;align-items:center;justify-content:space-between;border-top:1.5px solid var(--bo)}
+.pdisp{display:flex;align-items:center;gap:4px;font-size:.7rem;font-weight:800}
+.pdot{width:7px;height:7px;border-radius:50%}
+
+/* BOTONES */
+.btn{border:none;border-radius:12px;padding:8px 14px;font-size:.76rem;font-weight:800;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif}
+.baz{background:var(--az);color:white}.baz:hover{background:#253a99}
+.bro{background:var(--ro);color:white}.bro:hover{background:#d4477f}
+.btu{background:var(--tu);color:white}
+.bam{background:var(--am);color:var(--az)}
+.bok{background:var(--ok);color:white}
+.berr{background:#f87171;color:white}
+.bout{background:transparent;border:2px solid var(--bo);color:#555}.bout:hover{border-color:var(--az);color:var(--az)}
+.bfull{width:100%;padding:14px;font-size:.9rem;border-radius:16px}
+
+/* OVERLAY */
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:100;backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1rem}
+.ov.on{display:flex}
+
+/* MODAL PERFIL / CV */
+.modal{background:var(--cr);border-radius:26px;max-width:520px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.mhd{background:var(--az);padding:1.2rem;border-radius:26px 26px 0 0;display:flex;align-items:center;gap:.85rem}
+.mav-lg{width:64px;height:64px;border-radius:18px;object-fit:cover;flex-shrink:0}
+.mav-lg-ph{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;flex-shrink:0}
+.mname h2{font-size:1.05rem;font-weight:900;color:white}
+.mname p{color:rgba(255,255,255,.5);font-size:.74rem;margin-top:2px;font-weight:600}
+.mtipo-badge{display:inline-block;background:rgba(255,255,255,.15);color:white;font-size:.66rem;font-weight:800;padding:2px 9px;border-radius:20px;margin-top:5px}
+.mclose{margin-left:auto;background:rgba(255,255,255,.12);border:none;color:white;width:30px;height:30px;border-radius:10px;cursor:pointer;font-size:.88rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mbody{padding:1.2rem}
+.mtabs{display:flex;gap:3px;background:var(--bo);border-radius:12px;padding:3px;margin-bottom:1.1rem}
+.mtab{flex:1;padding:7px;border-radius:9px;font-size:.76rem;font-weight:800;cursor:pointer;border:none;background:transparent;color:var(--gr);transition:.15s;font-family:'Nunito',sans-serif;text-align:center}
+.mtab.on{background:white;color:var(--az);box-shadow:0 1px 5px rgba(0,0,0,.07)}
+.mpanel{display:none}.mpanel.on{display:block}
+.msec{margin-bottom:1.1rem}
+.msect{font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--tu);margin-bottom:.42rem}
+.mtags{display:flex;flex-wrap:wrap;gap:4px}
+.mtag{padding:4px 10px;border-radius:10px;font-size:.76rem;font-weight:700}
+.maz{background:var(--azs);color:var(--az)}
+.mro{background:var(--ros);color:var(--ro)}
+.mam{background:var(--ams);color:#8a6000}
+.mtu{background:var(--tus);color:#0e7490}
+.hgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.hdia{font-size:.65rem;font-weight:800;padding:5px 2px;border-radius:8px}
+.hdia.on{background:var(--tu);color:white}.hdia.off{background:var(--bo);color:var(--gr)}
+.iabox{background:var(--tus);border:1.5px solid rgba(45,200,200,.2);border-radius:16px;padding:.9rem;margin-bottom:1rem}
+.ialbl{font-size:.66rem;font-weight:800;color:var(--tu);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.38rem}
+.iabox p{font-size:.83rem;line-height:1.7;color:#2D2D2D;font-weight:500}
+.sol-st{padding:.7rem .9rem;border-radius:14px;margin-bottom:.85rem;font-size:.8rem;font-weight:700;display:flex;align-items:center;gap:7px}
+
+/* CV PANEL */
+.cv-section{background:var(--bl);border:2px solid var(--bo);border-radius:16px;padding:1rem;margin-bottom:.8rem}
+.cv-section h4{font-size:.8rem;font-weight:800;color:var(--az);margin-bottom:.6rem;display:flex;align-items:center;gap:6px}
+.cv-item{padding:.5rem 0;border-bottom:1px solid var(--bo);font-size:.82rem;font-weight:500;color:#444;line-height:1.6}
+.cv-item:last-child{border:none;padding-bottom:0}
+.cv-item strong{font-weight:800;color:var(--az);display:block;font-size:.84rem}
+.cv-item span{font-size:.74rem;color:var(--gr);font-weight:600}
+.cv-bio{font-size:.84rem;line-height:1.75;color:#444;font-weight:500;background:var(--bl);border:2px solid var(--bo);border-radius:16px;padding:1rem}
+.cv-os-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:5px}
+.cv-os-tag{background:var(--azs);color:var(--az);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:9px;text-align:center}
+
+/* SPINNER */
+.sp{display:inline-block;width:11px;height:11px;border:2.5px solid rgba(255,255,255,.3);border-top-color:white;border-radius:50%;animation:spin .65s linear infinite;vertical-align:middle}
+.spd{border-color:rgba(45,200,200,.2);border-top-color:var(--tu)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* CHAT */
+.chov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:150;backdrop-filter:blur(6px);align-items:flex-end;justify-content:center}
+.chov.on{display:flex}
+.chmodal{background:var(--bl);width:100%;max-width:440px;height:80vh;border-radius:24px 24px 0 0;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 -8px 40px rgba(0,0,0,.12)}
+.chhd{background:var(--az);padding:.88rem 1rem;display:flex;align-items:center;gap:.65rem;flex-shrink:0}
+.chav{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:900;flex-shrink:0}
+.chinfo h3{font-size:.86rem;font-weight:800;color:white}
+.chinfo p{font-size:.65rem;color:rgba(255,255,255,.42);font-weight:600}
+.chwarn{background:#FFF8ED;border-bottom:1.5px solid #FFE9B8;padding:.5rem 1rem;font-size:.68rem;color:#8a6000;display:flex;align-items:center;gap:5px;flex-shrink:0;font-weight:700}
+.chrep{margin-left:auto;background:#FEE2E2;color:#dc2626;border:none;padding:2px 8px;border-radius:7px;font-size:.63rem;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif}
+.chmsgs{flex:1;overflow-y:auto;padding:.88rem;display:flex;flex-direction:column;gap:.52rem;background:#F9F9F9}
+.msg{max-width:80%;padding:.62rem .82rem;border-radius:16px;font-size:.82rem;line-height:1.55;word-break:break-word;font-weight:500}
+.msg.yo{align-self:flex-end;background:var(--az);color:white;border-radius:16px 16px 4px 16px}
+.msg.otro{align-self:flex-start;background:white;color:#2D2D2D;border:1.5px solid var(--bo);border-radius:16px 16px 16px 4px}
+.mtime{font-size:.58rem;opacity:.44;margin-top:2px;text-align:right;font-weight:600}
+.chft{padding:.68rem .88rem;background:white;border-top:1.5px solid var(--bo);display:flex;gap:.48rem;align-items:flex-end;flex-shrink:0}
+.chin{flex:1;border:2px solid var(--bo);border-radius:12px;padding:8px 11px;font-family:'Nunito',sans-serif;font-size:.84rem;resize:none;outline:none;max-height:90px;transition:.15s;font-weight:500}
+.chin:focus{border-color:var(--tu)}
+.chsend{background:var(--tu);border:none;width:36px;height:36px;border-radius:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chclose{background:rgba(255,255,255,.12);border:none;color:white;width:30px;height:30px;border-radius:9px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+
+/* BOOKING */
+.bkmodal{background:var(--cr);border-radius:26px;max-width:450px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.bkhd{background:var(--az);padding:1rem 1.2rem;border-radius:26px 26px 0 0;display:flex;align-items:center;justify-content:space-between}
+.bkhd h2{font-size:.93rem;font-weight:900;color:white}
+.bkhd p{font-size:.7rem;color:rgba(255,255,255,.42);margin-top:1px;font-weight:600}
+.bkbody{padding:1.1rem}
+.bkstep{display:none}.bkstep.on{display:block}
+.stepind{display:flex;gap:4px;margin-bottom:1.1rem;align-items:center}
+.sdot{width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:900;flex-shrink:0;transition:.28s}
+.sdot.done{background:var(--tu);color:white}.sdot.act{background:var(--az);color:white}.sdot.pend{background:var(--bo);color:var(--gr)}
+.sline{flex:1;height:2px;background:var(--bo);border-radius:2px;transition:.28s}.sline.done{background:var(--tu)}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1rem}
+.tcard{border:2px solid var(--bo);border-radius:18px;padding:.95rem;text-align:center;cursor:pointer;transition:.18s;background:var(--bl)}
+.tcard:hover{border-color:var(--tu)}.tcard.sel{border-color:var(--tu);background:var(--tus)}
+.tcard .ico{font-size:1.75rem;margin-bottom:.38rem}
+.tcard h4{font-size:.82rem;font-weight:800;color:var(--az);margin-bottom:.18rem}
+.tcard p{font-size:.68rem;color:var(--gr);line-height:1.4;font-weight:500}
+.sinfo{background:#FFF8ED;border:1.5px solid #FFE9B8;border-radius:12px;padding:.72rem;font-size:.78rem;color:#8a6000;margin-bottom:.88rem;line-height:1.5;font-weight:600;display:none}
+.calnav{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
+.calnav h3{font-size:.88rem;font-weight:800;color:var(--az)}
+.calnav button{background:var(--bl);border:2px solid var(--bo);border-radius:9px;width:27px;height:27px;cursor:pointer;font-size:.82rem;transition:.14s;font-family:'Nunito',sans-serif}
+.calnav button:hover{border-color:var(--tu)}
+.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:.8rem}
+.cdhd{text-align:center;font-size:.61rem;font-weight:800;color:var(--gr);padding:3px 0;text-transform:uppercase}
+.cday{text-align:center;padding:5px 2px;border-radius:9px;font-size:.76rem;cursor:pointer;border:2px solid transparent;transition:.14s;min-height:29px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.cday.avail:hover{border-color:var(--tu);background:var(--tus)}.cday.sel{background:var(--tu);color:white;border-color:var(--tu)}.cday.dis{color:#DDD;cursor:default;pointer-events:none}.cday.today{color:var(--az)}
+.hslots{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-bottom:1rem}
+.hslot{border:2px solid var(--bo);border-radius:12px;padding:.52rem;text-align:center;cursor:pointer;transition:.14s;font-size:.78rem;font-weight:700;background:var(--bl)}
+.hslot:hover{border-color:var(--tu);background:var(--tus)}.hslot.sel{background:var(--az);color:white;border-color:var(--az)}.hslot.ocup{background:#F5F5F5;color:#CCC;cursor:default;text-decoration:line-through;font-size:.7rem}
+.cfcard{background:var(--bl);border:2px solid var(--bo);border-radius:16px;padding:.95rem;margin-bottom:.95rem}
+.cfrow{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;padding:4px 0}
+.cfl{color:var(--gr);width:80px;flex-shrink:0;font-size:.74rem;font-weight:700}
+.cfv{font-weight:800;color:var(--az)}
+.bknav{display:flex;gap:.5rem;margin-top:.8rem}
+.confirm-screen{text-align:center;padding:1rem .5rem}
+.confirm-ico{font-size:3.2rem;margin-bottom:.75rem}
+.confirm-screen h3{font-size:1.15rem;font-weight:900;color:var(--az);margin-bottom:.38rem}
+.confirm-screen p{font-size:.84rem;color:var(--gr);line-height:1.7;margin-bottom:1.1rem;font-weight:500}
+.confirm-detail{background:var(--tus);border:1.5px solid rgba(45,200,200,.2);border-radius:16px;padding:.92rem;margin-bottom:1rem;text-align:left}
+
+/* FORM */
+.fg{margin-bottom:.82rem}
+.fl{font-size:.75rem;font-weight:800;color:var(--az);margin-bottom:5px;display:block}
+.fi,.fs,.fta{width:100%;padding:10px 13px;border:2px solid var(--bo);border-radius:12px;font-family:'Nunito',sans-serif;font-size:.85rem;color:#2D2D2D;background:white;transition:.15s;outline:none;font-weight:600}
+.fi:focus,.fs:focus,.fta:focus{border-color:var(--tu)}
+.fta{resize:vertical;min-height:70px}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.cbg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:4px;margin-top:5px}
+.cbg-3{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}
+.cbi{display:flex;align-items:center;gap:6px;font-size:.76rem;cursor:pointer;padding:6px 9px;border:2px solid var(--bo);border-radius:10px;transition:.14s;font-family:'Nunito',sans-serif;font-weight:600;background:white}
+.cbi:has(input:checked){border-color:var(--tu);background:var(--tus);font-weight:800}
+.cbi input{accent-color:var(--tu)}
+.hsel{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:5px}
+.hbtn{padding:6px 2px;border:2px solid var(--bo);border-radius:9px;font-size:.66rem;font-weight:800;text-align:center;cursor:pointer;background:white;color:#555;transition:.14s;font-family:'Nunito',sans-serif}
+.hbtn.on{background:var(--tu);border-color:var(--tu);color:white}
+.fdiv{height:1.5px;background:var(--bo);margin:1.1rem 0}
+
+/* FOTO UPLOAD */
+.foto-upload-area{display:flex;align-items:center;gap:1rem;margin-bottom:.5rem}
+.foto-preview{width:72px;height:72px;border-radius:18px;background:var(--cr);border:2.5px dashed var(--bo);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:.15s;flex-shrink:0;overflow:hidden}
+.foto-preview:hover{border-color:var(--tu)}
+.foto-preview img{width:100%;height:100%;object-fit:cover;display:none}
+.foto-preview .foto-ico{font-size:1.4rem}
+.foto-preview .foto-txt{font-size:.6rem;color:var(--gr);font-weight:700;margin-top:2px}
+.foto-info{flex:1}
+.foto-info p{font-size:.78rem;color:#555;font-weight:600;line-height:1.5}
+.foto-info span{font-size:.7rem;color:var(--gr);font-weight:500}
+.foto-pendiente{display:inline-flex;align-items:center;gap:5px;background:#FFF8ED;color:#8a6000;border:1.5px solid #FFE9B8;padding:4px 10px;border-radius:8px;font-size:.7rem;font-weight:800;margin-top:4px}
+
+/* DOC UPLOAD */
+.upzone{border:2.5px dashed var(--bo);border-radius:16px;padding:1.2rem;text-align:center;cursor:pointer;transition:.15s;background:#FAFAF8}
+.upzone:hover{border-color:var(--tu);background:var(--tus)}
+.updone{display:flex;align-items:center;gap:7px;padding:.65rem .9rem;background:rgba(52,211,153,.1);border:1.5px solid rgba(52,211,153,.25);border-radius:12px;font-size:.78rem;color:#065f46;font-weight:700}
+
+/* HERO REGISTRO */
+.reghero{padding:1.9rem 1.2rem 1.5rem;background:var(--bl);border-bottom:1.5px solid var(--bo);text-align:center}
+.reghero h1{font-size:clamp(1.4rem,5vw,2rem);font-weight:900;color:var(--az);margin-bottom:.38rem}
+.reghero h1 em{color:var(--ro);font-style:normal}
+.reghero p{font-size:.86rem;color:var(--gr);max-width:320px;margin:0 auto 1.4rem;line-height:1.7;font-weight:500}
+.pricecard{background:var(--az);border-radius:22px;padding:1.3rem;max-width:285px;margin:0 auto;position:relative}
+.pbadge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--am);color:var(--az);font-size:.64rem;font-weight:900;padding:3px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.pprecio{text-align:center;margin:.3rem 0 .82rem}
+.pprecio .pm{font-size:2.2rem;font-weight:900;color:white}
+.pprecio .pc{font-size:.9rem;color:rgba(255,255,255,.42);vertical-align:top;margin-top:.38rem;display:inline-block;font-weight:700}
+.pprecio .pp{font-size:.72rem;color:rgba(255,255,255,.32);display:block;margin-top:2px;font-weight:600}
+.pfeats{list-style:none;margin-bottom:.82rem}
+.pfeats li{display:flex;align-items:center;gap:7px;font-size:.78rem;color:rgba(255,255,255,.8);padding:3px 0;font-weight:600}
+.pfeats .ck{color:var(--tu)}
+.fwrap{max-width:520px;margin:0 auto;padding:1.2rem 1.1rem}
+.ftitle{font-size:1rem;font-weight:900;color:var(--az);margin-bottom:1.05rem}
+
+/* OS GRID */
+.os-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:4px;margin-top:5px}
+
+/* ADMIN */
+.adwrap{max-width:940px;margin:0 auto;padding:1.05rem}
+.adtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.adtop h1{font-size:1.1rem;font-weight:900;color:var(--az)}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:.55rem;margin-bottom:1.3rem}
+.scard{background:white;border:2px solid var(--bo);border-radius:16px;padding:.85rem .95rem}
+.scard .snum{font-size:1.75rem;font-weight:900;line-height:1}
+.scard .slbl{font-size:.68rem;color:var(--gr);margin-top:3px;font-weight:700}
+.scard .schg{font-size:.66rem;font-weight:800;margin-top:4px}
+.cup{color:var(--ok)}.cwarn{color:#f59e0b}
+.atabs{display:flex;gap:3px;background:var(--bo);border-radius:13px;padding:3px;margin-bottom:.95rem;flex-wrap:wrap}
+.atab{padding:5px 10px;border-radius:10px;font-size:.71rem;font-weight:800;cursor:pointer;border:none;background:transparent;color:var(--gr);transition:.14s;font-family:'Nunito',sans-serif}
+.atab.on{background:white;color:var(--az);box-shadow:0 1px 5px rgba(0,0,0,.06)}
+.asec{display:none}.asec.on{display:block}
+.atable{width:100%;border-collapse:collapse;background:white;border-radius:15px;overflow:hidden;border:2px solid var(--bo)}
+.atable th{background:var(--cr);font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--gr);padding:.6rem .85rem;text-align:left}
+.atable td{padding:.7rem .85rem;border-bottom:1.5px solid var(--bo);font-size:.78rem;vertical-align:middle;font-weight:600}
+.atable tr:last-child td{border:none}
+.spill{padding:3px 9px;border-radius:20px;font-size:.64rem;font-weight:800;display:inline-flex;align-items:center;gap:3px}
+.sp-ok{background:rgba(52,211,153,.12);color:#065f46}
+.sp-pend{background:#FFF8ED;color:#92400e}
+.sp-err{background:#FEE2E2;color:#dc2626}
+.sp-open{background:var(--tus);color:#0e7490}
+.actb{display:flex;gap:3px}
+.acrw{background:white;border:2px solid var(--bo);border-radius:15px;padding:.78rem .92rem;margin-bottom:.42rem;display:flex;align-items:center;gap:.68rem;cursor:pointer;transition:.15s}
+.acrw:hover{border-color:var(--tu)}
+.acrav{width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:900;flex-shrink:0}
+.acri{flex:1}.acri h4{font-size:.8rem;font-weight:800;color:var(--az)}.acri p{font-size:.7rem;color:var(--gr);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:230px;font-weight:600}
+.acrt{text-align:right;flex-shrink:0}.acrt .t{font-size:.65rem;color:var(--gr);font-weight:700}
+.flag{background:#FEE2E2;color:#dc2626;font-size:.62rem;font-weight:800;padding:2px 6px;border-radius:6px;margin-top:2px;display:inline-block}
+.resrow{background:white;border:2px solid var(--bo);border-radius:14px;padding:.78rem .92rem;margin-bottom:.42rem;display:flex;align-items:center;gap:.68rem}
+.resdot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.resi{flex:1}.resi h4{font-size:.8rem;font-weight:800;color:var(--az)}.resi p{font-size:.7rem;color:var(--gr);margin-top:1px;display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-weight:600}
+.rtipo{font-size:.63rem;font-weight:800;padding:2px 6px;border-radius:7px}
+.rtipo.v{background:var(--tus);color:#0e7490}.rtipo.p{background:var(--azs);color:var(--az)}
+.hadmin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.55rem}
+.hday-card{background:white;border:2px solid var(--bo);border-radius:15px;padding:.82rem}
+.hday-card h4{font-size:.8rem;font-weight:800;color:var(--az);margin-bottom:.55rem}
+.hslot-admin{display:flex;align-items:center;justify-content:space-between;padding:5px 0;font-size:.76rem;font-weight:700;color:#555}
+.toggle{position:relative;width:32px;height:18px}
+.toggle input{opacity:0;width:0;height:0}
+.tslider{position:absolute;inset:0;background:#E0E0E0;border-radius:20px;cursor:pointer;transition:.2s}
+.tslider:before{content:'';position:absolute;width:14px;height:14px;left:2px;top:2px;background:white;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.toggle input:checked + .tslider{background:var(--tu)}
+.toggle input:checked + .tslider:before{transform:translateX(14px)}
+
+/* TOAST */
+.toast{position:fixed;bottom:1.1rem;left:50%;transform:translateX(-50%) translateY(55px);background:var(--az);color:white;padding:10px 20px;border-radius:14px;font-size:.82rem;font-weight:800;z-index:999;transition:.26s;white-space:nowrap;box-shadow:0 4px 20px rgba(27,42,107,.28);font-family:'Nunito',sans-serif}
+.toast.on{transform:translateX(-50%) translateY(0)}
+
+.adchov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:150;backdrop-filter:blur(6px);align-items:flex-end;justify-content:center}
+.adchov.on{display:flex}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:520px){.frow2{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr}.atab{font-size:.66rem;padding:4px 7px}.wcards{max-width:300px}}
+</style>
 </head>
-<body class="bg-white">
+<body>
 
-    <a href="https://wa.me/5492236808522?text=Hola%20Club%20Juntos%2C%20tengo%20una%20consulta." class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div id="welcome">
+  <div class="wlogo">
+    <div class="wlogo-ic">🐕</div>
+    <div class="wlogo-t">Club Juntos<span>Equipo de Salud</span></div>
+  </div>
+  <svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1.6rem">
+    <ellipse cx="100" cy="112" rx="80" ry="10" fill="#EDE9E0" opacity=".5"/>
+    <circle cx="50" cy="35" r="16" fill="#2DC8C8" opacity=".18"/>
+    <circle cx="50" cy="29" r="11" fill="#2DC8C8"/>
+    <rect x="38" y="46" width="24" height="34" rx="12" fill="#1B2A6B"/>
+    <circle cx="100" cy="38" r="9" fill="#F5C842"/>
+    <rect x="91" y="52" width="18" height="27" rx="9" fill="#E8538F"/>
+    <circle cx="150" cy="35" r="16" fill="#E8538F" opacity=".18"/>
+    <circle cx="150" cy="29" r="11" fill="#E8538F"/>
+    <rect x="138" y="46" width="24" height="34" rx="12" fill="#1B2A6B"/>
+    <path d="M62 62 Q82 70 91 62" stroke="#2DC8C8" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M109 62 Q128 70 138 62" stroke="#E8538F" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M95 14 C95 11 98 9 100 12 C102 9 105 11 105 14 C105 17 100 21 100 21 C100 21 95 17 95 14Z" fill="#E8538F" opacity=".85"/>
+    <circle cx="25" cy="18" r="2.5" fill="#F5C842" opacity=".65"/>
+    <circle cx="172" cy="14" r="2" fill="#2DC8C8" opacity=".65"/>
+    <circle cx="180" cy="48" r="2" fill="#F5C842" opacity=".5"/>
+    <circle cx="18" cy="55" r="1.8" fill="#E8538F" opacity=".5"/>
+  </svg>
+  <h1 class="wtitle">Tu familia merece<br><em>el mejor equipo</em></h1>
+  <p class="wsub">Conectamos familias con profesionales de salud verificados por Club Juntos. Con cuidado, calidez y respeto.</p>
+  <div class="wcards">
+    <div class="wcard" onclick="entrar('familia')"><span class="wico">👨‍👩‍👧</span><h3>Soy familia</h3><p>Busco un profesional para mi hijo/a</p></div>
+    <div class="wcard" onclick="entrar('prof')"><span class="wico">🩺</span><h3>Soy profesional</h3><p>Quiero sumar mi perfil al equipo</p></div>
+  </div>
+</div>
 
-    <nav class="glass sticky top-0 z-50 border-b border-gray-100">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-cañada-blue rounded-lg flex items-center justify-center text-white font-bold italic shadow-sm">CJ</div>
-                <div class="flex flex-col">
-                    <span class="text-xl font-extrabold text-cañada-blue tracking-tighter uppercase leading-none">CLUB JUNTOS</span>
-                    <span class="text-[9px] font-bold text-gray-400 tracking-[0.2em] uppercase">Mar del Plata</span>
-                </div>
-            </div>
-            <div class="hidden lg:flex space-x-8 font-semibold text-xs tracking-widest uppercase text-gray-500">
-                <a href="#quienes-somos" class="hover:text-cañada-blue transition">Nosotros</a>
-                <a href="#sedes" class="hover:text-cañada-blue transition">Sedes</a>
-                <a href="#actividades" class="hover:text-cañada-blue transition">Clases</a>
-                <a href="https://wa.me/5492236808522" class="bg-cañada-blue text-white px-6 py-2 rounded-full hover:bg-blue-900 transition">Contacto</a>
-            </div>
+<div id="app">
+  <nav>
+    <div class="nlogo"><div class="nlogo-ic">🐕</div><div class="nlogo-t">Club Juntos<span>Equipo de Salud</span></div></div>
+    <div class="npills">
+      <button class="np on" onclick="setVista('familia',this)">Familias</button>
+      <button class="np" onclick="setVista('prof',this)">Soy profesional</button>
+      <button class="np" onclick="setVista('admin',this)">Admin</button>
+    </div>
+    <div class="nbell" onclick="toast('Tenes 2 solicitudes nuevas 🔔')">🔔<div class="nbell-dot"></div></div>
+  </nav>
+
+  <!-- FAMILIAS -->
+  <div class="vista on" id="v-familia">
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-chip">✨ Perfiles verificados por Club Juntos</div>
+        <h1>Encontrá al profesional<br><em>ideal para tu familia</em> 💙</h1>
+        <p class="hero-sub">AT, kinesiologos, fonoaudiologos, psicologos, terapistas ocupacionales y mas. Especializados en todo tipo de discapacidades. Todos revisados y aprobados por nuestro equipo.</p>
+        <div class="sbox">
+          <textarea id="txtsearch" rows="3" placeholder="Contanos que necesitas... Ej: Busco kinesiologo para mi hijo con paralisis cerebral, zona sur, mananas, IOMA"></textarea>
+          <div class="sbox-ft">
+            <span class="sbox-hint">🔒 El contacto es siempre dentro de la plataforma</span>
+            <button class="btn-ia" onclick="buscarIA()" id="btnIA">✨ Buscar</button>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
 
-    <section class="hero-modern h-[550px] flex items-center text-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl">
-                <span class="bg-cañada-gold text-cañada-blue px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">Inclusión y Deporte</span>
-                <h1 class="text-5xl md:text-7xl font-extrabold mt-6 mb-6 leading-none uppercase tracking-tighter">Club Juntos Mar del Plata</h1>
-                <p class="text-2xl opacity-95 mb-10 font-light max-w-2xl">Club para personas con discapacidad enfocado en el desarrollo de la autonomía y el disfrute recreativo.</p>
-                <div class="flex space-x-4">
-                    <a href="#quienes-somos" class="bg-white text-cañada-blue px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg uppercase text-sm">Conocenos</a>
-                    <a href="https://wa.me/5492236808522" class="bg-cañada-gold text-cañada-blue px-8 py-4 rounded-full font-bold hover:shadow-xl transition uppercase text-sm">Inscribite</a>
-                </div>
-            </div>
+    <div class="filtros-wrap">
+      <div class="filtros-label">Tipo de profesional</div>
+      <div class="filtros-row">
+        <button class="ftipo on" onclick="filtrarTipo(this,'todos')">Todos</button>
+        <button class="ftipo" onclick="filtrarTipo(this,'AT')">AT</button>
+        <button class="ftipo" onclick="filtrarTipo(this,'Kinesiologia')">Kinesiologia</button>
+        <button class="ftipo" onclick="filtrarTipo(this,'Fonoaudiologia')">Fonoaudiologia</button>
+        <button class="ftipo" onclick="filtrarTipo(this,'Psicologia')">Psicologia</button>
+        <button class="ftipo" onclick="filtrarTipo(this,'T. Ocupacional')">T. Ocupacional</button>
+        <button class="ftipo" onclick="filtrarTipo(this,'Psicomotricidad')">Psicomotricidad</button>
+        <button class="ftipo" onclick="filtrarTipo(this,'Musicoterapia')">Musicoterapia</button>
+      </div>
+      <div class="filtros-label" style="margin-top:.5rem">Filtros rapidos</div>
+      <div class="filtros-row">
+        <button class="fchip on" onclick="filtrarExtra(this,'todos')">Todos</button>
+        <button class="fchip" onclick="filtrarExtra(this,'tea')">TEA</button>
+        <button class="fchip" onclick="filtrarExtra(this,'motor')">Motor</button>
+        <button class="fchip" onclick="filtrarExtra(this,'intelectual')">Intelectual</button>
+        <button class="fchip" onclick="filtrarExtra(this,'lenguaje')">Lenguaje</button>
+        <button class="fchip" onclick="filtrarExtra(this,'manana')">Manana disp.</button>
+        <button class="fchip" onclick="filtrarExtra(this,'virtual')">Virtual</button>
+        <button class="fchip" onclick="filtrarExtra(this,'osde')">OSDE</button>
+        <button class="fchip" onclick="filtrarExtra(this,'ioma')">IOMA</button>
+      </div>
+    </div>
+
+    <div class="iares" id="iares">
+      <div class="iares-hd">✨ Resultado de tu busqueda <span id="iast"></span></div>
+      <p id="iatxt"></p>
+    </div>
+
+    <div class="gwrap">
+      <div class="ghd"><h2>Profesionales disponibles 💚</h2><span id="cnt"></span></div>
+      <div class="pgrid" id="pgrid"></div>
+    </div>
+  </div>
+
+  <!-- REGISTRO PROFESIONAL -->
+  <div class="vista" id="v-prof">
+    <div class="reghero">
+      <h1>Suma tu perfil<br>a <em>Club Juntos</em> 🩺</h1>
+      <p>Tu perfil va a ser revisado y aprobado por nuestro equipo antes de publicarse. Tu foto tambien requiere aprobacion nuestra.</p>
+      <div class="pricecard">
+        <div class="pbadge">Suscripcion mensual</div>
+        <div class="pprecio"><span class="pc">$</span><span class="pm">3.500</span><span class="pp">por mes · cancelas cuando quieras</span></div>
+        <ul class="pfeats">
+          <li><span class="ck">✓</span> Perfil con foto verificado por nosotros</li>
+          <li><span class="ck">✓</span> CV completo visible para las familias</li>
+          <li><span class="ck">✓</span> Las familias te encuentran con IA</li>
+          <li><span class="ck">✓</span> Chat seguro supervisado</li>
+          <li><span class="ck">✓</span> Reserva de entrevistas iniciales</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fwrap">
+      <div class="ftitle">Contanos sobre vos 😊</div>
+
+      <!-- FOTO -->
+      <div class="fg">
+        <label class="fl">Tu foto de perfil</label>
+        <div class="foto-upload-area">
+          <div class="foto-preview" onclick="simFoto()" id="foto-prev">
+            <div class="foto-ico">📷</div>
+            <div class="foto-txt">Subir foto</div>
+          </div>
+          <div class="foto-info">
+            <p>Subi una foto clara de tu cara. Sera revisada por Club Juntos antes de aparecer en tu perfil.</p>
+            <span>JPG o PNG · Max 5MB</span><br>
+            <div class="foto-pendiente" id="foto-badge" style="display:none">⏳ Foto pendiente de aprobacion</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section id="quienes-somos" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2">
-                    <h2 class="text-4xl font-extrabold text-cañada-blue uppercase tracking-tighter mb-8 italic">Nuestra Misión</h2>
-                    <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
-                        <p>
-                            Desde 2022, el <span class="font-bold text-cañada-blue uppercase">Club Juntos</span> trabaja para derribar barreras a través del deporte y la recreación adaptada. 
-                        </p>
-                        <p>
-                            Bajo la dirección de <span class="font-bold">Nicolás Adalberto Maidana</span>, nuestro equipo profesional acompaña el desarrollo de capacidades, garantizando un espacio de pertenencia, seguridad y alegría para cada integrante.
-                        </p>
-                    </div>
-                </div>
-                <div class="lg:w-1/2">
-                    <div class="p-8 bg-gray-50 rounded-[3rem] border-2 border-dashed border-gray-200 text-center">
-                        <i class="fas fa-universal-access text-6xl text-cañada-blue mb-4"></i>
-                        <h4 class="text-xl font-bold text-cañada-blue uppercase mb-2">Autonomía Real</h4>
-                        <p class="text-gray-500 italic">"Potenciamos lo que cada uno puede lograr, respetando sus tiempos y fomentando su independencia."</p>
-                    </div>
-                </div>
-            </div>
+      <div class="fg"><label class="fl">Nombre completo *</label><input type="text" class="fi" placeholder="Tu nombre y apellido"></div>
+      <div class="frow2">
+        <div class="fg"><label class="fl">Email *</label><input type="email" class="fi" placeholder="tu@email.com"></div>
+        <div class="fg"><label class="fl">WhatsApp *</label><input type="tel" class="fi" placeholder="223 000-0000"></div>
+      </div>
+      <div class="fdiv"></div>
+
+      <div class="fg"><label class="fl">Que tipo de profesional sos? *</label>
+        <select class="fs"><option value="">Selecciona...</option><option>Acompanante Terapeutico (AT)</option><option>Kinesiologia</option><option>Fonoaudiologia</option><option>Psicologia</option><option>Terapia Ocupacional</option><option>Psicomotricidad</option><option>Musicoterapia</option><option>Otra especialidad</option></select>
+      </div>
+      <div class="fg"><label class="fl">Tu titulo o formacion *</label><input type="text" class="fi" placeholder="Ej: Lic. en Kinesiologia, Tecnico AT..."></div>
+      <div class="fg"><label class="fl">Numero de matricula profesional</label><input type="text" class="fi" placeholder="Ej: Mat. N° 1234"></div>
+      <div class="fg"><label class="fl">Institucion donde te formaste</label><input type="text" class="fi" placeholder="Ej: Universidad Nacional de Mar del Plata"></div>
+      <div class="fg"><label class="fl">Ano de graduacion</label><input type="text" class="fi" placeholder="Ej: 2018"></div>
+      <div class="fg"><label class="fl">Certificaciones y formaciones adicionales</label><textarea class="fta" placeholder="Ej: Certificacion en ABA (2020), Formacion en PECS (2021), Comunicacion Aumentativa..."></textarea></div>
+      <div class="fg"><label class="fl">Anos de experiencia trabajando con personas con discapacidad</label><select class="fs"><option>Selecciona...</option><option>Menos de 1 ano</option><option>1 a 3 anos</option><option>3 a 5 anos</option><option>Mas de 5 anos</option></select></div>
+
+      <div class="fg"><label class="fl">Con que tipos de discapacidad trabajas?</label>
+        <div class="cbg cbg-3">
+          <label class="cbi"><input type="checkbox"> TEA (Autismo)</label>
+          <label class="cbi"><input type="checkbox"> TDAH</label>
+          <label class="cbi"><input type="checkbox"> Sindrome de Down</label>
+          <label class="cbi"><input type="checkbox"> Paralisis cerebral</label>
+          <label class="cbi"><input type="checkbox"> Discapacidad intelectual</label>
+          <label class="cbi"><input type="checkbox"> Trastornos del lenguaje</label>
+          <label class="cbi"><input type="checkbox"> Discapacidad motora</label>
+          <label class="cbi"><input type="checkbox"> Discapacidad visual</label>
+          <label class="cbi"><input type="checkbox"> Discapacidad auditiva</label>
+          <label class="cbi"><input type="checkbox"> Sindrome de Rett</label>
+          <label class="cbi"><input type="checkbox"> Sindrome de Angelman</label>
+          <label class="cbi"><input type="checkbox"> Enfermedades raras</label>
+          <label class="cbi"><input type="checkbox"> Multidiscapacidad</label>
         </div>
-    </section>
+        <div class="fg" style="margin-top:.5rem;margin-bottom:0"><label class="fl" style="font-weight:600;font-size:.73rem;color:var(--gr)">Otras (escribilas aca)</label><input type="text" class="fi" placeholder="Ej: Sindrome de Williams, Trastorno del procesamiento sensorial..."></div>
+      </div>
 
-    <section id="sedes" class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-extrabold text-cañada-blue uppercase tracking-tighter mb-16">Nuestras Sedes</h2>
-            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                <div class="bg-white rounded-[2.5rem] overflow-hidden sede-card transition-all border border-gray-100 shadow-sm">
-                    <div class="h-40 bg-cañada-blue flex items-center justify-center text-white"><i class="fas fa-swimming-pool text-5xl"></i></div>
-                    <div class="p-10">
-                        <h3 class="text-2xl font-bold mb-2 uppercase text-cañada-blue leading-tight">Sede Av. Paso <br><span class="text-sm text-gray-400 font-normal">Natatorio ADS</span></h3>
-                        <div class="flex items-center justify-center text-gray-700 my-6 bg-gray-50 py-3 rounded-2xl"><i class="fas fa-map-marker-alt text-cañada-gold mr-3"></i> <span class="font-semibold">Av. Paso 2430</span></div>
-                        <a href="https://wa.me/5492236808522" target="_blank" class="block bg-cañada-blue text-white py-4 rounded-2xl font-bold hover:bg-blue-900 transition">Ver Horarios</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-[2.5rem] overflow-hidden sede-card transition-all border border-gray-100 shadow-sm">
-                    <div class="h-40 bg-cañada-gold flex items-center justify-center text-cañada-blue"><i class="fas fa-walking text-5xl"></i></div>
-                    <div class="p-10">
-                        <h3 class="text-2xl font-bold mb-2 uppercase text-cañada-blue leading-tight">Sede Cataluña <br><span class="text-sm text-gray-400 font-normal">Club Argentino</span></h3>
-                        <div class="flex items-center justify-center text-gray-700 my-6 bg-gray-50 py-3 rounded-2xl"><i class="fas fa-map-marker-alt text-cañada-blue mr-3"></i> <span class="font-semibold">Cataluña 4465</span></div>
-                        <a href="https://wa.me/5492236808522" target="_blank" class="block bg-cañada-blue text-white py-4 rounded-2xl font-bold hover:bg-blue-900 transition">Ver Horarios</a>
-                    </div>
-                </div>
-            </div>
+      <div class="fg"><label class="fl">Contale a las familias sobre vos y tu forma de trabajar *</label><textarea class="fta" style="min-height:90px" placeholder="Contanos tu enfoque, que te motiva, como acompanas a las familias, experiencias destacadas..."></textarea></div>
+
+      <div class="fg"><label class="fl">Experiencias y logros destacados</label><textarea class="fta" placeholder="Ej: Trabaje durante 3 anos en el CIREN de Mar del Plata. Fui parte del equipo de inclusion escolar del Colegio San Jose..."></textarea></div>
+
+      <div class="fg"><label class="fl">Publicaciones o capacitaciones que diste (opcional)</label><textarea class="fta" placeholder="Ej: Charla sobre comunicacion aumentativa en el Hospital Interzonal (2023)..."></textarea></div>
+
+      <div class="fg"><label class="fl">Y ademas... (cualquier otra cosa que quieras contarle a las familias)</label><textarea class="fta" placeholder="Podes agregar idiomas que hablas, hobbies relacionados a tu trabajo, disponibilidad para viajar, trabajo en red con otros profesionales, etc..."></textarea></div>
+
+      <div class="fdiv"></div>
+
+      <div class="fg">
+        <label class="fl">Subi tu titulo o certificacion (obligatorio)</label>
+        <div class="upzone" onclick="simUpload()" id="upzone"><div style="font-size:1.5rem">📄</div><p style="font-size:.8rem;color:var(--gr);font-weight:700;margin-top:.28rem">Toca para subir tu titulo</p><p style="font-size:.68rem;color:#C5C0B8;margin-top:2px;font-weight:500">PDF o imagen · Lo revisamos antes de publicar tu perfil</p></div>
+        <div class="updone" id="updone" style="display:none">✅ titulo_profesional.pdf subido · Pendiente de revision</div>
+      </div>
+
+      <div class="fdiv"></div>
+
+      <div class="fg">
+        <label class="fl">Con que obras sociales trabajas?</label>
+        <div class="os-grid">
+          <label class="cbi"><input type="checkbox"> OSDE</label>
+          <label class="cbi"><input type="checkbox"> IOMA</label>
+          <label class="cbi"><input type="checkbox"> Swiss Medical</label>
+          <label class="cbi"><input type="checkbox"> PAMI</label>
+          <label class="cbi"><input type="checkbox"> Galeno</label>
+          <label class="cbi"><input type="checkbox"> APOS</label>
+          <label class="cbi"><input type="checkbox"> ANDIS</label>
+          <label class="cbi"><input type="checkbox"> OSPEDYC</label>
+          <label class="cbi"><input type="checkbox"> OSPACA</label>
+          <label class="cbi"><input type="checkbox"> MEDIFE</label>
+          <label class="cbi"><input type="checkbox"> Sancor Salud</label>
+          <label class="cbi"><input type="checkbox"> Omint</label>
+          <label class="cbi"><input type="checkbox"> Federada Salud</label>
+          <label class="cbi"><input type="checkbox"> UPCN</label>
+          <label class="cbi"><input type="checkbox"> OSDOP</label>
+          <label class="cbi"><input type="checkbox"> Daspu</label>
+          <label class="cbi"><input type="checkbox"> Accord Salud</label>
+          <label class="cbi"><input type="checkbox"> IOSFA</label>
+          <label class="cbi"><input type="checkbox"> Particular</label>
         </div>
-    </section>
+        <div class="fg" style="margin-top:.5rem;margin-bottom:0"><label class="fl" style="font-weight:600;font-size:.73rem;color:var(--gr)">Otras obras sociales</label><input type="text" class="fi" placeholder="Ej: OSPAT, OSECAC..."></div>
+      </div>
 
-    <footer class="bg-white py-16 border-t">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="text-2xl font-black text-cañada-blue italic uppercase tracking-tighter mb-4">CLUB JUNTOS MAR DEL PLATA</h3>
-            <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-8">Club para personas con discapacidad</p>
-            <div class="flex justify-center space-x-8 text-2xl text-gray-300 mb-8">
-                <a href="https://instagram.com/clubjuntosmdq" target="_blank" class="hover:text-cañada-blue transition"><i class="fab fa-instagram"></i></a>
-                <a href="https://facebook.com/clubjuntosmdq" target="_blank" class="hover:text-cañada-blue transition"><i class="fab fa-facebook"></i></a>
-                <a href="mailto:clubjuntosmdq@gmail.com" class="hover:text-cañada-blue transition"><i class="fas fa-envelope"></i></a>
+      <div class="fdiv"></div>
+
+      <div class="fg"><label class="fl">En que zona trabajas?</label>
+        <div class="cbg"><label class="cbi"><input type="checkbox"> Centro</label><label class="cbi"><input type="checkbox"> Norte</label><label class="cbi"><input type="checkbox"> Sur</label><label class="cbi"><input type="checkbox"> Oeste</label><label class="cbi"><input type="checkbox"> Toda la ciudad</label><label class="cbi"><input type="checkbox"> Modalidad virtual</label></div>
+      </div>
+
+      <div class="fdiv"></div>
+
+      <div class="fg"><label class="fl">Que dias estas disponible?</label>
+        <div class="hsel"><button class="hbtn" onclick="this.classList.toggle('on')">Lun</button><button class="hbtn" onclick="this.classList.toggle('on')">Mar</button><button class="hbtn" onclick="this.classList.toggle('on')">Mie</button><button class="hbtn" onclick="this.classList.toggle('on')">Jue</button><button class="hbtn" onclick="this.classList.toggle('on')">Vie</button><button class="hbtn" onclick="this.classList.toggle('on')">Sab</button><button class="hbtn" onclick="this.classList.toggle('on')">Dom</button></div>
+        <div class="cbg" style="margin-top:5px"><label class="cbi"><input type="checkbox"> Manana (8-12h)</label><label class="cbi"><input type="checkbox"> Tarde (12-18h)</label><label class="cbi"><input type="checkbox"> Noche (18-21h)</label></div>
+      </div>
+
+      <button class="btn bro bfull" style="margin-top:1.1rem" onclick="toast('Perfil enviado! En 24-48hs revisamos todo y te avisamos. Gracias por sumarte 🎉')">Enviar mi perfil — $3.500/mes via Mercado Pago</button>
+      <p style="text-align:center;font-size:.7rem;color:var(--gr);margin-top:.5rem;font-weight:600">Tu perfil se publica solo despues de ser aprobado por Club Juntos 💙</p>
+    </div>
+  </div>
+
+  <!-- ADMIN -->
+  <div class="vista" id="v-admin">
+    <div class="adwrap">
+      <div class="adtop"><h1>Panel Admin 🔒</h1><span style="font-size:.74rem;color:var(--gr);font-weight:700">Hola, Nico 👋</span></div>
+      <div class="sgrid">
+        <div class="scard"><div class="snum" style="color:var(--tu)">8</div><div class="slbl">Profesionales</div><div class="schg cup">↑ 2 este mes</div></div>
+        <div class="scard"><div class="snum" style="color:#f59e0b">3</div><div class="slbl">Pendientes</div><div class="schg cwarn">Revisar</div></div>
+        <div class="scard"><div class="snum" style="color:var(--az)">24</div><div class="slbl">Familias</div><div class="schg cup">↑ 6 este mes</div></div>
+        <div class="scard"><div class="snum" style="color:var(--am)">5</div><div class="slbl">Entrevistas</div><div class="schg cup">Esta semana</div></div>
+        <div class="scard"><div class="snum" style="color:var(--ok)">$28k</div><div class="slbl">Ingresos</div><div class="schg cup">↑ 40%</div></div>
+        <div class="scard"><div class="snum" style="color:var(--ro)">1</div><div class="slbl">Reporte</div><div class="schg cwarn">Urgente</div></div>
+      </div>
+      <div class="atabs">
+        <button class="atab on" onclick="adminTab('perfiles',this)">Perfiles</button>
+        <button class="atab" onclick="adminTab('fotos',this)">Fotos</button>
+        <button class="atab" onclick="adminTab('chats',this)">Chats</button>
+        <button class="atab" onclick="adminTab('solicitudes',this)">Solicitudes</button>
+        <button class="atab" onclick="adminTab('entrevistas',this)">Entrevistas</button>
+        <button class="atab" onclick="adminTab('horarios',this)">Horarios</button>
+        <button class="atab" onclick="adminTab('reportes',this)">Reportes</button>
+      </div>
+
+      <div class="asec on" id="as-perfiles">
+        <table class="atable">
+          <thead><tr><th>Profesional</th><th>Tipo</th><th>Estado</th><th>Doc.</th><th>Suscripcion</th><th>Acciones</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Valentina Rossi</strong></td><td style="font-size:.72rem;color:var(--gr)">AT</td><td><span class="spill sp-ok">✓ Activo</span></td><td><span class="spill sp-ok">✓ OK</span></td><td style="font-size:.74rem;color:var(--ok)">Al dia</td><td><div class="actb"><button class="btn bout" style="font-size:.66rem;padding:3px 7px" onclick="abrirPerfil(1)">Ver CV</button><button class="btn berr" style="font-size:.66rem;padding:3px 7px" onclick="toast('Suspendido')">Suspender</button></div></td></tr>
+            <tr><td><strong>Lucia Fernandez</strong></td><td style="font-size:.72rem;color:var(--gr)">Kinesiologa</td><td><span class="spill sp-ok">✓ Activo</span></td><td><span class="spill sp-ok">✓ OK</span></td><td style="font-size:.74rem;color:var(--ok)">Al dia</td><td><div class="actb"><button class="btn bout" style="font-size:.66rem;padding:3px 7px" onclick="abrirPerfil(2)">Ver CV</button><button class="btn berr" style="font-size:.66rem;padding:3px 7px" onclick="toast('Suspendido')">Suspender</button></div></td></tr>
+            <tr style="background:#FFFBF0"><td><strong>Ana Benitez</strong></td><td style="font-size:.72rem;color:var(--gr)">Psicologa</td><td><span class="spill sp-pend">⏳ Pendiente</span></td><td><span class="spill sp-pend">📄 Revisar</span></td><td style="font-size:.74rem;color:var(--gr)">—</td><td><div class="actb"><button class="btn bok" style="font-size:.66rem;padding:3px 7px" onclick="aprobar(this)">✓ Aprobar</button><button class="btn berr" style="font-size:.66rem;padding:3px 7px" onclick="toast('Rechazado')">✗ Rechazar</button></div></td></tr>
+            <tr style="background:#FFFBF0"><td><strong>Camila Rojas</strong></td><td style="font-size:.72rem;color:var(--gr)">T. Ocupacional</td><td><span class="spill sp-pend">⏳ Pendiente</span></td><td><span class="spill sp-pend">📄 Revisar</span></td><td style="font-size:.74rem;color:var(--gr)">—</td><td><div class="actb"><button class="btn bok" style="font-size:.66rem;padding:3px 7px" onclick="aprobar(this)">✓ Aprobar</button><button class="btn berr" style="font-size:.66rem;padding:3px 7px" onclick="toast('Rechazado')">✗ Rechazar</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="asec" id="as-fotos">
+        <p style="font-size:.78rem;color:var(--gr);margin-bottom:.85rem;font-weight:600">Fotos de perfil pendientes de aprobacion. Aprobas antes de que aparezcan en la plataforma.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.7rem">
+          <div style="background:white;border:2px solid var(--bo);border-radius:16px;padding:1rem;text-align:center">
+            <div style="width:72px;height:72px;border-radius:18px;background:var(--tus);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto .6rem">👩</div>
+            <div style="font-size:.84rem;font-weight:800;color:var(--az)">Ana Benitez</div>
+            <div style="font-size:.72rem;color:var(--gr);margin-bottom:.7rem;font-weight:600">Psicologa</div>
+            <div style="display:flex;gap:.4rem;justify-content:center">
+              <button class="btn bok" style="font-size:.7rem;padding:5px 10px" onclick="toast('Foto aprobada ✓')">✓ Aprobar</button>
+              <button class="btn berr" style="font-size:.7rem;padding:5px 10px" onclick="toast('Foto rechazada')">✗ Rechazar</button>
             </div>
-            <p class="text-[10px] text-gray-300 uppercase tracking-[0.4em]">© 2026 Club Juntos | Gestión Nicolás Maidana</p>
+          </div>
+          <div style="background:white;border:2px solid var(--bo);border-radius:16px;padding:1rem;text-align:center">
+            <div style="width:72px;height:72px;border-radius:18px;background:var(--ros);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto .6rem">👨</div>
+            <div style="font-size:.84rem;font-weight:800;color:var(--az)">Camila Rojas</div>
+            <div style="font-size:.72rem;color:var(--gr);margin-bottom:.7rem;font-weight:600">T. Ocupacional</div>
+            <div style="display:flex;gap:.4rem;justify-content:center">
+              <button class="btn bok" style="font-size:.7rem;padding:5px 10px" onclick="toast('Foto aprobada ✓')">✓ Aprobar</button>
+              <button class="btn berr" style="font-size:.7rem;padding:5px 10px" onclick="toast('Foto rechazada')">✗ Rechazar</button>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
 
+      <div class="asec" id="as-chats">
+        <p style="font-size:.78rem;color:var(--gr);margin-bottom:.82rem;font-weight:600">Todas las conversaciones en tiempo real.</p>
+        <div class="acrw" onclick="verChatAdmin('Familia Garcia','Valentina Rossi','VR','#2DC8C8')"><div class="acrav" style="background:var(--tus);color:var(--tu)">VR</div><div class="acri"><h4>Familia Garcia — Valentina Rossi</h4><p>Garcia: "Podria ser el lunes a las 9?"</p></div><div class="acrt"><div class="t">hace 10 min</div></div></div>
+        <div class="acrw" onclick="verChatAdmin('Familia Romero','Lucia Fernandez','LF','#E8538F')"><div class="acrav" style="background:var(--ros);color:var(--ro)">LF</div><div class="acri"><h4>Familia Romero — Lucia Fernandez</h4><p>Lucia: "Si, tengo disponibilidad esa semana"</p></div><div class="acrt"><div class="t">hace 1h</div></div></div>
+        <div class="acrw" onclick="verChatAdmin('Familia Lopez','Martina Lopez','ML','#F5C842')"><div class="acrav" style="background:var(--ams);color:#8a6000">ML</div><div class="acri"><h4>Familia Lopez — Martina Lopez</h4><p>Lopez: "Trabajas con integracion escolar?"</p></div><div class="acrt"><div class="t">ayer</div><div class="flag">🚨 Reportada</div></div></div>
+      </div>
+
+      <div class="asec" id="as-solicitudes">
+        <table class="atable">
+          <thead><tr><th>Familia</th><th>Profesional</th><th>Estado</th><th>Fecha</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Familia Garcia</strong></td><td>Valentina Rossi</td><td><span class="spill sp-ok">✓ Match · chat activo</span></td><td style="font-size:.72rem;color:var(--gr)">Hoy 10:30</td></tr>
+            <tr><td><strong>Familia Romero</strong></td><td>Lucia Fernandez</td><td><span class="spill sp-ok">✓ Match · chat activo</span></td><td style="font-size:.72rem;color:var(--gr)">Ayer 15:20</td></tr>
+            <tr><td><strong>Familia Perez</strong></td><td>Sofia Medina</td><td><span class="spill sp-pend">⏳ Esperando respuesta</span></td><td style="font-size:.72rem;color:var(--gr)">Hoy 09:15</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="asec" id="as-entrevistas">
+        <p style="font-size:.78rem;color:var(--gr);margin-bottom:.82rem;font-weight:600">Solo disponibles despues del match.</p>
+        <div class="resrow"><div class="resdot" style="background:var(--ok)"></div><div class="resi"><h4>Familia Garcia — Valentina Rossi</h4><p>Lunes 12 mayo · 10:00 hs <span class="rtipo v">💻 Virtual</span></p></div><div><button class="btn bout" style="font-size:.66rem;padding:3px 7px" onclick="toast('Cancelada')">Cancelar</button></div></div>
+        <div class="resrow"><div class="resdot" style="background:var(--ok)"></div><div class="resi"><h4>Familia Romero — Lucia Fernandez</h4><p>Martes 13 mayo · 15:00 hs <span class="rtipo p">🏠 Presencial</span></p></div><div><button class="btn bout" style="font-size:.66rem;padding:3px 7px" onclick="toast('Cancelada')">Cancelar</button></div></div>
+        <div style="margin-top:.55rem;padding:.68rem .88rem;background:var(--cr);border-radius:12px;font-size:.76rem;color:var(--gr);font-weight:700">5 entrevistas esta semana · 0 cancelaciones ✓</div>
+      </div>
+
+      <div class="asec" id="as-horarios">
+        <p style="font-size:.78rem;color:var(--gr);margin-bottom:.88rem;font-weight:600">Configura los horarios disponibles para las entrevistas.</p>
+        <div class="hadmin-grid">
+          <div class="hday-card"><h4>Lunes</h4><div class="hslot-admin"><span>09:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>10:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>11:00</span><label class="toggle"><input type="checkbox"><span class="tslider"></span></label></div><div class="hslot-admin"><span>15:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>16:00</span><label class="toggle"><input type="checkbox"><span class="tslider"></span></label></div></div>
+          <div class="hday-card"><h4>Martes</h4><div class="hslot-admin"><span>09:00</span><label class="toggle"><input type="checkbox"><span class="tslider"></span></label></div><div class="hslot-admin"><span>10:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>11:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>15:00</span><label class="toggle"><input type="checkbox"><span class="tslider"></span></label></div><div class="hslot-admin"><span>16:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div></div>
+          <div class="hday-card"><h4>Miercoles</h4><div class="hslot-admin"><span>09:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>10:00</span><label class="toggle"><input type="checkbox"><span class="tslider"></span></label></div><div class="hslot-admin"><span>11:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>15:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>16:00</span><label class="toggle"><input type="checkbox"><span class="tslider"></span></label></div></div>
+          <div class="hday-card"><h4>Jueves</h4><div class="hslot-admin"><span>09:00</span><label class="toggle"><input type="checkbox"><span class="tslider"></span></label></div><div class="hslot-admin"><span>10:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>11:00</span><label class="toggle"><input type="checkbox"><span class="tslider"></span></label></div><div class="hslot-admin"><span>15:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>16:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div></div>
+          <div class="hday-card"><h4>Viernes</h4><div class="hslot-admin"><span>09:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>10:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div><div class="hslot-admin"><span>11:00</span><label class="toggle"><input type="checkbox"><span class="tslider"></span></label></div><div class="hslot-admin"><span>15:00</span><label class="toggle"><input type="checkbox"><span class="tslider"></span></label></div><div class="hslot-admin"><span>16:00</span><label class="toggle"><input type="checkbox" checked><span class="tslider"></span></label></div></div>
+        </div>
+        <button class="btn btu" style="margin-top:.88rem;padding:10px 20px;font-size:.8rem" onclick="toast('Horarios guardados ✓')">Guardar cambios</button>
+      </div>
+
+      <div class="asec" id="as-reportes">
+        <div style="background:white;border:2px solid #FECACA;border-radius:18px;padding:1.1rem">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;flex-wrap:wrap">
+            <div><div style="font-size:.66rem;font-weight:800;color:var(--ro);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.28rem">🚨 Reporte activo</div><div style="font-weight:800;color:var(--az);margin-bottom:.28rem">Familia Lopez reporto a Martina Lopez</div><div style="font-size:.78rem;color:#555;line-height:1.6;font-weight:500">El profesional intento continuar la conversacion por fuera de la plataforma, pidiendo el telefono personal de la familia.</div><div style="font-size:.68rem;color:var(--gr);margin-top:.28rem;font-weight:700">Hace 2 horas</div></div>
+            <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0">
+              <button class="btn baz" style="font-size:.72rem" onclick="verChatAdmin('Familia Lopez','Martina Lopez','ML','#F5C842')">Ver chat</button>
+              <button class="btn berr" style="font-size:.72rem" onclick="toast('Perfil suspendido')">Suspender</button>
+              <button class="btn bout" style="font-size:.72rem" onclick="toast('Archivado')">Archivar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PERFIL + CV -->
+<div class="ov" id="ov-perfil" onclick="cerrar('ov-perfil',event)">
+  <div class="modal">
+    <div class="mhd">
+      <div class="mav-lg-ph" id="mav" style="background:var(--tus);color:var(--tu)"></div>
+      <div class="mname"><h2 id="mnm"></h2><p id="mtt"></p><div class="mtipo-badge" id="mtipo"></div></div>
+      <button class="mclose" onclick="cerrar('ov-perfil')">✕</button>
+    </div>
+    <div class="mbody">
+      <div class="mtabs">
+        <button class="mtab on" onclick="cambiarTab('perfil',this)">Perfil</button>
+        <button class="mtab" onclick="cambiarTab('cv',this)">Curriculum</button>
+        <button class="mtab" onclick="cambiarTab('os',this)">Obras sociales</button>
+      </div>
+
+      <!-- TAB PERFIL -->
+      <div class="mpanel on" id="tab-perfil">
+        <div class="iabox"><div class="ialbl">✨ Lo que pensamos de esta combinacion</div><p id="mia">—</p></div>
+        <div class="msec"><div class="msect">Especialidades y experiencia</div><div class="mtags" id="mexp"></div></div>
+        <div class="msec"><div class="msect">Zona de trabajo</div><div class="mtags" id="mzona"></div></div>
+        <div class="msec"><div class="msect">Disponibilidad semanal</div><div class="hgrid" id="mhor"></div></div>
+        <div id="sol-area"></div>
+        <div id="btn-area" style="margin-top:.42rem"></div>
+      </div>
+
+      <!-- TAB CV -->
+      <div class="mpanel" id="tab-cv">
+        <div class="cv-section">
+          <h4>📋 Formacion</h4>
+          <div class="cv-item" id="cv-formacion"></div>
+        </div>
+        <div class="cv-section">
+          <h4>📝 Sobre mi</h4>
+          <div class="cv-bio" id="cv-bio"></div>
+        </div>
+        <div class="cv-section">
+          <h4>🌟 Experiencia destacada</h4>
+          <div class="cv-bio" id="cv-exp"></div>
+        </div>
+        <div class="cv-section">
+          <h4>✅ Certificaciones</h4>
+          <div class="mtags" id="cv-certs"></div>
+        </div>
+        <div class="cv-section">
+          <h4>♿ Discapacidades con las que trabaja</h4>
+          <div class="mtags" id="cv-discs"></div>
+        </div>
+      </div>
+
+      <!-- TAB OBRAS SOCIALES -->
+      <div class="mpanel" id="tab-os">
+        <p style="font-size:.82rem;color:var(--gr);margin-bottom:.9rem;font-weight:500;line-height:1.6">Obras sociales con las que trabaja este profesional. Si la tuya no esta en la lista, consulta directamente por el chat.</p>
+        <div class="cv-os-grid" id="cv-os"></div>
+        <div style="margin-top:1rem;padding:.82rem;background:var(--tus);border-radius:14px;font-size:.8rem;font-weight:600;color:#0e7490;line-height:1.6">
+          💙 Si tu obra social no aparece en la lista, no te preocupes. Muchos profesionales trabajan con acuerdos particulares. Consulta directamente por el chat despues del match.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<div class="ov" id="ov-reserva" onclick="cerrar('ov-reserva',event)">
+  <div class="bkmodal">
+    <div class="bkhd"><div><h2>Reservar entrevista 📅</h2><p id="bk-sub">con —</p></div><button class="mclose" onclick="cerrar('ov-reserva')">✕</button></div>
+    <div class="bkbody">
+      <div class="stepind"><div class="sdot act" id="sd1">1</div><div class="sline" id="sl1"></div><div class="sdot pend" id="sd2">2</div><div class="sline" id="sl2"></div><div class="sdot pend" id="sd3">3</div><div class="sline" id="sl3"></div><div class="sdot pend" id="sd4">✓</div></div>
+      <div class="bkstep on" id="bs1">
+        <div style="font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--tu);margin-bottom:.7rem">Como preferes la entrevista?</div>
+        <div class="tgrid"><div class="tcard" id="tc-v" onclick="selTipo('virtual')"><div class="ico">💻</div><h4>Virtual</h4><p>Videollamada desde donde estes</p></div><div class="tcard" id="tc-p" onclick="selTipo('presencial')"><div class="ico">🏠</div><h4>Presencial</h4><p>En la sede de Club Juntos, Mar del Plata</p></div></div>
+        <div class="sinfo" id="sinfo">📍 <strong>Club Juntos Mar del Plata</strong><br>La direccion exacta se envia al confirmar.</div>
+        <button class="btn baz bfull" id="btnp2" onclick="irPaso(2)" disabled>Elegir fecha →</button>
+      </div>
+      <div class="bkstep" id="bs2">
+        <div style="font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--tu);margin-bottom:.7rem">Elegi una fecha</div>
+        <div class="calnav"><button onclick="cambiarMes(-1)">&#8249;</button><h3 id="cal-tit"></h3><button onclick="cambiarMes(1)">&#8250;</button></div>
+        <div class="calgrid" id="calgrid"></div>
+        <div class="bknav"><button class="btn bout" style="flex:1" onclick="irPaso(1)">← Volver</button><button class="btn baz" style="flex:2" id="btnp3" onclick="irPaso(3)" disabled>Ver horarios →</button></div>
+      </div>
+      <div class="bkstep" id="bs3">
+        <div style="font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--tu);margin-bottom:.3rem">Horarios disponibles</div>
+        <p id="fechalbl" style="font-size:.78rem;color:var(--gr);margin-bottom:.68rem;font-weight:600"></p>
+        <div class="hslots" id="hslots"></div>
+        <div class="bknav"><button class="btn bout" style="flex:1" onclick="irPaso(2)">← Volver</button><button class="btn baz" style="flex:2" id="btnp4" onclick="irPaso(4)" disabled>Confirmar →</button></div>
+      </div>
+      <div class="bkstep" id="bs4">
+        <div style="font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--tu);margin-bottom:.7rem">Confirma los datos</div>
+        <div class="cfcard"><div class="cfrow"><span class="cfl">Profesional</span><span class="cfv" id="cf-at"></span></div><div class="cfrow"><span class="cfl">Modalidad</span><span class="cfv" id="cf-tipo"></span></div><div class="cfrow"><span class="cfl">Fecha</span><span class="cfv" id="cf-fecha"></span></div><div class="cfrow"><span class="cfl">Hora</span><span class="cfv" id="cf-hora"></span></div><div class="cfrow" id="cf-sede" style="display:none"><span class="cfl">Lugar</span><span class="cfv">Club Juntos MdP</span></div></div>
+        <div class="fg"><label class="fl">Tu nombre</label><input type="text" class="fi" id="res-nm" placeholder="Nombre de la familia"></div>
+        <div class="fg" style="margin-top:.45rem"><label class="fl">Email</label><input type="email" class="fi" id="res-em" placeholder="tu@email.com"></div>
+        <div class="fg" style="margin-top:.45rem"><label class="fl">Algo que quieras contarnos (opcional)</label><textarea class="fta" id="res-nota" style="min-height:48px" placeholder="Contale sobre tu hijo/a..."></textarea></div>
+        <div class="bknav" style="margin-top:.68rem"><button class="btn bout" style="flex:1" onclick="irPaso(3)">← Volver</button><button class="btn bro" style="flex:2;border-radius:14px;padding:13px;font-size:.86rem" onclick="confirmarReserva()">Confirmar — es gratis 🎉</button></div>
+      </div>
+      <div class="bkstep" id="bs5">
+        <div class="confirm-screen">
+          <div class="confirm-ico">🎉</div>
+          <h3>Entrevista reservada!</h3>
+          <p>Le avisamos al profesional. En breve recibis la confirmacion por email. Ya estas un paso mas cerca 💙</p>
+          <div class="confirm-detail"><div class="cfrow"><span class="cfl">Profesional</span><span class="cfv" id="conf-at"></span></div><div class="cfrow"><span class="cfl">Fecha</span><span class="cfv" id="conf-fecha"></span></div><div class="cfrow"><span class="cfl">Hora</span><span class="cfv" id="conf-hora"></span></div><div class="cfrow"><span class="cfl">Modalidad</span><span class="cfv" id="conf-tipo"></span></div></div>
+          <button class="btn btu bfull" onclick="cerrar('ov-reserva')">Perfecto, muchas gracias! 💙</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHAT -->
+<div class="chov" id="ov-chat">
+  <div class="chmodal">
+    <div class="chhd"><div class="chav" id="chat-av"></div><div class="chinfo"><h3 id="chat-nm"></h3><p>Verificado · Chat supervisado por Club Juntos</p></div><button class="chclose" onclick="cerrar('ov-chat')">✕</button></div>
+    <div class="chwarn">🔒 No compartas datos de contacto<button class="chrep" onclick="reportar()">Reportar</button></div>
+    <div class="chmsgs" id="chmsgs"></div>
+    <div class="chft"><textarea class="chin" id="chin" rows="1" placeholder="Escribe tu mensaje..." onkeydown="enterMsg(event)"></textarea><button class="chsend" onclick="enviarMsg()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div>
+  </div>
+</div>
+
+<!-- CHAT ADMIN -->
+<div class="adchov" id="ov-adchat">
+  <div class="chmodal">
+    <div class="chhd" style="background:#0f1a45"><div class="chav" id="adchat-av"></div><div class="chinfo"><h3 id="adchat-nm"></h3><p>Vista Admin — Solo lectura</p></div><button class="chclose" onclick="cerrar('ov-adchat')">✕</button></div>
+    <div class="chwarn" style="background:#FEE2E2;border-color:#FECACA;color:#991b1b">Ves esta conversacion como administrador 👁</div>
+    <div class="chmsgs" id="admsgs"></div>
+    <div style="padding:.68rem .88rem;background:white;border-top:1.5px solid var(--bo);display:flex;gap:.4rem;justify-content:flex-end"><button class="btn berr" onclick="toast('Chat suspendido');cerrar('ov-adchat')">Suspender</button><button class="btn bout" onclick="cerrar('ov-adchat')">Cerrar</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast-el"></div>
+
+<script>
+var PROFS=[
+  {id:1,nm:'Valentina Rossi',tt:'Lic. en Psicopedagogia · AT',tipo:'AT',ini:'VR',col:'#2DC8C8',bg:'var(--tus)',
+   exp:['TEA','TDAH','Sindrome de Down','5+ anos'],
+   discs:['TEA','TDAH','Sindrome de Down','Discapacidad intelectual'],
+   os:['OSDE','IOMA','Swiss Medical','Particular','OSPEDYC'],
+   zona:['Centro','Norte'],dias:['Lun','Mar','Mie','Jue','Vie'],turno:'Manana y tarde',disp:true,
+   tags:['tea','intelectual','manana','osde','ioma'],
+   formacion:'Lic. en Psicopedagogia · UNMDP (2016) · Mat. N° 4521',
+   bio:'Trabajo acompanando a ninos, jovenes y adultos en su desarrollo con mucho amor y profesionalismo. Creo en el potencial de cada persona y en la importancia de trabajar en equipo con la familia.',
+   exp_detalle:'Mas de 5 anos trabajando en escuelas de integracion, centros terapeuticos y domicilio. Acompanante terapeutico y psicopedagoga en el Centro de Dia Esperanza (2018-2022).',
+   certs:['Certificacion ABA (2020)','PECS Nivel 1 y 2','Comunicacion Aumentativa','Primeros Auxilios']},
+  {id:2,nm:'Lucia Fernandez',tt:'Lic. en Kinesiologia',tipo:'Kinesiologia',ini:'LF',col:'#E8538F',bg:'var(--ros)',
+   exp:['TEA','Paralisis cerebral','Discapacidad motora','3-5 anos'],
+   discs:['TEA','Paralisis cerebral','Discapacidad motora','Sindrome de Down'],
+   os:['IOMA','PAMI','Galeno','ANDIS','OSPACA','Federada Salud'],
+   zona:['Sur','Oeste'],dias:['Lun','Mie','Vie','Sab'],turno:'Tarde',disp:true,
+   tags:['tea','motor','ioma'],
+   formacion:'Lic. en Kinesiologia · UNMDP (2014) · Mat. N° 2218',
+   bio:'Me especializo en kinesioterapia para personas con discapacidad motora y neurologica. Trabajo con un enfoque integral, acompanando a la familia en cada etapa del proceso.',
+   exp_detalle:'Trabaje en el Hospital Interzonal General de Agudos de Mar del Plata durante 4 anos en el area de neurologia. Actualmente atencion domiciliaria y en consultorio.',
+   certs:['Posgrado en Neurorehabilitacion','Certificacion en Bobath Basico','Hidroterapia aplicada']},
+  {id:3,nm:'Martina Lopez',tt:'Lic. en Fonoaudiologia',tipo:'Fonoaudiologia',ini:'ML',col:'#F5C842',bg:'var(--ams)',
+   exp:['TEA','Trastornos del lenguaje','Discapacidad auditiva','1-3 anos'],
+   discs:['TEA','Trastornos del lenguaje','Discapacidad auditiva','Sindrome de Down'],
+   os:['OSDE','APOS','Particular','MEDIFE','Sancor Salud'],
+   zona:['Centro','Toda la ciudad'],dias:['Mar','Jue','Vie'],turno:'Manana',disp:true,
+   tags:['tea','lenguaje','manana','osde'],
+   formacion:'Lic. en Fonoaudiologia · UNMDP (2019) · Mat. N° 5832',
+   bio:'Acompano a ninos y adultos en el desarrollo del lenguaje y la comunicacion. Trabajo con sistemas de comunicacion aumentativa y alternativa (CAA) para quienes no tienen oralidad.',
+   exp_detalle:'Experiencia en integracion escolar y trabajo en equipo interdisciplinario. Colaboro con el CIREN de Mar del Plata desde 2021.',
+   certs:['CAA - Comunicacion Aumentativa y Alternativa','PECS Nivel 1','Atencion temprana del lenguaje']},
+  {id:4,nm:'Sofia Medina',tt:'Lic. en Psicologia',tipo:'Psicologia',ini:'SM',col:'#1B2A6B',bg:'var(--azs)',
+   exp:['TEA','TDAH','Discapacidad intelectual','Enfermedades raras','5+ anos'],
+   discs:['TEA','TDAH','Discapacidad intelectual','Enfermedades raras','Sindrome de Rett'],
+   os:['OSDE','Swiss Medical','IOMA','Galeno','OSPEDYC','UPCN'],
+   zona:['Norte','Centro'],dias:['Lun','Mar','Mie','Jue','Vie','Sab'],turno:'Manana y tarde',disp:true,
+   tags:['tea','intelectual','manana','osde','ioma'],
+   formacion:'Lic. en Psicologia · UNMdP (2013) · Mat. N° 1124 · Especialista en Neuropsicologia Infantil',
+   bio:'Psicologa clinica con mas de 10 anos de experiencia en infancia y adolescencia. Me apasiona acompanar a las familias con calidez y rigor clinico.',
+   exp_detalle:'Docente universitaria en UNMDP. Directora del Proyecto de Extension Universitaria "Psicologia y Discapacidad" (2019-2023). Supervisa equipos interdisciplinarios.',
+   certs:['Especializacion en Neuropsicologia (FLACSO)','Formacion en ESDM','Terapia cognitivo conductual adaptada']},
+  {id:5,nm:'Carolina Vega',tt:'Lic. en Terapia Ocupacional',tipo:'T. Ocupacional',ini:'CV',col:'#2DC8C8',bg:'var(--tus)',
+   exp:['TEA','Discapacidad motora','Integracion sensorial','1-3 anos'],
+   discs:['TEA','Discapacidad motora','Paralisis cerebral','Multidiscapacidad'],
+   os:['IOMA','PAMI','Particular','Accord Salud','IOSFA'],
+   zona:['Sur','Virtual'],dias:['Lun','Mar','Jue'],turno:'Manana',disp:true,
+   tags:['tea','motor','manana','ioma','virtual'],
+   formacion:'Lic. en Terapia Ocupacional · UNMDP (2020) · Mat. N° 6210',
+   bio:'Acompano a personas en el desarrollo de su autonomia e independencia en la vida cotidiana. Trabajo con enfoque sensorial y funcional.',
+   exp_detalle:'Pasantia en el Hospital Nacional de Pediatria Garrahan (Buenos Aires). Actualmente atencion domiciliaria y modalidad virtual.',
+   certs:['Integracion sensorial basica','Adaptaciones y tecnologia de asistencia','Habilitacion para actividades de la vida diaria']},
+  {id:6,nm:'Daniela Torres',tt:'Lic. en Psicomotricidad',tipo:'Psicomotricidad',ini:'DT',col:'#E8538F',bg:'var(--ros)',
+   exp:['TEA','Paralisis cerebral','Discapacidad intelectual','3-5 anos'],
+   discs:['TEA','Paralisis cerebral','Discapacidad intelectual','Discapacidad motora'],
+   os:['OSDE','Swiss Medical','ANDIS','Omint','Daspu'],
+   zona:['Oeste','Centro'],dias:['Mie','Jue','Vie','Sab'],turno:'Tarde',disp:true,
+   tags:['tea','motor','intelectual','osde'],
+   formacion:'Lic. en Psicomotricidad · UNMdP (2017) · Mat. N° 3445',
+   bio:'La psicomotricidad es mi herramienta para acompanar el desarrollo integral del cuerpo, el movimiento y la emocion. Trabajo con personas de todas las edades.',
+   exp_detalle:'Coordinadora del taller de psicomotricidad en el Centro de Dia Sol de Mayo (2019-2022). Experiencia en estimulacion temprana y atencion domiciliaria.',
+   certs:['Formacion en Bernard Aucouturier','Estimulacion temprana certificada','Taller de psicomotricidad acuatica']},
+  {id:7,nm:'Renee Silvenses',tt:'Kinesiologia · Hidroterapia',tipo:'Kinesiologia',ini:'RS',col:'#2DC8C8',bg:'var(--tus)',
+   exp:['TEA','Sindrome de Down','Hidroterapia','Discapacidad motora','5+ anos'],
+   discs:['TEA','Sindrome de Down','Paralisis cerebral','Discapacidad motora'],
+   os:['OSDE','IOMA','Swiss Medical','OSPEDYC','OSPACA'],
+   zona:['Centro'],dias:['Lun','Mar','Mie','Jue','Vie'],turno:'Manana',disp:true,
+   tags:['tea','motor','manana','osde','ioma'],
+   formacion:'Lic. en Kinesiologia · UNMDP (2011) · Mat. N° 987 · Especialista en Hidroterapia',
+   bio:'Kinesiologa con especializacion en hidroterapia para personas con discapacidad. El agua es un medio terapeutico increible para el desarrollo motor y el bienestar.',
+   exp_detalle:'Miembro del equipo de Club Juntos desde 2020. Referente de hidroterapia en Mar del Plata con mas de 14 anos de experiencia.',
+   certs:['Especializacion en Hidroterapia (2015)','Watsu basico','Respiracion acuatica']},
+  {id:8,nm:'Ana Benitez',tt:'Profesora de Musicoterapia',tipo:'Musicoterapia',ini:'AB',col:'#E8538F',bg:'var(--ros)',
+   exp:['TEA','TDAH','Sindrome de Down','Discapacidad intelectual','3-5 anos'],
+   discs:['TEA','TDAH','Sindrome de Down','Discapacidad intelectual','Enfermedades raras'],
+   os:['Particular','ANDIS','IOSFA','Accord Salud'],
+   zona:['Centro','Sur'],dias:['Mar','Jue','Sab'],turno:'Tarde',disp:true,
+   tags:['tea','intelectual','virtual'],
+   formacion:'Prof. de Musicoterapia · Conservatorio Gilardo Gilardi (2018) · Mat. N° 7823',
+   bio:'La musica como terapia es una herramienta poderosa para la comunicacion, la expresion emocional y el desarrollo cognitivo. Trabajo con personas de todas las edades y condiciones.',
+   exp_detalle:'Tallerista en el Centro Cultural de Mar del Plata. Experiencia en residencias y centros de dia. Presenta trabajos en congresos de musicoterapia.',
+   certs:['Formacion en Nordoff-Robbins','Musicoterapia y TEA (Buenos Aires)','Musica y emociones']}
+];
+
+var MSGS=[
+  {yo:false,txt:'Hola! Gracias por contactarme a traves de Club Juntos 😊 En que puedo ayudarte?',t:'10:00'},
+  {yo:true,txt:'Hola! Estoy buscando un profesional para mi hijo. Me podrias contar un poco mas sobre tu experiencia?',t:'10:02'},
+  {yo:false,txt:'Si, con gusto! Trabajo hace varios anos con personas con distintas discapacidades. Me contas un poco sobre tu hijo para ver si puedo acompanarlos bien? 💙',t:'10:05'},
+  {yo:true,txt:'Muchas gracias por tu disposicion! Podria ser el lunes a las 9?',t:'10:08'}
+];
+
+var filtrados=PROFS.slice(),tipoF='todos',extraF='todos',profActual=null,solicitudes={},chatMsgs=[],calY=new Date().getFullYear(),calM=new Date().getMonth(),bkTipo=null,bkFecha=null,bkHora=null,busqTxt='';
+var OCUP=['10:00','14:30'],FRANJAS=['09:00','09:30','10:00','10:30','11:00','11:30','14:00','14:30','15:00','15:30','16:00','16:30'];
+var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+var MESES_MIN=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+var DIAS_S=['Dom','Lun','Mar','Mie','Jue','Vie','Sab'];
+var DIAS_N=['domingo','lunes','martes','miercoles','jueves','viernes','sabado'];
+
+function entrar(tipo){
+  var sw=document.getElementById('welcome');sw.classList.add('out');
+  setTimeout(function(){sw.style.display='none';document.getElementById('app').classList.add('on');if(tipo==='prof')setVista('prof',document.querySelectorAll('.np')[1]);},600);
+}
+
+function render(lista){
+  document.getElementById('cnt').textContent=lista.length+' profesionales encontrados';
+  document.getElementById('pgrid').innerHTML=lista.map(function(p,i){
+    return '<div class="pcard" onclick="abrirPerfil('+p.id+')" style="animation:fu .26s ease '+(i*.05)+'s both">'+
+      '<div class="pcard-verif">✅ Verificado</div>'+
+      '<div class="pcard-hd">'+
+        '<div class="pav-placeholder" style="background:'+p.bg+';color:'+p.col+'">'+p.ini+'</div>'+
+        '<div class="pci"><h3>'+p.nm+'</h3><p class="psub">'+p.tt+'</p>'+
+        '<div class="ptags"><span class="ptag ptag-tipo">'+p.tipo+'</span>'+
+        '<span class="ptag ptag-zona">📍 '+p.zona[0]+'</span></div></div></div>'+
+      '<div class="pcard-body"><div class="pdiv"></div>'+
+        '<div class="prow">📚 '+p.exp[p.exp.length-1]+' de experiencia</div>'+
+        '<div class="prow">🕐 '+p.turno+'</div>'+
+        '<div class="prow">♿ '+p.discs.slice(0,2).join(' · ')+(p.discs.length>2?' +'+( p.discs.length-2)+' mas':'')+' </div></div>'+
+      '<div class="pcard-ft">'+
+        '<div class="pdisp"><div class="pdot" style="background:'+(p.disp?'#34d399':'#CCC')+'"></div>'+(p.disp?'Disponible 💚':'Sin vacantes')+'</div>'+
+        '<button class="btn baz" style="font-size:.72rem">Ver perfil →</button></div></div>';
+  }).join('');
+}
+
+function aplicarFiltros(){filtrados=PROFS.filter(function(p){return(tipoF==='todos'||p.tipo===tipoF)&&(extraF==='todos'||p.tags.indexOf(extraF)>=0)});render(filtrados)}
+function filtrarTipo(btn,tipo){document.querySelectorAll('.ftipo').forEach(function(b){b.classList.remove('on')});btn.classList.add('on');tipoF=tipo;aplicarFiltros()}
+function filtrarExtra(btn,extra){document.querySelectorAll('.fchip').forEach(function(b){b.classList.remove('on')});btn.classList.add('on');extraF=extra;aplicarFiltros()}
+
+async function buscarIA(){
+  var txt=document.getElementById('txtsearch').value.trim();
+  if(!txt){toast('Contanos que necesitas primero 😊');return}
+  busqTxt=txt;
+  var btn=document.getElementById('btnIA');btn.disabled=true;btn.innerHTML='<span class="sp"></span> Buscando...';
+  var box=document.getElementById('iares');box.classList.add('on');
+  document.getElementById('iatxt').innerHTML='<span class="sp spd"></span> Analizando...';
+  try{
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,system:'Sos parte del equipo de Club Juntos Equipo de Salud, una plataforma calida de Mar del Plata que conecta familias con profesionales de salud para personas con todo tipo de discapacidades (no solo autismo). Hablas como alguien del equipo: cercano, humano, esperanzador. Responde en espanol argentino. Maximo 80 palabras. Parrafo corrido.',messages:[{role:'user',content:txt}]})});
+    var d=await r.json();
+    document.getElementById('iatxt').textContent=d.content[0].text;
+    document.getElementById('iast').textContent='· Listo';
+  }catch(e){document.getElementById('iatxt').textContent='Entendemos lo que buscas. Te recomendamos ver los perfiles disponibles y usar los filtros para encontrar al profesional ideal 💙';}
+  btn.disabled=false;btn.innerHTML='✨ Buscar';
+}
+
+function abrirPerfil(id){
+  profActual=PROFS.find(function(p){return p.id===id});
+  if(!profActual)return;
+  var p=profActual;
+  var mav=document.getElementById('mav');
+  mav.textContent=p.ini;mav.style.background=p.bg;mav.style.color=p.col;
+  document.getElementById('mnm').textContent=p.nm;
+  document.getElementById('mtt').textContent=p.tt;
+  document.getElementById('mtipo').textContent=p.tipo;
+  document.getElementById('mexp').innerHTML=p.exp.map(function(e){return '<span class="mtag mro">'+e+'</span>'}).join('');
+  document.getElementById('mzona').innerHTML=p.zona.map(function(z){return '<span class="mtag mam">📍 '+z+'</span>'}).join('');
+  var dias=['Lun','Mar','Mie','Jue','Vie','Sab','Dom'];
+  document.getElementById('mhor').innerHTML=dias.map(function(d){return '<div class="hdia '+(p.dias.indexOf(d)>=0?'on':'off')+'">'+d+'</div>'}).join('');
+  document.getElementById('mia').innerHTML='<span class="sp spd"></span> Analizando compatibilidad...';
+  document.getElementById('cv-formacion').innerHTML='<strong>'+p.formacion+'</strong>';
+  document.getElementById('cv-bio').textContent=p.bio;
+  document.getElementById('cv-exp').textContent=p.exp_detalle;
+  document.getElementById('cv-certs').innerHTML=p.certs.map(function(c){return '<span class="mtag mtu">'+c+'</span>'}).join('');
+  document.getElementById('cv-discs').innerHTML=p.discs.map(function(d){return '<span class="mtag mro">'+d+'</span>'}).join('');
+  document.getElementById('cv-os').innerHTML=p.os.map(function(o){return '<div class="cv-os-tag">'+o+'</div>'}).join('');
+  cambiarTab('perfil',document.querySelector('.mtab'));
+  actualizarBotones(p);
+  document.getElementById('ov-perfil').classList.add('on');
+  generarIA(p);
+}
+
+function cambiarTab(tab,btn){
+  document.querySelectorAll('.mtab').forEach(function(t){t.classList.remove('on')});
+  document.querySelectorAll('.mpanel').forEach(function(p){p.classList.remove('on')});
+  if(btn)btn.classList.add('on');
+  document.getElementById('tab-'+tab).classList.add('on');
+}
+
+function actualizarBotones(p){
+  var sol=solicitudes[p.id];
+  var sa=document.getElementById('sol-area');var ba=document.getElementById('btn-area');
+  if(sol==='pending'){
+    sa.innerHTML='<div class="sol-st" style="background:#FFF8ED;color:#92400e;border:2px solid #FFE9B8">⏳ Solicitud enviada · Esperando que '+p.nm+' acepte</div>';
+    ba.innerHTML='<p style="font-size:.74rem;color:var(--gr);text-align:center;padding:.38rem 0;font-weight:600">Chat y entrevista se habilitan cuando haya match 💙</p>';
+  } else if(sol==='accepted'){
+    sa.innerHTML='<div class="sol-st" style="background:rgba(52,211,153,.1);color:#065f46;border:2px solid rgba(52,211,153,.22)">✅ Match confirmado! Ya podes chatear y reservar una entrevista 🎉</div>';
+    ba.innerHTML='<div style="display:flex;gap:.45rem"><button class="btn bro bfull" id="bchat">💬 Abrir chat</button><button class="btn baz" id="bres" style="flex-shrink:0;padding:13px 15px;border-radius:13px;font-size:.78rem">📅 Entrevista</button></div>';
+    setTimeout(function(){
+      var bc=document.getElementById('bchat');var br=document.getElementById('bres');
+      if(bc)bc.onclick=function(){cerrar('ov-perfil');abrirChat(profActual)};
+      if(br)br.onclick=function(){abrirReserva()};
+    },0);
+  } else {
+    sa.innerHTML='';
+    ba.innerHTML='<button class="btn bro bfull" id="bsol">Quiero contactar a este profesional 💙</button>';
+    setTimeout(function(){var bs=document.getElementById('bsol');if(bs)bs.onclick=solicitarContacto;},0);
+  }
+}
+
+async function generarIA(p){
+  try{
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:180,system:'Sos parte del equipo de Club Juntos Equipo de Salud. Escribis comentarios calidos sobre por que un profesional puede ser bueno para una familia. El club trabaja con todo tipo de discapacidades, no solo autismo. Espanol argentino, cercano. Max 60 palabras. Parrafo corrido.',messages:[{role:'user',content:'Familia busca: "'+(busqTxt||'profesional para acompanar a persona con discapacidad en Mar del Plata')+'". Profesional: '+p.nm+', '+p.tt+'. Trabaja con: '+p.discs.join(', ')+'. Zona: '+p.zona.join(', ')+'. Disponibilidad: '+p.turno+'. Escribe un comentario calido.'}]})});
+    var d=await r.json();document.getElementById('mia').textContent=d.content[0].text;
+  }catch(e){document.getElementById('mia').textContent=p.nm+' es un profesional verificado por Club Juntos con experiencia en acompanamiento de personas con discapacidad. Puede ser una muy buena opcion para tu familia 💙';}
+}
+
+function solicitarContacto(){
+  if(!profActual)return;
+  solicitudes[profActual.id]='pending';actualizarBotones(profActual);
+  toast('Solicitud enviada a '+profActual.nm+' 💙 Te avisamos cuando acepte');
+  var pid=profActual.id;
+  setTimeout(function(){
+    solicitudes[pid]='accepted';
+    var pnm=PROFS.find(function(p){return p.id===pid}).nm;
+    toast(pnm+' acepto tu solicitud! Ya podes chatear y reservar 🎉');
+    if(document.getElementById('ov-perfil').classList.contains('on')&&profActual&&profActual.id===pid)actualizarBotones(profActual);
+  },3000);
+}
+
+function abrirChat(p){
+  var av=document.getElementById('chat-av');av.textContent=p.ini;av.style.background=p.bg;av.style.color=p.col;
+  document.getElementById('chat-nm').textContent=p.nm;chatMsgs=MSGS.slice();renderChat();
+  document.getElementById('ov-chat').classList.add('on');
+}
+
+function renderChat(){
+  var c=document.getElementById('chmsgs');
+  c.innerHTML=chatMsgs.map(function(m){return '<div class="msg '+(m.yo?'yo':'otro')+'">'+m.txt+'<div class="mtime">'+m.t+'</div></div>'}).join('');
+  c.scrollTop=c.scrollHeight;
+}
+
+function enviarMsg(){
+  var inp=document.getElementById('chin');var txt=inp.value.trim();if(!txt)return;
+  var now=new Date();var t=now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+  chatMsgs.push({yo:true,txt:txt,t:t});inp.value='';renderChat();
+  var hist=chatMsgs.slice(-6).map(function(m){return{role:m.yo?'user':'assistant',content:m.txt}});
+  setTimeout(async function(){
+    try{
+      var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:120,system:'Sos '+(profActual?profActual.nm:'un profesional de salud')+', '+(profActual?profActual.tt:'profesional')+' en Mar del Plata. Respondes mensajes de familias dentro de Club Juntos Equipo de Salud. El club trabaja con todo tipo de discapacidades. Tono calido, cercano y profesional. Respuestas cortas (1-2 oraciones). Nunca compartas datos de contacto externos. Espanol argentino con emojis ocasionales.',messages:hist})});
+      var d=await r.json();var n2=new Date();var t2=n2.getHours()+':'+String(n2.getMinutes()).padStart(2,'0');
+      chatMsgs.push({yo:false,txt:d.content[0].text,t:t2});renderChat();
+    }catch(e){chatMsgs.push({yo:false,txt:'Si, podemos coordinar por aca 😊 Que dias te quedan mejor?',t:new Date().getHours()+':'+String(new Date().getMinutes()).padStart(2,'0')});renderChat();}
+  },1200);
+}
+
+function enterMsg(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();enviarMsg()}}
+function reportar(){toast('Reporte enviado al equipo de Club Juntos 🙏');cerrar('ov-chat')}
+
+function abrirReserva(){
+  if(!profActual)return;
+  bkTipo=null;bkFecha=null;bkHora=null;
+  document.getElementById('bk-sub').textContent='con '+profActual.nm;
+  document.getElementById('tc-v').classList.remove('sel');document.getElementById('tc-p').classList.remove('sel');
+  document.getElementById('sinfo').style.display='none';document.getElementById('btnp2').disabled=true;
+  calY=new Date().getFullYear();calM=new Date().getMonth();
+  irPaso(1);renderCal();document.getElementById('ov-reserva').classList.add('on');
+}
+
+function selTipo(tipo){
+  bkTipo=tipo;document.getElementById('tc-v').classList.toggle('sel',tipo==='virtual');document.getElementById('tc-p').classList.toggle('sel',tipo==='presencial');
+  document.getElementById('sinfo').style.display=tipo==='presencial'?'block':'none';document.getElementById('btnp2').disabled=false;
+}
+
+function irPaso(n){
+  for(var i=1;i<=5;i++){var bs=document.getElementById('bs'+i);if(bs)bs.classList.toggle('on',i===n)}
+  for(var i=1;i<=4;i++){
+    var sd=document.getElementById('sd'+i);if(!sd)continue;
+    sd.className=i<n?'sdot done':i===n?'sdot act':'sdot pend';
+    var sl=document.getElementById('sl'+i);if(sl)sl.classList.toggle('done',i<n);
+  }
+  if(n===3)renderSlots();if(n===4)rellenarConfirm();
+}
+
+function renderCal(){
+  document.getElementById('cal-tit').textContent=MESES[calM]+' '+calY;
+  var hoy=new Date();hoy.setHours(0,0,0,0);var p=new Date(calY,calM,1),u=new Date(calY,calM+1,0);
+  var html=DIAS_S.map(function(d){return '<div class="cdhd">'+d+'</div>'}).join('');
+  for(var i=0;i<p.getDay();i++)html+='<div></div>';
+  for(var d=1;d<=u.getDate();d++){
+    var f=new Date(calY,calM,d),dow=f.getDay();
+    var key=calY+'-'+String(calM+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    var dis=f<hoy||dow===0||dow===6,sel=bkFecha===key,esHoy=f.getTime()===hoy.getTime();
+    html+=dis?'<div class="cday dis">'+d+'</div>':'<div class="cday avail'+(sel?' sel':'')+(esHoy?' today':'')+'" onclick="selFecha(\''+key+'\')">'+d+'</div>';
+  }
+  document.getElementById('calgrid').innerHTML=html;
+}
+
+function cambiarMes(dir){calM+=dir;if(calM>11){calM=0;calY++}if(calM<0){calM=11;calY--}renderCal()}
+function selFecha(key){bkFecha=key;bkHora=null;renderCal();document.getElementById('btnp3').disabled=false}
+
+function renderSlots(){
+  if(!bkFecha)return;
+  var pts=bkFecha.split('-'),f=new Date(parseInt(pts[0]),parseInt(pts[1])-1,parseInt(pts[2]));
+  document.getElementById('fechalbl').textContent=DIAS_N[f.getDay()]+' '+f.getDate()+' de '+MESES_MIN[f.getMonth()];
+  document.getElementById('hslots').innerHTML=FRANJAS.map(function(h){
+    var ocup=OCUP.indexOf(h)>=0,sel=bkHora===h;
+    if(ocup)return '<div class="hslot ocup"><s>'+h+'</s><br><span style="font-size:.62rem">Ocupado</span></div>';
+    return '<div class="hslot'+(sel?' sel':'')+'" onclick="selHora(\''+h+'\')">'+h+'</div>';
+  }).join('');
+}
+
+function selHora(h){bkHora=h;renderSlots();document.getElementById('btnp4').disabled=false}
+
+function rellenarConfirm(){
+  if(!profActual||!bkFecha||!bkHora||!bkTipo)return;
+  document.getElementById('cf-at').textContent=profActual.nm;
+  document.getElementById('cf-tipo').textContent=bkTipo==='virtual'?'Videollamada':'Presencial en Club Juntos';
+  var pts=bkFecha.split('-'),f=new Date(parseInt(pts[0]),parseInt(pts[1])-1,parseInt(pts[2]));
+  document.getElementById('cf-fecha').textContent=f.getDate()+' de '+MESES_MIN[f.getMonth()]+' '+calY;
+  document.getElementById('cf-hora').textContent=bkHora+' hs';
+  document.getElementById('cf-sede').style.display=bkTipo==='presencial'?'flex':'none';
+}
+
+function confirmarReserva(){
+  var nm=document.getElementById('res-nm').value.trim(),em=document.getElementById('res-em').value.trim();
+  if(!nm||!em){toast('Completa tu nombre y email 😊');return}
+  document.getElementById('conf-at').textContent=profActual?profActual.nm:'—';
+  var pts=bkFecha.split('-'),f=new Date(parseInt(pts[0]),parseInt(pts[1])-1,parseInt(pts[2]));
+  document.getElementById('conf-fecha').textContent=f.getDate()+' de '+MESES_MIN[f.getMonth()]+' '+calY;
+  document.getElementById('conf-hora').textContent=bkHora+' hs';
+  document.getElementById('conf-tipo').textContent=bkTipo==='virtual'?'Videollamada':'Presencial en Club Juntos';
+  irPaso(5);
+}
+
+function adminTab(tab,btn){
+  document.querySelectorAll('.atab').forEach(function(t){t.classList.remove('on')});
+  document.querySelectorAll('.asec').forEach(function(s){s.classList.remove('on')});
+  btn.classList.add('on');document.getElementById('as-'+tab).classList.add('on');
+}
+
+function verChatAdmin(fam,prof,ini,col){
+  var av=document.getElementById('adchat-av');av.textContent=ini;av.style.background='var(--tus)';av.style.color=col;
+  document.getElementById('adchat-nm').textContent=fam+' — '+prof;
+  document.getElementById('admsgs').innerHTML=MSGS.map(function(m){
+    return '<div class="msg '+(m.yo?'yo':'otro')+'"><div style="font-size:.58rem;opacity:.4;margin-bottom:1px">'+(m.yo?fam:prof)+'</div>'+m.txt+'<div class="mtime">'+m.t+'</div></div>';
+  }).join('');
+  setTimeout(function(){document.getElementById('admsgs').scrollTop=9999},50);
+  document.getElementById('ov-adchat').classList.add('on');
+}
+
+function aprobar(btn){
+  var tr=btn.closest('tr');
+  tr.querySelector('td:nth-child(3)').innerHTML='<span class="spill sp-ok">✓ Activo</span>';
+  tr.querySelector('td:nth-child(4)').innerHTML='<span class="spill sp-ok">✓ OK</span>';
+  btn.closest('.actb').innerHTML='<button class="btn bout" style="font-size:.66rem;padding:3px 7px">Ver CV</button><button class="btn berr" style="font-size:.66rem;padding:3px 7px" onclick="toast(\'Suspendido\')">Suspender</button>';
+  toast('Profesional aprobado y publicado 🎉');
+}
+
+function setVista(v,btn){
+  document.querySelectorAll('.vista').forEach(function(x){x.classList.remove('on')});
+  document.querySelectorAll('.np').forEach(function(x){x.classList.remove('on')});
+  document.getElementById('v-'+v).classList.add('on');btn.classList.add('on');
+}
+
+function cerrar(id,e){if(!e||e.target===document.getElementById(id))document.getElementById(id).classList.remove('on')}
+
+function simFoto(){
+  document.getElementById('foto-badge').style.display='inline-flex';
+  document.querySelector('.foto-ico').textContent='✅';
+  document.querySelector('.foto-txt').textContent='Foto subida';
+  toast('Foto subida. Pendiente de aprobacion por Club Juntos 📸');
+}
+function simUpload(){
+  document.getElementById('upzone').style.display='none';
+  document.getElementById('updone').style.display='flex';
+  toast('Titulo subido correctamente 📄 Lo revisamos en breve');
+}
+
+function toast(msg){
+  var t=document.getElementById('toast-el');t.textContent=msg;t.classList.add('on');
+  setTimeout(function(){t.classList.remove('on')},3500);
+}
+
+render(PROFS);
+</script>
 </body>
 </html>
