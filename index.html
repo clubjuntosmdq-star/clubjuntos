@@ -7,9 +7,8 @@
     <meta name="keywords" content="natación Mar del Plata, hidroterapia, discapacidad, deporte adaptado, inclusión, terapia acuática">
     <meta name="author" content="Club Juntos Mar del Plata">
     <meta property="og:title" content="Club Juntos Mar del Plata - Natación y Terapias Especializadas">
-    <meta property="og:description" content="Tu hijo puede hacer más de lo que crees. Descubre cómo en Club Juntos.">
-    <meta property="og:image" content="https://clubjuntosmdq-star.github.io/clubjuntos/og-image.jpg">
-    <meta property="og:url" content="https://clubjuntosmdq-star.github.io">
+    <meta property="og:description" content="La verdadera discapacidad es el miedo a no intentarlo. Descubre cómo en Club Juntos.">
+    <meta property="og:url" content="https://clubjuntosmdq-star.github.io/clubjuntos/">
     <title>Club Juntos Mar del Plata | Natación, Hidroterapia y Deportes Adaptados</title>
     <style>
         * {
@@ -26,8 +25,6 @@
             --white: #FAFAFA;
             --gray-light: #f5f5f5;
             --gray-dark: #333;
-            --shadow-glow: 0 0 30px rgba(45, 200, 200, 0.3);
-            --shadow-pink: 0 0 30px rgba(232, 83, 143, 0.3);
         }
 
         body {
@@ -38,7 +35,7 @@
             overflow-x: hidden;
         }
 
-        /* NAVBAR */
+        /* ====== NAVBAR ====== */
         nav {
             position: sticky;
             top: 0;
@@ -62,9 +59,6 @@
             font-weight: 700;
             color: var(--yellow);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .navbar-menu {
@@ -79,30 +73,12 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
         }
 
         .navbar-menu a:hover {
             color: var(--turquoise);
         }
 
-        .navbar-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--turquoise), var(--yellow));
-            transition: width 0.3s ease;
-        }
-
-        .navbar-menu a:hover::after {
-            width: 100%;
-        }
-
-        /* DROPDOWN */
         .dropdown {
             position: relative;
         }
@@ -121,12 +97,10 @@
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             margin-top: 0.5rem;
         }
 
-        .dropdown:hover .dropdown-content,
-        .dropdown-content:hover {
+        .dropdown:hover .dropdown-content {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
@@ -138,13 +112,11 @@
             color: var(--white);
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
         }
 
         .dropdown-content li a:hover {
             background: rgba(45, 200, 200, 0.2);
             color: var(--turquoise);
-            padding-left: 2rem;
         }
 
         .cta-button {
@@ -155,43 +127,29 @@
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
             box-shadow: 0 0 20px rgba(232, 83, 143, 0.4);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 40px rgba(232, 83, 143, 0.8), 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 0 40px rgba(232, 83, 143, 0.8);
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.2);
-            transition: left 0.3s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        /* HERO SECTION */
+        /* ====== HERO SECTION ====== */
         .hero {
-            background: linear-gradient(135deg, rgba(27, 42, 107, 0.65), rgba(232, 83, 143, 0.65)), 
-                        url('https://raw.githubusercontent.com/clubjuntosmdq-star/clubjuntos/main/foto1.jpeg') center/cover;
+            background: linear-gradient(135deg, #1B2A6B 0%, #0f1a3d 50%, #2DC8C8 100%);
             color: var(--white);
             padding: 100px 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero::before {
@@ -201,7 +159,7 @@
             right: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(45, 200, 200, 0.1), transparent);
+            background: radial-gradient(circle, rgba(45, 200, 200, 0.15), transparent);
             border-radius: 50%;
             animation: float 20s infinite ease-in-out;
         }
@@ -213,7 +171,7 @@
             left: -10%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(232, 83, 143, 0.1), transparent);
+            background: radial-gradient(circle, rgba(232, 83, 143, 0.15), transparent);
             border-radius: 50%;
             animation: float 15s infinite ease-in-out reverse;
         }
@@ -225,7 +183,6 @@
 
         .hero-content {
             max-width: 900px;
-            margin: 0 auto;
             position: relative;
             z-index: 1;
         }
@@ -240,30 +197,14 @@
         .hero-subtitle {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            color: var(--turquoise);
+            color: var(--yellow);
             font-weight: 600;
-            animation: slideIn 1s ease-out;
         }
 
         .hero-text {
             font-size: 1.1rem;
             margin-bottom: 3rem;
             color: rgba(255,255,255,0.9);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero-buttons {
@@ -283,35 +224,15 @@
             font-weight: 700;
             font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(245, 200, 66, 0.5);
             text-decoration: none;
             display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
+            box-shadow: 0 0 30px rgba(245, 200, 66, 0.5);
+            transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 50px rgba(245, 200, 66, 0.8), 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 0 50px rgba(245, 200, 66, 0.8);
         }
 
         .btn-secondary {
@@ -323,19 +244,17 @@
             font-weight: 700;
             font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            transition: all 0.3s ease;
         }
 
         .btn-secondary:hover {
             background: var(--turquoise);
             color: var(--navy);
             transform: translateY(-5px);
-            box-shadow: 0 0 40px rgba(45, 200, 200, 0.5);
         }
 
-        /* STATS */
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -355,10 +274,7 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--yellow), var(--turquoise));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--yellow);
         }
 
         .stat-label {
@@ -367,7 +283,7 @@
             margin-top: 0.5rem;
         }
 
-        /* SECTION GENERAL */
+        /* ====== SECTIONS GENERAL ====== */
         section {
             padding: 80px 2rem;
             max-width: 1400px;
@@ -395,10 +311,9 @@
             border-radius: 2px;
         }
 
-        /* NOSOTROS */
+        /* ====== NOSOTROS ====== */
         .nosotros {
-            background: linear-gradient(135deg, rgba(27, 42, 107, 0.65), rgba(232, 83, 143, 0.65)), 
-                        url('https://raw.githubusercontent.com/clubjuntosmdq-star/clubjuntos/main/foto2.jpeg') center/cover;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
         }
 
         .nosotros-grid {
@@ -413,19 +328,6 @@
             color: var(--navy);
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .nosotros-text h3::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--turquoise), var(--pink));
-            border-radius: 2px;
         }
 
         .nosotros-text p {
@@ -467,10 +369,9 @@
             margin-bottom: 1rem;
         }
 
-        /* ACTIVIDADES */
+        /* ====== ACTIVIDADES ====== */
         .actividades {
-            background: linear-gradient(135deg, rgba(27, 42, 107, 0.65), rgba(232, 83, 143, 0.65)), 
-                        url('https://raw.githubusercontent.com/clubjuntosmdq-star/clubjuntos/main/foto3.jpeg') center/cover;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
         }
 
         .actividades-grid {
@@ -485,27 +386,13 @@
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
 
-        .activity-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--turquoise), var(--pink), var(--yellow));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-            z-index: 1;
-        }
-
-        .activity-card:hover::before {
-            transform: scaleX(1);
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
 
         .activity-icon {
@@ -532,35 +419,7 @@
             line-height: 1.6;
         }
 
-        .activity-link {
-            display: inline-block;
-            color: var(--turquoise);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .activity-link::after {
-            content: '→';
-            margin-left: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .activity-card:hover .activity-link {
-            color: var(--pink);
-        }
-
-        .activity-card:hover .activity-link::after {
-            margin-left: 1rem;
-        }
-
-        .activity-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        /* JUNTOS SALUD HIGHLIGHT */
+        /* ====== JUNTOS SALUD ====== */
         .juntos-salud-highlight {
             background: linear-gradient(135deg, var(--navy), #0f1a3d);
             color: var(--white);
@@ -579,17 +438,6 @@
             width: 500px;
             height: 500px;
             background: radial-gradient(circle, rgba(45, 200, 200, 0.15), transparent);
-            border-radius: 50%;
-        }
-
-        .juntos-salud-highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(232, 83, 143, 0.1), transparent);
             border-radius: 50%;
         }
 
@@ -631,19 +479,11 @@
         .feature-item h4 {
             color: var(--turquoise);
             margin-bottom: 0.5rem;
-            font-size: 1.1rem;
         }
 
-        .feature-item p {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.9);
-            margin: 0;
-        }
-
-        /* RESEÑAS */
+        /* ====== RESEÑAS ====== */
         .resenas {
-            background: linear-gradient(135deg, rgba(27, 42, 107, 0.65), rgba(232, 83, 143, 0.65)), 
-                        url('https://raw.githubusercontent.com/clubjuntosmdq-star/clubjuntos/main/foto4.jpeg') center/cover;
+            background: linear-gradient(135deg, #E8D5F2 0%, #D4E9F7 100%);
         }
 
         .resenas-grid {
@@ -659,7 +499,6 @@
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            position: relative;
             border-top: 4px solid var(--turquoise);
         }
 
@@ -694,7 +533,6 @@
         .resena-author {
             font-weight: 600;
             color: var(--navy);
-            font-size: 1rem;
         }
 
         .resena-meta {
@@ -703,10 +541,9 @@
             margin-top: 0.5rem;
         }
 
-        /* FAQs */
+        /* ====== FAQs ====== */
         .faqs {
-            background: linear-gradient(135deg, rgba(27, 42, 107, 0.65), rgba(232, 83, 143, 0.65)), 
-                        url('https://raw.githubusercontent.com/clubjuntosmdq-star/clubjuntos/main/foto5.jpeg') center/cover;
+            background: linear-gradient(135deg, #F0E5FF 0%, #FFE5F0 100%);
         }
 
         .faq-container {
@@ -771,20 +608,9 @@
             margin-bottom: 1rem;
         }
 
-        .faq-answer ul {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .faq-answer li {
-            margin-bottom: 0.5rem;
-            color: var(--gray-dark);
-        }
-
-        /* BLOG */
+        /* ====== BLOG ====== */
         .blog {
-            background: linear-gradient(135deg, rgba(27, 42, 107, 0.65), rgba(232, 83, 143, 0.65)), 
-                        url('https://raw.githubusercontent.com/clubjuntosmdq-star/clubjuntos/main/foto6.jpeg') center/cover;
+            background: linear-gradient(135deg, #E5F5FF 0%, #F5E5FF 100%);
         }
 
         .blog-grid {
@@ -842,29 +668,14 @@
             line-height: 1.6;
         }
 
-        .blog-link {
-            color: var(--pink);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .blog-link:hover {
-            gap: 1rem;
-        }
-
         .blog-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
-        /* CONTACTO */
+        /* ====== CONTACTO ====== */
         .contacto {
-            background: linear-gradient(135deg, rgba(27, 42, 107, 0.85), rgba(232, 83, 143, 0.85)), 
-                        url('https://raw.githubusercontent.com/clubjuntosmdq-star/clubjuntos/main/foto1.jpeg') center/cover;
+            background: linear-gradient(135deg, var(--navy) 0%, #0f1a3d 50%, var(--pink) 100%);
             color: var(--white);
         }
 
@@ -1001,10 +812,10 @@
 
         .form-submit:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 50px rgba(245, 200, 66, 0.8), 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 0 50px rgba(245, 200, 66, 0.8);
         }
 
-        /* FOOTER */
+        /* ====== FOOTER ====== */
         footer {
             background: #0a0f1f;
             color: var(--white);
@@ -1042,7 +853,7 @@
             color: var(--yellow);
         }
 
-        /* RESPONSIVE */
+        /* ====== RESPONSIVE ====== */
         @media (max-width: 768px) {
             .navbar-menu {
                 gap: 1rem;
@@ -1076,24 +887,18 @@
             section {
                 padding: 50px 1.5rem;
             }
+        }
 
-            .dropdown-content {
-                position: fixed;
-                top: auto;
-                left: 0;
-                right: 0;
-                min-width: unset;
+        /* ====== ANIMATIONS ====== */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-        }
-
-        /* ANIMATION */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .fade-in {
@@ -1113,12 +918,12 @@
                 <li class="dropdown">
                     <a href="#actividades">Actividades ▼</a>
                     <ul class="dropdown-content">
-                        <li><a href="https://clubjuntosmdq-star.github.io/clubjuntos/" target="_blank">Juntos Salud / Terapias</a></li>
+                        <li><a href="https://clubjuntosmdq-star.github.io/clubjuntos/" target="_blank">Juntos Salud</a></li>
                         <li><a href="#club-kids">Club Kids</a></li>
                         <li><a href="#club-recreativo">Club Recreativo</a></li>
                         <li><a href="#club-joven">Club Joven</a></li>
                         <li><a href="#hidroterapia">Hidroterapia</a></li>
-                        <li><a href="#deportes">Fútbol, Atletismo, Natación</a></li>
+                        <li><a href="#deportes">Deportes Adaptados</a></li>
                     </ul>
                 </li>
                 <li><a href="#voluntarios">Voluntarios</a></li>
@@ -1235,7 +1040,7 @@
     <section id="actividades" class="actividades">
         <h2>Nuestras Actividades</h2>
 
-        <!-- JUNTOS SALUD HIGHLIGHT -->
+        <!-- JUNTOS SALUD -->
         <div class="juntos-salud-highlight">
             <div class="juntos-salud-content">
                 <h3>🏥 Juntos Salud: El Ecosistema Integral</h3>
@@ -1243,9 +1048,7 @@
                     No vienes solo a nadar. Vienes a un ecosistema completo de salud, terapia y desarrollo integral.
                 </p>
                 <p>
-                    En <strong>Juntos Salud</strong> convergem <strong>kinesiólogos especializados, terapeutas, docentes de educación física adaptada</strong> 
-                    y <strong>acompañantes terapéuticos</strong> para ofrecerte un servicio integral que cubre rehabilitación, 
-                    prevención, fortalecimiento y diversión.
+                    En <strong>Juntos Salud</strong> convergen <strong>kinesiólogos especializados, terapeutas, docentes de educación física adaptada</strong> y <strong>acompañantes terapéuticos</strong> para ofrecerte un servicio integral que cubre rehabilitación, prevención, fortalecimiento y diversión.
                 </p>
 
                 <div class="juntos-features">
@@ -1280,36 +1083,30 @@
             <div class="activity-card" id="club-kids">
                 <div class="activity-icon">🎨</div>
                 <div class="activity-content">
-                    <h3>Club Kids</h3>
+                    <h3>Club Kids (3-6 años)</h3>
                     <p>
-                        Para los más chicos (0-6 años). Estimulación temprana, juego, movimiento y diversión 
-                        sin presiones. Donde descubren el agua, el arte y la socialización de forma natural.
+                        Estimulación temprana, juego, movimiento y diversión sin presiones. Donde descubren el agua, el arte y la socialización de forma natural.
                     </p>
-                    <a href="#" class="activity-link">Más información</a>
                 </div>
             </div>
 
             <div class="activity-card" id="club-recreativo">
                 <div class="activity-icon">🏊</div>
                 <div class="activity-content">
-                    <h3>Club Recreativo</h3>
+                    <h3>Club Recreativo (7-17 años)</h3>
                     <p>
-                        Para niños (7-12 años). Natación, juegos acuáticos, deportes y actividades grupales 
-                        que generan amistad, confianza y pertenencia.
+                        Natación, juegos acuáticos, deportes y actividades grupales que generan amistad, confianza y pertenencia.
                     </p>
-                    <a href="#" class="activity-link">Más información</a>
                 </div>
             </div>
 
             <div class="activity-card" id="club-joven">
                 <div class="activity-icon">🚀</div>
                 <div class="activity-content">
-                    <h3>Club Joven</h3>
+                    <h3>Club Joven (17+ años)</h3>
                     <p>
-                        Para adolescentes y jóvenes (15-25 años). Autonomía, socialización, deportes, 
-                        expresión artística. El espacio donde descubren quiénes son y qué pueden ser.
+                        Autonomía, socialización, deportes, expresión artística. El espacio donde descubren quiénes son y qué pueden ser.
                     </p>
-                    <a href="#" class="activity-link">Más información</a>
                 </div>
             </div>
 
@@ -1318,10 +1115,8 @@
                 <div class="activity-content">
                     <h3>Hidroterapia Especializada</h3>
                     <p>
-                        Sesiones terapéuticas individuales o grupales en agua templada con profesionales especializados. 
-                        Para rehabilitación, movilidad, relajación y bienestar integral.
+                        Sesiones terapéuticas individuales o grupales en agua templada con profesionales especializados para rehabilitación y bienestar.
                     </p>
-                    <a href="#" class="activity-link">Más información</a>
                 </div>
             </div>
 
@@ -1330,10 +1125,8 @@
                 <div class="activity-content">
                     <h3>Deportes Adaptados</h3>
                     <p>
-                        Fútbol, Atletismo y Natación Competitiva. Entrenamiento, técnica, compañerismo y la magia 
-                        de representar a Club Juntos en competencias.
+                        Fútbol, Atletismo y Natación. Entrenamiento, técnica, compañerismo y la magia de representar a Club Juntos.
                     </p>
-                    <a href="#" class="activity-link">Más información</a>
                 </div>
             </div>
 
@@ -1342,16 +1135,14 @@
                 <div class="activity-content">
                     <h3>Talleres Artísticos</h3>
                     <p>
-                        Danza, teatro, expresión corporal. Espacios donde cada cuerpo es escenario, 
-                        cada voz es importante, cada historia importa.
+                        Danza, teatro, expresión corporal. Espacios donde cada cuerpo es escenario, cada voz es importante, cada historia importa.
                     </p>
-                    <a href="#" class="activity-link">Más información</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- RESEÑAS (TESTIMONIOS) -->
+    <!-- RESEÑAS -->
     <section id="resenas" class="resenas">
         <h2>Lo que dicen las familias</h2>
 
@@ -1395,39 +1186,29 @@
         <h2>Preguntas Frecuentes</h2>
 
         <div class="faq-container">
-            <!-- OBRAS SOCIALES -->
             <div class="faq-item">
                 <div class="faq-question">
                     <span>¿Las obras sociales cubren los servicios de Juntos Salud?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>
-                        <strong>Sí.</strong> Muchas obras sociales cubren sesiones de hidroterapia, kinesiología y acompañamiento terapéutico. 
-                        Esto requiere:
-                    </p>
+                    <p><strong>Sí.</strong> Muchas obras sociales cubren sesiones de hidroterapia, kinesiología y acompañamiento terapéutico. Esto requiere:</p>
                     <ul>
                         <li>Derivación médica específica</li>
                         <li>Afiliación vigente a la obra social</li>
                         <li>Cumplimiento del protocolo de autorización</li>
                     </ul>
-                    <p>
-                        <strong>Contactanos</strong> directamente y verificamos qué cobertura tiene tu obra social. 
-                        Ofrecemos opciones de pago flexible si hay cobertura parcial.
-                    </p>
+                    <p><strong>Contactanos</strong> directamente y verificamos qué cobertura tiene tu obra social. Ofrecemos opciones de pago flexible si hay cobertura parcial.</p>
                 </div>
             </div>
 
-            <!-- DISCAPACIDADES -->
             <div class="faq-item">
                 <div class="faq-question">
                     <span>¿Con qué discapacidades trabajamos?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>
-                        Trabajamos con <strong>todas las discapacidades funcionales</strong>:
-                    </p>
+                    <p>Trabajamos con <strong>todas las discapacidades funcionales</strong>:</p>
                     <ul>
                         <li>Discapacidad motriz (parálisis cerebral, lesión medular, etc.)</li>
                         <li>Discapacidad visual</li>
@@ -1435,95 +1216,46 @@
                         <li>Discapacidad intelectual</li>
                         <li>Neurodivergencia (autismo, TDAH, etc.)</li>
                         <li>Trastornos psicosociales</li>
-                        <li>Y cualquier otra situación que requiera adaptaciones</li>
                     </ul>
-                    <p>
-                        Cada programa se personaliza según las necesidades individuales. No hay "diagnóstico exacto" que limite 
-                        la participación en Club Juntos.
-                    </p>
+                    <p>Cada programa se personaliza según las necesidades individuales.</p>
                 </div>
             </div>
 
-            <!-- ACOMPAÑANTES TERAPÉUTICOS -->
             <div class="faq-item">
                 <div class="faq-question">
                     <span>¿Cómo funcionan los acompañantes terapéuticos?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>
-                        Si tu hijo requiere apoyo, contamos con <strong>acompañantes terapéuticos especializados</strong> que:
-                    </p>
+                    <p>Si tu hijo requiere apoyo, contamos con <strong>acompañantes terapéuticos especializados</strong> que:</p>
                     <ul>
                         <li>Trabajan bajo supervisión de nuestro equipo profesional</li>
-                        <li>Se enfoca en facilitar autonomía, no dependencia</li>
+                        <li>Se enfocan en facilitar autonomía, no dependencia</li>
                         <li>Acompañan en agua, en tierra, en socialización</li>
                         <li>Crean una relación de confianza cálida</li>
                         <li>Reportan evolución permanentemente a familia y médicos</li>
                     </ul>
-                    <p>
-                        El objetivo no es "hacer por", sino <strong>"hacer con"</strong> y gradualmente que tu hijo logre mayor independencia.
-                    </p>
                 </div>
             </div>
 
-            <!-- CÓMO ES EL PROGRAMA PERSONALIZADO -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>¿Cómo se elabora el programa personalizado de mi hijo?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong>Paso 1: Evaluación Inicial</strong></p>
-                    <p>
-                        Entrevista con la familia, evaluación médica previa, test funcional en agua. 
-                        Identificamos necesidades, limitaciones, potencialidades.
-                    </p>
-                    <p><strong>Paso 2: Diseño Individualizado</strong></p>
-                    <p>
-                        Nuestro equipo define objetivos realistas, frecuencia, modalidad (individual/grupal), 
-                        tipo de acompañamiento requerido.
-                    </p>
-                    <p><strong>Paso 3: Implementación y Seguimiento</strong></p>
-                    <p>
-                        Sesiones regulares, comunicación permanente, ajustes según evolución. 
-                        Cada trimestre revisamos avances y realineamos si es necesario.
-                    </p>
-                </div>
-            </div>
-
-            <!-- SOCIALIZACIÓN GRUPAL -->
             <div class="faq-item">
                 <div class="faq-question">
                     <span>¿Por qué tanto énfasis en actividades grupales?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>
-                        <strong>Porque la magia sucede en el grupo.</strong> 
-                    </p>
-                    <p>
-                        Años de aislamiento, de no poder hacer "lo que hacen otros". 
-                        En Club Juntos, tu hijo descubre que <strong>no está solo</strong>, que hay otros como él, 
-                        que puede jugar, reír, amistad. Eso no se puede comprar en una sesión individual.
-                    </p>
-                    <p>
-                        Por supuesto ofrecemos atención individual. Pero la sostenemos con experiencias grupales 
-                        donde ocurren transformaciones sociales, emocionales, terapéuticas que duran de por vida.
-                    </p>
+                    <p><strong>Porque la magia sucede en el grupo.</strong></p>
+                    <p>Años de aislamiento, de no poder hacer "lo que hacen otros". En Club Juntos, tu hijo descubre que <strong>no está solo</strong>, que hay otros como él, que puede jugar, reír, hacer amistades. Eso no se puede comprar en una sesión individual.</p>
                 </div>
             </div>
 
-            <!-- INSCRIPCIÓN -->
             <div class="faq-item">
                 <div class="faq-question">
                     <span>¿Cómo me inscribo?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>
-                        <strong>Es simple:</strong>
-                    </p>
+                    <p><strong>Es simple:</strong></p>
                     <ul>
                         <li>Contactanos por WhatsApp: +54 223 680-8522</li>
                         <li>O por email: clubjuntosmdq@gmail.com</li>
@@ -1552,9 +1284,8 @@
                     <h3 class="blog-title">Hidroterapia: Los Primeros Logros del Programa Especializado</h3>
                     <p class="blog-excerpt">
                         Familias reportan mejoras inmediatas en movilidad y bienestar emocional. 
-                        El agua templada, los profesionales especializados, la seguridad del grupo... todo confluye en transformaciones reales.
+                        El agua templada, los profesionales especializados, la seguridad del grupo...
                     </p>
-                    <a href="#" class="blog-link">Leer historia completa →</a>
                 </div>
             </div>
 
@@ -1565,9 +1296,8 @@
                     <h3 class="blog-title">Sumando Juntos: Voluntarios que Transforman Comunidad</h3>
                     <p class="blog-excerpt">
                         Historias de personas que decidieron aportar su tiempo, talento y corazón. 
-                        De cómo una persona "normal" puede marcar diferencia en vidas.
+                        De cómo una persona puede marcar diferencia en vidas.
                     </p>
-                    <a href="#" class="blog-link">Conocer sus historias →</a>
                 </div>
             </div>
 
@@ -1580,7 +1310,6 @@
                         Club Juntos participó en el Torneo de Natación Adaptada. Medallas, marcas personales, 
                         pero sobre todo: orgullo, representación, visibilidad.
                     </p>
-                    <a href="#" class="blog-link">Ver fotos y resultados →</a>
                 </div>
             </div>
         </div>
@@ -1603,7 +1332,7 @@
                 <ul style="margin-left: 2rem; margin-top: 1rem; margin-bottom: 2rem;">
                     <li style="margin-bottom: 0.8rem;">Acompañar a chicos en actividades</li>
                     <li style="margin-bottom: 0.8rem;">Ayudar en organización de eventos</li>
-                    <li style="margin-bottom: 0.8rem;">Aportar tu expertise (abogacía, diseño, contabilidad, etc.)</li>
+                    <li style="margin-bottom: 0.8rem;">Aportar tu expertise (abogacía, diseño, etc.)</li>
                     <li style="margin-bottom: 0.8rem;">Aprender, crecer, transformarte</li>
                 </ul>
             </div>
@@ -1715,7 +1444,7 @@
             </div>
         </div>
 
-        <!-- CTA FLOTANTE WHATSAPP -->
+        <!-- CTA WHATSAPP FLOTANTE -->
         <div style="position: fixed; bottom: 2rem; right: 2rem; z-index: 100;">
             <a href="https://wa.me/542236808522?text=Hola%20Club%20Juntos%21%20Quisiera%20consultar%20sobre..." target="_blank" 
                style="display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; background: linear-gradient(135deg, #25D366, #20BA61); border-radius: 50%; color: white; font-size: 1.8rem; text-decoration: none; box-shadow: 0 0 40px rgba(37, 211, 102, 0.5); transition: all 0.3s ease;"
@@ -1758,7 +1487,6 @@
                 const item = this.parentElement;
                 item.classList.toggle('active');
 
-                // Cerrar otros FAQs
                 document.querySelectorAll('.faq-item').forEach(other => {
                     if (other !== item && other.classList.contains('active')) {
                         other.classList.remove('active');
