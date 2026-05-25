@@ -371,6 +371,21 @@
             font-weight: 300;
         }
 
+        .about-block ul {
+            margin-left: 2rem;
+            margin-bottom: 1.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-block li {
+            font-size: 1.05rem;
+            margin-bottom: 0.8rem;
+            color: var(--gray-dark);
+            opacity: 0.85;
+            line-height: 1.8;
+        }
+
         .cta-about {
             display: inline-block;
             margin-top: 1.5rem;
@@ -536,24 +551,6 @@
             background: linear-gradient(90deg, var(--navy), transparent);
         }
 
-        .activity-card:nth-child(5) {
-            border-top-color: var(--cyan);
-            background: linear-gradient(135deg, rgba(0, 184, 204, 0.06), rgba(0, 184, 204, 0.02));
-        }
-
-        .activity-card:nth-child(5)::before {
-            background: linear-gradient(90deg, var(--cyan), transparent);
-        }
-
-        .activity-card:nth-child(6) {
-            border-top-color: var(--oro);
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.06), rgba(201, 169, 97, 0.02));
-        }
-
-        .activity-card:nth-child(6)::before {
-            background: linear-gradient(90deg, var(--oro), transparent);
-        }
-
         .activity-card:hover {
             transform: translateY(-12px);
             box-shadow: 0 18px 60px rgba(0,0,0,0.12);
@@ -583,6 +580,12 @@
             line-height: 1.8;
             font-size: 1.05rem;
             font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .activity-card strong {
+            color: var(--navy);
+            font-weight: 700;
         }
 
         .cta-activity {
@@ -829,145 +832,6 @@
             font-weight: 500;
         }
 
-        /* ===== CTA ===== */
-        .cta-section {
-            background: linear-gradient(135deg, var(--cyan) 0%, var(--navy) 100%);
-            color: var(--white);
-            padding: 5.5rem 2rem;
-            border-radius: 25px;
-            text-align: center;
-            margin: 5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
-            border-radius: 50%;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .cta-section h3 {
-            font-family: 'EB Garamond', serif;
-            font-size: 2.8rem;
-            margin-bottom: 1.8rem;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-            letter-spacing: -0.5px;
-        }
-
-        .cta-section p {
-            font-size: 1.25rem;
-            margin-bottom: 2.8rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            z-index: 1;
-            font-weight: 300;
-            line-height: 1.8;
-        }
-
-        /* ===== CONTACT ===== */
-        #contact {
-            background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
-        }
-
-        .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 4.5rem;
-            border-radius: 25px;
-            box-shadow: 0 12px 60px rgba(0,0,0,0.1);
-            border-top: 6px solid var(--cyan);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-container::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 184, 204, 0.1), transparent);
-        }
-
-        .contact-item {
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-label {
-            font-size: 0.9rem;
-            color: var(--navy);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-        }
-
-        .contact-value {
-            font-size: 1.4rem;
-            color: var(--gray-dark);
-            font-weight: 700;
-            letter-spacing: 0.3px;
-        }
-
-        .contact-value a {
-            color: var(--cyan);
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 800;
-        }
-
-        .contact-value a:hover {
-            color: var(--coral);
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .social-link {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--cyan), var(--oro));
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1.8rem;
-            transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(0, 184, 204, 0.3);
-        }
-
-        .social-link:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 14px 40px rgba(0, 184, 204, 0.5);
-        }
-
         /* ===== NEWSLETTER ===== */
         #newsletter {
             background: linear-gradient(135deg, var(--gray-light) 0%, #ffffff 100%);
@@ -1083,11 +947,99 @@
             font-weight: 500;
         }
 
-        @media (max-width: 968px) {
-            .newsletter-container {
-                grid-template-columns: 1fr;
-            }
+        /* ===== CONTACT ===== */
+        #contact {
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
         }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 4.5rem;
+            border-radius: 25px;
+            box-shadow: 0 12px 60px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--cyan);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 184, 204, 0.1), transparent);
+        }
+
+        .contact-item {
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: var(--navy);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-value {
+            font-size: 1.4rem;
+            color: var(--gray-dark);
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .contact-value a {
+            color: var(--cyan);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 800;
+        }
+
+        .contact-value a:hover {
+            color: var(--coral);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--cyan), var(--oro));
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.8rem;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(0, 184, 204, 0.3);
+        }
+
+        .social-link:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 14px 40px rgba(0, 184, 204, 0.5);
+        }
+
+        /* ===== FOOTER ===== */
         footer {
             background: var(--navy);
             color: var(--white);
@@ -1122,6 +1074,12 @@
         }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 968px) {
+            .newsletter-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 gap: 1rem;
@@ -1132,7 +1090,9 @@
             }
 
             .about-block,
-            .contact-container {
+            .contact-container,
+            .newsletter-content,
+            .newsletter-articles {
                 padding: 2.5rem;
             }
 
@@ -1141,8 +1101,7 @@
                 padding: 2.5rem;
             }
 
-            .stats-section,
-            .cta-section {
+            .stats-section {
                 padding: 3.5rem 1.5rem;
                 margin: 3rem 0;
             }
@@ -1160,10 +1119,6 @@
 
             .hero h1 {
                 font-size: 2.2rem;
-            }
-
-            .cta-section h3 {
-                font-size: 2rem;
             }
 
             .stat-item h3 {
@@ -1184,6 +1139,7 @@
                 <a href="#activities">Actividades</a>
                 <a href="#team">Equipo</a>
                 <a href="#testimonials">Familias</a>
+                <a href="#newsletter">Newsletter</a>
                 <a href="#contact">Contacto</a>
                 <button class="btn-nav" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Inscribirse</button>
             </nav>
@@ -1206,41 +1162,64 @@
     <section id="about">
         <div class="section-header">
             <h2>¿Por Qué Club Juntos?</h2>
-            <p>Descubre nuestra misión y el equipo que hace la diferencia</p>
+            <p>Descubre nuestra misión y el equipo que hace la diferencia cada día</p>
         </div>
 
         <div class="about-grid">
             <div class="about-block">
-                <h3>Club Juntos es una Asociación dedicada al desarrollo integral de las personas con discapacidad</h3>
-                <p>Operamos bajo Personería Jurídica oficial desde marzo de 2026, acompañando transformaciones todos los días. Somos un espacio donde cada persona cuenta, donde los miedos se transforman en intentos y los intentos en grandes logros.</p>
-                <p>Cada día, chicos y chicas que durante años escucharon "no puedes", descubren que SÍ pueden. Y sus familias, al ser parte de este proceso, sienten que ya no están solos.</p>
-                <button class="btn-primary cta-about" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Conocer más</button>
+                <h3>Club Juntos: Una Asociación Civil Comprometida con la Inclusión</h3>
+                <p>Desde marzo de 2026, Club Juntos opera como Asociación Civil con Personería Jurídica oficial. Somos una organización sin fines de lucro dedicada al desarrollo integral de personas con discapacidad, donde cada persona cuenta y cada progreso importa.</p>
+                
+                <p><strong>¿Qué nos diferencia?</strong></p>
+                <ul>
+                    <li><strong>Acompañamiento integral:</strong> No solo ofrecemos actividades, acompañamos a cada persona en su proceso de transformación.</li>
+                    <li><strong>Equipo interdisciplinario:</strong> Profesionales certificados en educación física, kinesiología, artes y psicología.</li>
+                    <li><strong>Ambiente seguro y cálido:</strong> Un espacio donde la confianza y el respeto son nuestros pilares.</li>
+                    <li><strong>Comunidad activa:</strong> Más de 70 estudiantes y sus familias formamos parte de esta red de apoyo mutuo.</li>
+                    <li><strong>Transparencia y responsabilidad:</strong> Como Asociación Civil, operamos bajo los más altos estándares de transparencia y profesionalismo.</li>
+                </ul>
+
+                <p>Club Juntos es más que un club. Es un espacio donde los miedos se transforman en intentos y los intentos en grandes logros. Donde cada chico y chica descubre que SÍ puede. Y donde las familias sienten que ya no están solas en este camino.</p>
+                
+                <button class="btn-primary cta-about" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contactanos ahora</button>
             </div>
 
             <div class="about-block">
-                <h3>Equipo Especializado y Genuinamente Comprometido</h3>
-                <p>Contamos con 11 profesionales interdisciplinarios (kinesiólogos, docentes de educación física, talleristas de artes) altamente capacitados y comprometidos con la excelencia.</p>
-                <p>Acompañamos a más de 70 estudiantes activos en un ambiente seguro, cálido y profesional. Nuestro equipo no solo entrena, sino que genuinamente se preocupa por el bienestar y el desarrollo integral de cada persona.</p>
+                <h3>Equipo de Profesionales Especializados y Comprometidos</h3>
+                <p>Nuestro equipo está compuesto por 11 profesionales altamente capacitados, con experiencia verificada en educación física adaptada, terapias acuáticas, kinesiología y artes.</p>
+                
+                <p><strong>Nuestros profesionales incluyen:</strong></p>
+                <ul>
+                    <li><strong>Kinesiólogos:</strong> Especializados en hidroterapia, rehabilitación y desarrollo funcional.</li>
+                    <li><strong>Profesores de Educación Física:</strong> Con certificaciones en educación adaptada e inclusión.</li>
+                    <li><strong>Talleristas de Artes:</strong> Expertos en danza, expresión corporal, dibujo y pintura adaptados.</li>
+                    <li><strong>Coordinadores:</strong> Profesionales dedicados a la organización y seguimiento de cada participante.</li>
+                </ul>
+
+                <p>Cada miembro del equipo se caracteriza por su genuino compromiso con el bienestar de nuestros estudiantes. No solo entrenan, acompañan. Conocen historias personales, respetan ritmos individuales y celebran cada pequeño logro como una victoria conjunta.</p>
+                
+                <p>La formación continua es parte de nuestro compromiso. Todos nuestros profesionales asisten a capacitaciones periódicas para mantenerse actualizados en las mejores prácticas en inclusión, educación física adaptada y terapias innovadoras.</p>
+                
                 <button class="btn-primary cta-about" onclick="document.getElementById('team').scrollIntoView({behavior:'smooth'})">Conocer nuestro equipo</button>
             </div>
         </div>
 
         <div class="about-features">
             <div class="feature-box">
-                <h4>🌊 Espacios Acuáticos</h4>
-                <p>Natación recreativa, pileta familiar e hidroterapia especializada con profesionales capacitados en adaptaciones acuáticas.</p>
+                <h4>🌊 Espacios Acuáticos Seguros</h4>
+                <p>Instalaciones con pileta templada, facilidades adaptadas y profesionales especializados en seguridad acuática. Un ambiente donde el agua se transforma en terapia y diversión.</p>
             </div>
             <div class="feature-box">
-                <h4>⚽ Deporte y Recreación</h4>
-                <p>Club Kids, Club Recreativo, Club Joven, Fútbol y Atletismo para todas las edades y capacidades.</p>
+                <h4>⚽ Deporte y Recreación Inclusiva</h4>
+                <p>Desde competencia hasta diversión pura. Fútbol, atletismo, campamentos y colonias diseñadas para que cada persona disfrute y desarrolle su potencial.</p>
             </div>
             <div class="feature-box">
-                <h4>🎨 Expresión Artística</h4>
-                <p>Talleres de Danza, Teatro y Expresión Corporal para potenciar creatividad y autoestima.</p>
+                <h4>🎨 Expresión Artística sin Límites</h4>
+                <p>Talleres de danza, teatro, dibujo y pintura donde la creatividad florece sin restricciones. Cada expresión artística es celebrada y valorada.</p>
             </div>
             <div class="feature-box">
                 <h4>❤️ Acompañamiento Integral</h4>
-                <p>Cada programa personalizado según necesidades individuales con seguimiento continuo y profesional.</p>
+                <p>Cada programa es personalizado según necesidades individuales. Seguimiento continuo, comunicación con familias y adaptaciones permanentes según progreso.</p>
             </div>
         </div>
     </section>
@@ -1249,40 +1228,64 @@
     <section id="activities">
         <div class="section-header">
             <h2>Nuestras Actividades y Terapias</h2>
-            <p>Propuestas integrales acompañadas completamente por Club Juntos</p>
+            <p>Propuestas integrales acompañadas completamente por Club Juntos para tu transformación</p>
         </div>
 
         <div class="activities-grid">
             <div class="activity-card">
                 <div class="activity-icon">🌊</div>
                 <h3>Espacios Acuáticos</h3>
-                <p><strong>Pileta Familiar:</strong> Un espacio seguro para toda la familia donde se disfruta el agua sin presiones.</p>
-                <p><strong>Natación Recreativa Individual:</strong> Clases personalizadas con acompañamiento integral de nuestro equipo especializado.</p>
+                
+                <p><strong>Pileta Familiar</strong></p>
+                <p>Un espacio seguro y acogedor donde toda la familia disfruta del agua sin presiones. Ideal para primeras experiencias acuáticas y diversión compartida. Ambiente templado, facilidades adaptadas y profesionales atentos a cada detalle.</p>
+                
+                <p><strong>Natación Recreativa Individual</strong></p>
+                <p>Clases personalizadas adaptadas a ritmo, necesidades y objetivos de cada participante. Nuestros profesionales trabajan uno a uno, generando confianza y progreso sostenido. Desde primeras brazadas hasta técnica avanzada.</p>
+                
                 <button class="btn-primary cta-activity" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Inscribir</button>
             </div>
 
             <div class="activity-card">
                 <div class="activity-icon">⚽</div>
                 <h3>Deportes y Recreación</h3>
-                <p><strong>Fútbol:</strong> Entrenamientos con técnica y acompañamiento profesional.</p>
-                <p><strong>Atletismo:</strong> Desarrollo de habilidades motrices en un ambiente inclusivo.</p>
-                <p><strong>Campamentos y Colonias:</strong> Experiencias de integración y diversión en vacaciones.</p>
+                
+                <p><strong>Fútbol</strong></p>
+                <p>Entrenamientos con técnica profesional donde cada chico aprende el deporte, el trabajo en equipo y la disciplina. Un espacio de competencia sana y diversión.</p>
+                
+                <p><strong>Atletismo</strong></p>
+                <p>Desarrollo de velocidad, resistencia y habilidades motrices. Entrenamientos adaptados que respetan ritmo individual y celebran cada progreso.</p>
+                
+                <p><strong>Campamentos y Colonias</strong></p>
+                <p>Experiencias intensivas de integración, aventura y aprendizaje. En vacaciones, nuestros campamentos se transforman en espacios de diversión, nuevas amistades y descubrimiento de capacidades.</p>
+                
                 <button class="btn-primary cta-activity" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Inscribir</button>
             </div>
 
             <div class="activity-card">
                 <div class="activity-icon">🎨</div>
                 <h3>Arte y Expresión</h3>
-                <p><strong>Danza y Expresión Corporal:</strong> Libertad de movimiento y autoexpresión.</p>
-                <p><strong>Dibujo y Pintura:</strong> Talleres para explorar la creatividad y desarrollar habilidades artísticas.</p>
+                
+                <p><strong>Danza y Expresión Corporal</strong></p>
+                <p>Libertad de movimiento, autoexpresión y celebración del propio cuerpo. Talleres donde cada gesto cuenta, cada ritmo importa y cada persona brilla.</p>
+                
+                <p><strong>Dibujo y Pintura</strong></p>
+                <p>Talleres para explorar la creatividad sin límites. Técnicas variadas, materiales de calidad y profesionales que facilitan la expresión artística como herramienta de autoconocimiento.</p>
+                
                 <button class="btn-primary cta-activity" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Participar</button>
             </div>
 
             <div class="activity-card">
                 <div class="activity-icon">💧</div>
                 <h3>Terapias Acuáticas</h3>
-                <p><strong>Hidroterapia:</strong> Sesiones terapéuticas individuales y grupales en agua templada con acompañamiento integral de nuestros profesionales especializados.</p>
-                <p>Cada sesión es diseñada según necesidades individuales y objetivos específicos.</p>
+                
+                <p><strong>Hidroterapia</strong></p>
+                <p>Sesiones terapéuticas individuales y grupales en agua templada con acompañamiento integral de nuestros kinesiólogos especializados. La hidroterapia combina los beneficios del movimiento con el poder curativo del agua.</p>
+                
+                <p><strong>¿Cómo funciona?</strong></p>
+                <p>Cada sesión es diseñada según necesidades individuales y objetivos específicos. Evaluación inicial personalizada, seguimiento continuo de progreso y adaptaciones periódicas. Indicada para recuperación funcional, desarrollo motor, relajación muscular y bienestar integral.</p>
+                
+                <p>Acompañamiento completo: desde la evaluación inicial hasta el seguimiento permanente de tu transformación.</p>
+                
                 <button class="btn-primary cta-activity" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Consultar</button>
             </div>
         </div>
@@ -1292,30 +1295,30 @@
     <section id="team">
         <div class="team-content">
             <div class="section-header">
-                <h2>Profesionales Certificados</h2>
-                <p>Un equipo apasionado que se preocupa genuinamente por cada estudiante y su transformación</p>
+                <h2>Nuestro Equipo de Profesionales</h2>
+                <p>11 profesionales certificados apasionados por tu bienestar integral</p>
             </div>
 
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-icon">👩‍🏫</div>
-                    <h4>11 Profesionales</h4>
-                    <p>Especializados en educación física adaptada y terapias acuáticas de alto nivel.</p>
+                    <h4>11 Profesionales Certificados</h4>
+                    <p>Especializados en educación física adaptada, terapias acuáticas y desarrollo integral. Formación continua y actualizaciones permanentes.</p>
                 </div>
                 <div class="team-member">
                     <div class="member-icon">🏥</div>
-                    <h4>Kinesiólogos</h4>
-                    <p>Formación continua en rehabilitación, bienestar y desarrollo funcional integral.</p>
+                    <h4>Kinesiólogos Especializados</h4>
+                    <p>Expertos en hidroterapia, rehabilitación funcional y desarrollo motor. Evaluación personalizada para cada participante.</p>
                 </div>
                 <div class="team-member">
                     <div class="member-icon">🎓</div>
                     <h4>Docentes Formados</h4>
-                    <p>Certificados en educación inclusiva y adaptaciones acuáticas profesionales.</p>
+                    <p>Certificados en educación inclusiva, adaptaciones acuáticas y metodologías pedagógicas contemporáneas para la inclusión.</p>
                 </div>
                 <div class="team-member">
                     <div class="member-icon">❤️</div>
                     <h4>Compromiso Total</h4>
-                    <p>Cada persona cuenta, cada progreso importa, cada transformación celebramos.</p>
+                    <p>Cada persona cuenta. Cada progreso importa. Cada transformación celebramos como equipo. Tu bienestar es nuestro objetivo.</p>
                 </div>
             </div>
         </div>
@@ -1330,11 +1333,11 @@
             </div>
             <div class="stat-item">
                 <h3>11</h3>
-                <p>Profesionales</p>
+                <p>Profesionales Certificados</p>
             </div>
             <div class="stat-item">
-                <h3>6+</h3>
-                <p>Actividades y Terapias</p>
+                <h3>4</h3>
+                <p>Áreas de Actividad</p>
             </div>
             <div class="stat-item">
                 <h3>2026</h3>
@@ -1353,23 +1356,77 @@
         <div class="testimonials-grid">
             <div class="testimonial">
                 <div class="stars">★ ★ ★ ★ ★</div>
-                <p class="testimonial-text">"Hace dos años mi hijo no se metía al agua. Ahora va corriendo a Club Juntos los lunes. Ver cómo está con otros chicos, cómo se ríe, cómo sus amigos lo buscan... eso no tiene precio. Nosotros también cambiamos."</p>
+                <p class="testimonial-text">"Hace tres años mi hijo no se metía al agua. Ahora va corriendo a Club Juntos los lunes. Ver cómo está con otros chicos, cómo se ríe, cómo sus amigos lo buscan... eso no tiene precio. Club Juntos nos devolvió la alegría. A él y a nosotros también. Fue transformador."</p>
                 <div class="testimonial-author">María (mamá)</div>
-                <div class="testimonial-meta">3 años en el club</div>
+                <div class="testimonial-meta">3 años en Club Juntos</div>
             </div>
 
             <div class="testimonial">
                 <div class="stars">★ ★ ★ ★ ★</div>
-                <p class="testimonial-text">"El equipo es increíble. No solo entrenan, acompañan. Mi hija se siente escuchada, vista, importante. Eso es lo que buscaba: que no fuera un número, que fuera ella misma."</p>
+                <p class="testimonial-text">"El equipo es increíble. No solo entrenan, acompañan. Mi hija se siente escuchada, vista, importante. Eso es lo que buscaba: que no fuera un número en una planilla, que fuera ella misma. Y lo lograron. Hoy es una chica diferente. Con más confianza, más seguridad."</p>
                 <div class="testimonial-author">Juan (papá)</div>
-                <div class="testimonial-meta">2 años en el club</div>
+                <div class="testimonial-meta">2 años en Club Juntos</div>
             </div>
 
             <div class="testimonial">
                 <div class="stars">★ ★ ★ ★ ★</div>
-                <p class="testimonial-text">"Empezamos en hidroterapia por recomendación médica. Ahora venimos porque ama este lugar. Ha mejorado mucho su movilidad, pero lo más importante es que brilla cuando llega aquí. Ese brillo no tiene precio."</p>
+                <p class="testimonial-text">"Empezamos en hidroterapia por recomendación médica. Honestamente, esperaba poco. Pero Club Juntos nos sorprendió. Ha mejorado su movilidad, su confianza, su relación con el agua. Lo más importante es que brilla cuando llega aquí. Ese brillo no tiene precio. Es autenticidad pura."</p>
                 <div class="testimonial-author">Laura (mamá)</div>
-                <div class="testimonial-meta">1 año en el club</div>
+                <div class="testimonial-meta">1 año en Club Juntos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section id="newsletter">
+        <div class="section-header">
+            <h2>Nuestro Newsletter</h2>
+            <p>Artículos semanales sobre inclusión, bienestar y vida en comunidad</p>
+        </div>
+
+        <div class="newsletter-container">
+            <div class="newsletter-content">
+                <p>Cada semana compartimos artículos, investigaciones y reflexiones sobre inclusión real, discapacidad, bienestar integral y cómo vivir mejor en comunidad.</p>
+                
+                <p><strong>¿Qué encontrarás en nuestro Newsletter?</strong></p>
+                <ul style="margin-left: 2rem; margin-bottom: 1.8rem;">
+                    <li style="font-size: 1.05rem; margin-bottom: 0.8rem; color: var(--gray-dark); opacity: 0.85; line-height: 1.8;">Artículos sobre inclusión, derechos y buenas prácticas</li>
+                    <li style="font-size: 1.05rem; margin-bottom: 0.8rem; color: var(--gray-dark); opacity: 0.85; line-height: 1.8;">Tips de bienestar y actividad física para personas con discapacidad</li>
+                    <li style="font-size: 1.05rem; margin-bottom: 0.8rem; color: var(--gray-dark); opacity: 0.85; line-height: 1.8;">Historias inspiradoras de transformación</li>
+                    <li style="font-size: 1.05rem; margin-bottom: 0.8rem; color: var(--gray-dark); opacity: 0.85; line-height: 1.8;">Noticias sobre nuestros programas y eventos</li>
+                    <li style="font-size: 1.05rem; margin-bottom: 0.8rem; color: var(--gray-dark); opacity: 0.85; line-height: 1.8;">Reflexiones sobre la capacidad más allá de la discapacidad</li>
+                </ul>
+                
+                <p>Suscribite para recibir las nuevas publicaciones directamente en tu correo cada semana.</p>
+                
+                <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+                    <div class="form-group">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Suscribirse Ahora</button>
+                </form>
+
+                <div class="newsletter-info">
+                    <p>📧 Recibirás un email semanal con contenido exclusivo</p>
+                    <p>🎯 Información útil y actualizada sobre inclusión y discapacidad</p>
+                    <p>💌 Historias reales de transformación de nuestra comunidad</p>
+                </div>
+            </div>
+
+            <div class="newsletter-articles">
+                <h4>Últimos Artículos</h4>
+                <div class="article-item">
+                    <h5>Inclusión Real: Barreras y Oportunidades en la Comunidad</h5>
+                    <p class="article-date">27 de abril de 2026</p>
+                </div>
+                <div class="article-item">
+                    <h5>La Importancia de la Actividad Física en Personas con Discapacidad</h5>
+                    <p class="article-date">20 de abril de 2026</p>
+                </div>
+                <div class="article-item">
+                    <h5>Derribando Mitos Sobre Discapacidad y Capacidad Humana</h5>
+                    <p class="article-date">13 de abril de 2026</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1406,49 +1463,7 @@
         </div>
     </section>
 
-    <!-- NEWSLETTER -->
-    <section id="newsletter">
-        <div class="section-header">
-            <h2>Nuestro Newsletter</h2>
-            <p>Artículos semanales sobre inclusión, bienestar y vida en comunidad</p>
-        </div>
-
-        <div class="newsletter-container">
-            <div class="newsletter-content">
-                <p>Cada semana compartimos artículos, tips y historias sobre desarrollo integral, inclusión social y cómo vivir mejor en comunidad.</p>
-                <p>Suscribite para recibir las nuevas publicaciones directamente en tu correo.</p>
-                
-                <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
-                    <div class="form-group">
-                        <input type="email" placeholder="Tu correo electrónico" required>
-                    </div>
-                    <button type="submit" class="btn-primary">Suscribirse</button>
-                </form>
-
-                <div class="newsletter-info">
-                    <p>📧 Recibirás un email semanal con contenido exclusivo</p>
-                    <p>🎯 Información útil sobre nuestras actividades y terapias</p>
-                    <p>💌 Historias de transformación de nuestra comunidad</p>
-                </div>
-            </div>
-
-            <div class="newsletter-articles">
-                <h4>Últimos Artículos</h4>
-                <div class="article-item">
-                    <h5>Inclusión Real: Barreras y Oportunidades</h5>
-                    <p class="article-date">27 de abril de 2026</p>
-                </div>
-                <div class="article-item">
-                    <h5>La Importancia de la Actividad Física en Personas con Discapacidad</h5>
-                    <p class="article-date">20 de abril de 2026</p>
-                </div>
-                <div class="article-item">
-                    <h5>Derribando Mitos Sobre Discapacidad y Capacidad</h5>
-                    <p class="article-date">13 de abril de 2026</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- FOOTER -->
     <footer>
         <p><strong>Club Juntos Mar del Plata</strong></p>
         <p>Asociación Civil con Personería Jurídica - Inscrito bajo matrícula oficial desde marzo de 2026</p>
@@ -1465,6 +1480,7 @@
 
         <p style="margin-top: 2.5rem; font-size: 0.95rem; letter-spacing: 0.3px;">© 2026 Club Juntos. Todos los derechos reservados.</p>
     </footer>
+
     <script>
         function handleNewsletterSignup(event) {
             event.preventDefault();
