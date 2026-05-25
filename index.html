@@ -62,6 +62,18 @@
             color: var(--navy);
             text-decoration: none;
             letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
         }
 
         .logo span {
@@ -705,7 +717,9 @@
     <!-- HEADER -->
     <header>
         <div class="header-container">
-            <a href="#" class="logo">🏊 Club <span>Juntos</span></a>
+            <a href="#" class="logo">
+                <img src="https://raw.githubusercontent.com/clubjuntosmdq-star/clubjuntos/main/logo.png" alt="Club Juntos Logo" style="height: 50px; width: auto;">
+            </a>
             <nav>
                 <a href="#about">Nosotros</a>
                 <a href="#activities">Actividades</a>
