@@ -131,7 +131,7 @@
 
         /* HERO */
         .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, #0f1a3d 50%, var(--turquoise) 100%);
+            background: linear-gradient(135deg, var(--navy) 0%, #2DC8C8 50%, var(--pink) 100%);
             color: var(--white);
             padding: 120px 2rem;
             text-align: center;
@@ -239,6 +239,14 @@
             animation: fadeInUp 0.6s ease-out;
         }
 
+        section:nth-child(3) {
+            background: linear-gradient(135deg, #E8D5F2 0%, #D4E9F7 100%);
+        }
+
+        section:nth-child(5) {
+            background: linear-gradient(135deg, #FFE5D9 0%, #E5F5FF 100%);
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -275,12 +283,14 @@
 
         /* WHY CHOOSE */
         .why-choose {
-            background: var(--white);
+            background: linear-gradient(135deg, rgba(45, 200, 200, 0.1), rgba(232, 83, 143, 0.1));
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
             margin-bottom: 3rem;
+            padding: 3rem;
+            border-radius: 20px;
         }
 
         .why-choose > div {
@@ -365,14 +375,29 @@
         }
 
         .feature {
-            background: linear-gradient(135deg, rgba(45, 200, 200, 0.08), rgba(232, 83, 143, 0.08));
+            background: linear-gradient(135deg, rgba(45, 200, 200, 0.15), rgba(232, 83, 143, 0.15));
             padding: 2.5rem;
             border-radius: 15px;
             text-align: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(45, 200, 200, 0.1);
+            border: 2px solid transparent;
             position: relative;
             overflow: hidden;
+        }
+
+        .feature:nth-child(1) {
+            background: linear-gradient(135deg, rgba(45, 200, 200, 0.2), rgba(45, 200, 200, 0.1));
+            border-color: var(--turquoise);
+        }
+
+        .feature:nth-child(2) {
+            background: linear-gradient(135deg, rgba(245, 200, 66, 0.2), rgba(245, 200, 66, 0.1));
+            border-color: var(--yellow);
+        }
+
+        .feature:nth-child(3) {
+            background: linear-gradient(135deg, rgba(232, 83, 143, 0.2), rgba(232, 83, 143, 0.1));
+            border-color: var(--pink);
         }
 
         .feature::before {
@@ -467,7 +492,16 @@
 
         /* TESTIMONIALS */
         .testimonials {
-            background: linear-gradient(135deg, var(--gray) 0%, #ffffff 100%);
+            background: linear-gradient(135deg, var(--pink) 0%, var(--yellow) 50%, var(--turquoise) 100%);
+            padding: 80px 2rem !important;
+        }
+
+        .testimonials h2 {
+            color: var(--white) !important;
+        }
+
+        .testimonials .section-title::after {
+            background: rgba(255,255,255,0.6);
         }
 
         .testimonials-container {
@@ -550,10 +584,15 @@
 
         /* REVIEWS */
         .reviews {
-            background: linear-gradient(135deg, var(--white) 0%, var(--gray) 100%);
+            background: linear-gradient(135deg, var(--navy) 0%, #2DC8C8 50%, var(--pink) 100%);
             text-align: center;
             padding: 4rem 2rem;
             border-radius: 20px;
+            color: var(--white);
+        }
+
+        .reviews p {
+            color: var(--white);
         }
 
         .review-count {
@@ -586,7 +625,16 @@
 
         /* ACTIVITIES */
         .activities {
-            background: linear-gradient(135deg, #ffffff 0%, var(--gray) 100%);
+            background: linear-gradient(135deg, var(--yellow) 0%, var(--pink) 50%, var(--turquoise) 100%);
+            padding: 80px 2rem !important;
+        }
+
+        .activities h2 {
+            color: var(--white) !important;
+        }
+
+        .activities .section-title::after {
+            background: rgba(255,255,255,0.6);
         }
 
         .activities-grid {
@@ -603,10 +651,17 @@
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(45, 200, 200, 0.1);
+            border: 3px solid transparent;
             position: relative;
             overflow: hidden;
         }
+
+        .activity:nth-child(1) { border-color: var(--turquoise); }
+        .activity:nth-child(2) { border-color: var(--pink); }
+        .activity:nth-child(3) { border-color: var(--yellow); }
+        .activity:nth-child(4) { border-color: var(--navy); }
+        .activity:nth-child(5) { border-color: var(--turquoise); }
+        .activity:nth-child(6) { border-color: var(--pink); }
 
         .activity::before {
             content: '';
