@@ -6,9 +6,6 @@
     <meta name="description" content="Club Juntos Mar del Plata - Natación, Hidroterapia y Deportes para personas con discapacidad. Inclusión, comunidad y desarrollo integral.">
     <meta name="keywords" content="natación Mar del Plata, hidroterapia, discapacidad, deporte adaptado, inclusión, terapia acuática">
     <meta name="author" content="Club Juntos Mar del Plata">
-    <meta property="og:title" content="Club Juntos Mar del Plata - Natación y Terapias Especializadas">
-    <meta property="og:description" content="La verdadera discapacidad es el miedo a no intentarlo. Descubre cómo en Club Juntos.">
-    <meta property="og:url" content="https://clubjuntosmdq-star.github.io/clubjuntos/">
     <title>Club Juntos Mar del Plata | Natación, Hidroterapia y Deportes Adaptados</title>
     <style>
         * {
@@ -23,30 +20,28 @@
             --turquoise: #2DC8C8;
             --pink: #E8538F;
             --white: #FAFAFA;
-            --gray-light: #f5f5f5;
-            --gray-dark: #333;
+            --gray: #f5f5f5;
+            --dark: #333;
         }
 
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--gray-dark);
-            background-color: var(--white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            color: var(--dark);
+            background: var(--white);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* ====== NAVBAR ====== */
-        nav {
+        /* NAVBAR */
+        header {
+            background: var(--white);
+            padding: 1.5rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(27, 42, 107, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .navbar-container {
+        .header-container {
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
@@ -54,714 +49,368 @@
             align-items: center;
         }
 
-        .navbar-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--yellow);
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--navy);
             text-decoration: none;
         }
 
-        .navbar-menu {
+        nav {
             display: flex;
-            list-style: none;
-            gap: 2rem;
+            gap: 3rem;
             align-items: center;
         }
 
-        .navbar-menu a {
-            color: var(--white);
+        nav a {
+            color: var(--dark);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
+            font-size: 0.95rem;
         }
 
-        .navbar-menu a:hover {
+        nav a:hover {
             color: var(--turquoise);
         }
 
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--navy);
-            border-top: 3px solid var(--turquoise);
-            min-width: 250px;
-            list-style: none;
-            padding: 1rem 0;
-            border-radius: 8px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-
-        .dropdown:hover .dropdown-content {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-content li a {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .dropdown-content li a:hover {
-            background: rgba(45, 200, 200, 0.2);
-            color: var(--turquoise);
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, var(--pink), #d63a7c);
-            color: white;
-            padding: 0.8rem 1.5rem;
+        .cta-btn {
+            background: linear-gradient(135deg, var(--yellow), #f5a10a);
+            color: var(--navy);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
             border: none;
-            border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 0 20px rgba(232, 83, 143, 0.4);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 40px rgba(232, 83, 143, 0.8);
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(245, 200, 66, 0.4);
         }
 
-        /* ====== HERO SECTION ====== */
+        /* HERO */
         .hero {
-            background: linear-gradient(135deg, #1B2A6B 0%, #0f1a3d 50%, #2DC8C8 100%);
+            background: linear-gradient(135deg, var(--navy) 0%, #0f1a3d 100%);
             color: var(--white);
-            padding: 100px 2rem;
+            padding: 120px 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 80vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(45, 200, 200, 0.15), transparent);
-            border-radius: 50%;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(232, 83, 143, 0.15), transparent);
-            border-radius: 50%;
-            animation: float 15s infinite ease-in-out reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(20px); }
-        }
-
-        .hero-content {
-            max-width: 900px;
-            position: relative;
-            z-index: 1;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            margin-bottom: 1rem;
-            font-weight: 800;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
             line-height: 1.2;
+            font-weight: 800;
         }
 
-        .hero-subtitle {
-            font-size: 1.3rem;
+        .hero p {
+            font-size: 1.2rem;
             margin-bottom: 2rem;
-            color: var(--yellow);
-            font-weight: 600;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
         }
 
-        .hero-text {
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--yellow), #f5a10a);
-            color: var(--navy);
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 0 30px rgba(245, 200, 66, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 50px rgba(245, 200, 66, 0.8);
-        }
-
-        .btn-secondary {
-            background: transparent;
+        .hero-btn {
+            background: linear-gradient(135deg, var(--turquoise), #1fa9a9);
             color: var(--white);
             padding: 1rem 2.5rem;
-            border: 2px solid var(--turquoise);
-            border-radius: 50px;
-            font-weight: 700;
+            border: none;
+            border-radius: 30px;
             font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
-            text-decoration: none;
+            transition: all 0.3s;
             display: inline-block;
-            transition: all 0.3s ease;
         }
 
-        .btn-secondary:hover {
-            background: var(--turquoise);
-            color: var(--navy);
-            transform: translateY(-5px);
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(45, 200, 200, 0.4);
         }
 
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(45, 200, 200, 0.2);
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--yellow);
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.8);
-            margin-top: 0.5rem;
-        }
-
-        /* ====== SECTIONS GENERAL ====== */
+        /* SECTIONS */
         section {
             padding: 80px 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        section h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
             text-align: center;
+            color: var(--navy);
             margin-bottom: 3rem;
-            color: var(--navy);
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--turquoise), var(--yellow), var(--pink));
-            border-radius: 2px;
-        }
-
-        /* ====== NOSOTROS ====== */
-        .nosotros {
-            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
-        }
-
-        .nosotros-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .nosotros-text h3 {
-            color: var(--navy);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .nosotros-text p {
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
-            color: var(--gray-dark);
-            line-height: 1.8;
-        }
-
-        .highlight {
-            color: var(--turquoise);
-            font-weight: 700;
-        }
-
-        .objetivos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .objetivo-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--turquoise);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .objetivo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(45, 200, 200, 0.2);
-        }
-
-        .objetivo-card h4 {
-            color: var(--pink);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        /* ====== ACTIVIDADES ====== */
-        .actividades {
-            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-        }
-
-        .actividades-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .activity-card {
-            background: var(--gray-light);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            cursor: pointer;
-        }
-
-        .activity-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .activity-icon {
-            font-size: 3rem;
-            padding: 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(45, 200, 200, 0.1), rgba(232, 83, 143, 0.1));
-        }
-
-        .activity-content {
-            padding: 2rem;
-        }
-
-        .activity-content h3 {
-            color: var(--navy);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .activity-content p {
-            color: var(--gray-dark);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-
-
-        /* ====== RESEÑAS ====== */
-        .resenas {
-            background: linear-gradient(135deg, #E8D5F2 0%, #D4E9F7 100%);
-        }
-
-        .resenas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .resena-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--turquoise);
-        }
-
-        .resena-card:nth-child(2) {
-            border-top-color: var(--pink);
-        }
-
-        .resena-card:nth-child(3) {
-            border-top-color: var(--yellow);
-        }
-
-        .resena-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .stars {
-            font-size: 1.5rem;
-            color: var(--yellow);
-            margin-bottom: 1rem;
-            letter-spacing: 0.3rem;
-        }
-
-        .resena-text {
-            font-size: 1.05rem;
-            color: var(--gray-dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        .resena-author {
-            font-weight: 600;
-            color: var(--navy);
-        }
-
-        .resena-meta {
-            font-size: 0.85rem;
-            color: var(--turquoise);
-            margin-top: 0.5rem;
-        }
-
-        /* ====== FAQs ====== */
-        .faqs {
-            background: linear-gradient(135deg, #F0E5FF 0%, #FFE5F0 100%);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 1.5rem;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 8px 25px rgba(45, 200, 200, 0.15);
-        }
-
-        .faq-question {
-            background: linear-gradient(135deg, var(--navy), #0f1a3d);
-            color: var(--white);
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: linear-gradient(135deg, var(--turquoise), var(--pink));
-        }
-
-        .faq-toggle {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            background: var(--gray-light);
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: 1.5rem;
-        }
-
-        .faq-answer p {
-            color: var(--gray-dark);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        /* ====== BLOG ====== */
-        .blog {
-            background: linear-gradient(135deg, #E5F5FF 0%, #F5E5FF 100%);
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .blog-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .blog-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--turquoise), var(--pink));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--white);
-            overflow: hidden;
-        }
-
-        .blog-card:hover .blog-image {
-            transform: scale(1.1);
-        }
-
-        .blog-content {
-            padding: 2rem;
-        }
-
-        .blog-date {
-            color: var(--turquoise);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-title {
-            font-size: 1.3rem;
-            color: var(--navy);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .blog-excerpt {
-            color: var(--gray-dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        /* ====== CONTACTO ====== */
-        .contacto {
-            background: linear-gradient(135deg, var(--navy) 0%, #0f1a3d 50%, var(--pink) 100%);
-            color: var(--white);
-        }
-
-        .contacto h2 {
-            color: var(--white);
-        }
-
-        .contacto-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-            align-items: start;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            color: var(--yellow);
-        }
-
-        .contact-item {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .contact-item:last-child {
-            border-bottom: none;
-        }
-
-        .contact-label {
-            color: var(--turquoise);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .contact-value {
-            font-size: 1.2rem;
-            color: var(--white);
-        }
-
-        .contact-value a {
-            color: var(--turquoise);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .contact-value a:hover {
-            color: var(--yellow);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: inline-flex;
+        /* WHY CHOOSE */
+        .why-choose {
+            background: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: rgba(45, 200, 200, 0.2);
-            border: 1px solid var(--turquoise);
-            border-radius: 50%;
+            margin-bottom: 3rem;
+        }
+
+        .why-choose h3 {
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .why-choose p {
+            font-size: 1.05rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .why-choose-link {
             color: var(--turquoise);
             text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-block;
         }
 
-        .social-link:hover {
-            background: var(--turquoise);
+        .why-choose-link:hover {
+            color: var(--pink);
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, rgba(45, 200, 200, 0.1), rgba(232, 83, 143, 0.1));
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature h4 {
             color: var(--navy);
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(45, 200, 200, 0.5);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
         }
 
-        .form-group {
+        .feature p {
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* INSTRUCTORS */
+        .instructors {
+            background: linear-gradient(135deg, var(--navy) 0%, #0f1a3d 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .instructors h3 {
+            font-size: 2.2rem;
             margin-bottom: 1.5rem;
+            font-weight: 800;
         }
 
-        .form-group label {
-            display: block;
+        .instructors p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: var(--gray);
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--turquoise);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .testimonial:nth-child(2) {
+            border-top-color: var(--pink);
+        }
+
+        .testimonial:nth-child(3) {
+            border-top-color: var(--yellow);
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .stars {
+            color: var(--yellow);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-text {
+            color: var(--dark);
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1.05rem;
+        }
+
+        .testimonial-meta {
+            font-size: 0.9rem;
+            color: var(--turquoise);
+            margin-top: 0.5rem;
+        }
+
+        /* REVIEWS */
+        .reviews {
+            background: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .review-count {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--yellow);
             margin-bottom: 0.5rem;
+        }
+
+        .review-stars {
+            font-size: 1.5rem;
+            color: var(--yellow);
+            letter-spacing: 3px;
+        }
+
+        /* ACTIVITIES */
+        .activities {
+            background: var(--gray);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .activity {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .activity:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .activity-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity h4 {
+            color: var(--navy);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .activity p {
+            color: var(--dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, #0f1a3d 100%);
             color: var(--white);
-            font-weight: 600;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            margin: 4rem 0;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 8px;
-            background: rgba(255,255,255,0.1);
-            color: var(--white);
-            font-family: inherit;
-            transition: all 0.3s ease;
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255,255,255,0.6);
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            background: rgba(255,255,255,0.15);
-            border-color: var(--turquoise);
-            box-shadow: 0 0 20px rgba(45, 200, 200, 0.3);
-        }
-
-        .form-submit {
+        .cta-section button {
             background: linear-gradient(135deg, var(--yellow), #f5a10a);
             color: var(--navy);
             padding: 1rem 2.5rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 30px;
             font-weight: 700;
             font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            box-shadow: 0 0 30px rgba(245, 200, 66, 0.4);
+            transition: all 0.3s;
         }
 
-        .form-submit:hover {
+        .cta-section button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 50px rgba(245, 200, 66, 0.8);
+            box-shadow: 0 10px 30px rgba(245, 200, 66, 0.4);
         }
 
-        /* ====== FOOTER ====== */
+        /* FOOTER */
         footer {
-            background: #0a0f1f;
+            background: var(--navy);
             color: var(--white);
             padding: 3rem 2rem;
             text-align: center;
-            border-top: 2px solid var(--turquoise);
         }
 
         .footer-content {
@@ -771,7 +420,7 @@
 
         .footer-content p {
             margin-bottom: 1rem;
-            color: rgba(255,255,255,0.8);
+            opacity: 0.9;
         }
 
         .footer-links {
@@ -780,658 +429,293 @@
             gap: 2rem;
             margin: 2rem 0;
             flex-wrap: wrap;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .footer-links a {
             color: var(--turquoise);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
         .footer-links a:hover {
             color: var(--yellow);
         }
 
-        /* ====== RESPONSIVE ====== */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            color: var(--turquoise);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--turquoise);
+            color: var(--navy);
+        }
+
+        /* CONTACT */
+        .contact {
+            background: linear-gradient(135deg, var(--navy) 0%, #0f1a3d 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+
+        .contact-info a {
+            color: var(--turquoise);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--yellow);
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .navbar-menu {
+            nav {
                 gap: 1rem;
                 font-size: 0.9rem;
             }
 
-            .nosotros-grid,
-            .contacto-grid {
+            .why-choose {
                 grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 60px 1.5rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                max-width: 300px;
             }
 
             section {
                 padding: 50px 1.5rem;
             }
-        }
 
-        /* ====== ANIMATIONS ====== */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+            .section-title {
+                font-size: 1.8rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        .fade-in {
-            opacity: 0;
-            animation: slideIn 0.8s ease-out forwards;
+            .hero {
+                padding: 80px 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- NAVBAR -->
-    <nav>
-        <div class="navbar-container">
-            <a href="#inicio" class="navbar-logo">🏊 Club Juntos</a>
-            <ul class="navbar-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li class="dropdown">
-                    <a href="#actividades">Actividades ▼</a>
-                    <ul class="dropdown-content">
-                        <li><a href="#club-kids">Club Kids</a></li>
-                        <li><a href="#club-recreativo">Club Recreativo</a></li>
-                        <li><a href="#club-joven">Club Joven</a></li>
-                        <li><a href="#hidroterapia">Hidroterapia</a></li>
-                        <li><a href="#deportes">Deportes Adaptados</a></li>
-                    </ul>
-                </li>
-                <li><a href="#voluntarios">Voluntarios</a></li>
-                <li><a href="#noticias">Noticias</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#contacto" class="cta-button">Inscribirse</a></li>
-            </ul>
+    <!-- HEADER/NAV -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">🏊 Club Juntos</a>
+            <nav>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#actividades">Actividades</a>
+                <a href="#contacto">Contacto</a>
+                <button class="cta-btn" onclick="document.getElementById('contacto').scrollIntoView()">Inscribirse</button>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- HERO -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>La verdadera discapacidad es el <span style="color: var(--turquoise);">miedo a no intentarlo</span></h1>
-            <p class="hero-subtitle">Donde los miedos se transforman en intentos y los intentos en grandes logros</p>
-            <p class="hero-text">
-                <strong>¡Sumate a Club Juntos y descubrí el poder de superarnos en equipo!</strong>
-            </p>
+    <div class="hero">
+        <div style="max-width: 900px;">
+            <h1>La verdadera discapacidad es el miedo a no intentarlo</h1>
+            <p>Donde los miedos se transforman en intentos y los intentos en grandes logros. ¡Sumate a Club Juntos y descubrí el poder de superarnos en equipo!</p>
+            <button class="hero-btn" onclick="document.getElementById('contacto').scrollIntoView()">Quiero inscribirme</button>
+        </div>
+    </div>
 
-            <div class="hero-buttons">
-                <button class="btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">
-                    Quiero inscribirme al club
-                </button>
-                <button class="btn-secondary" onclick="document.getElementById('resenas').scrollIntoView({behavior: 'smooth'})">
-                    Ver testimonios reales
-                </button>
+    <!-- NOSOTROS -->
+    <section id="nosotros">
+        <h2 class="section-title">¿Por Qué Elegir Club Juntos?</h2>
+        
+        <div class="why-choose">
+            <div>
+                <h3>Más que un club, es el lugar de cada alumno</h3>
+                <p>Club Juntos es una Asociación Civil sin fines de lucro dedicada a la inclusión social, la contención integral y el desarrollo de todas las personas. Operamos bajo Personería Jurídica oficial (obtenida en marzo de 2026).</p>
+                <p>Somos un Club para Personas con Discapacidad y Neurodivergencias, acompañando transformaciones todos los días. Cada día, chicos y chicas que durante años escucharon "no puedes", descubren que SÍ pueden.</p>
+                <a href="#" class="why-choose-link">Conocer más →</a>
             </div>
+            <div>
+                <h3>Equipo Especializado y Comprometido</h3>
+                <p>Contamos con 11 profesionales interdisciplinarios (kinesiólogos, docentes de educación física, talleristas de artes) altamente capacitados y comprometidos con la excelencia.</p>
+                <p>Acompañamos a más de 70 estudiantes activos en un ambiente seguro, cálido y profesional. Nuestro equipo no solo entrena, sino que genuinamente se preocupa por el bienestar y el desarrollo integral de cada persona.</p>
+            </div>
+        </div>
 
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number">70+</div>
-                    <div class="stat-label">Estudiantes activos</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">11</div>
-                    <div class="stat-label">Profesionales especializados</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">6+</div>
-                    <div class="stat-label">Actividades y terapias</div>
-                </div>
+        <div class="features">
+            <div class="feature">
+                <h4>🌊 Espacios Acuáticos</h4>
+                <p>Natación recreativa, pileta familiar e hidroterapia especializada con profesionales capacitados en adaptaciones acuáticas.</p>
+            </div>
+            <div class="feature">
+                <h4>⚽ Deporte y Recreación</h4>
+                <p>Club Kids, Club Recreativo, Club Joven, Fútbol, Atletismo. Propuestas de movimiento y juego para todas las edades.</p>
+            </div>
+            <div class="feature">
+                <h4>🎨 Expresión Artística</h4>
+                <p>Talleres de Danza, Teatro y Expresión Corporal para potenciar creatividad, autoconocimiento y comunicación.</p>
             </div>
         </div>
     </section>
 
-    <!-- NOSOTROS -->
-    <section id="nosotros" class="nosotros">
-        <h2>Club Juntos: Más que un club, es el lugar de cada alumno</h2>
-
-        <div style="max-width: 900px; margin: 0 auto; margin-bottom: 3rem; text-align: center;">
-            <p style="font-size: 1.1rem; color: var(--turquoise); font-weight: 700; margin-bottom: 1.5rem;">
-                Asociación Civil sin fines de lucro | Personería Jurídica oficial (marzo de 2026)
-            </p>
-        </div>
-
-        <div class="nosotros-grid">
-            <div>
-                <h3>¿Quiénes Somos?</h3>
-                <p>
-                    Desde hace años, trabajamos en Mar del Plata transformando la forma en que las familias comparten y conviven. 
-                    Somos un <strong>Club para Personas con Discapacidad y Neurodivergencias</strong>, y nos dedicamos a acompañar transformaciones.
-                </p>
-                <p>
-                    Cada día, chicos y chicas que durante años escucharon "no puedes", descubren que <strong>SÍ pueden</strong>. 
-                    Y sus padres, al ser parte de este proceso, sienten que ya no están solos.
-                </p>
-            </div>
-            <div>
-                <h3>Nuestra Historia</h3>
-                <p>
-                    Lo que comenzó como una iniciativa imposible de unos pocos soñadores, hoy es una institución formal, 
-                    legítima y capacitada para articular acciones con el sistema público, privado y comunitario.
-                </p>
-                <p>
-                    Hoy el club sigue creciendo y ya contamos con <strong>2 sedes en la ciudad</strong> para brindar más comodidad 
-                    y alcance a nuestra comunidad.
-                </p>
-            </div>
-        </div>
-
-        <h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--navy); font-size: 1.8rem;">Espacios y Actividades</h3>
-        <p style="text-align: center; margin-bottom: 3rem; color: var(--gray-dark); font-size: 1.05rem;">
-            Desarrollamos propuestas integrales pensadas para el desarrollo, el disfrute y el bienestar de cada participante:
-        </p>
-
-        <div class="objetivos">
-            <div class="objetivo-card fade-in">
-                <h4>⚽ Deporte y Recreación</h4>
-                <p>Espacios de movimiento y juego a través de Club Recreativo, Club Kids y Club Joven, sumando las disciplinas de Fútbol y Atletismo.</p>
-            </div>
-            <div class="objetivo-card fade-in">
-                <h4>🌊 Área Acuática</h4>
-                <p>Espacios especializados de Natación e Hidroterapia con profesionales capacitados.</p>
-            </div>
-            <div class="objetivo-card fade-in">
-                <h4>🎨 Expresión</h4>
-                <p>Talleres de Arte, Danza y Expresión Corporal para potenciar la creatividad y el autoconocimiento.</p>
-            </div>
-            <div class="objetivo-card fade-in">
-                <h4>❤️ El Equipo en Números</h4>
-                <p>11 Profesionales interdisciplinarios, 70+ estudiantes activos, y una red en expansión de familias y voluntarios.</p>
-            </div>
-        </div>
-
-        <div style="background: linear-gradient(135deg, rgba(45, 200, 200, 0.1), rgba(232, 83, 143, 0.1)); padding: 2.5rem; border-radius: 15px; margin-top: 3rem; text-align: center; border-left: 4px solid var(--turquoise);">
-            <h3 style="color: var(--navy); margin-bottom: 1.5rem;">Nuestra Filosofía</h3>
-            <p style="font-size: 1.1rem; color: var(--gray-dark); line-height: 1.8;">
-                <strong>Creemos en un espacio abierto para todos,</strong> donde el deporte y el arte son los puentes para derribar barreras y transformar vidas.
-            </p>
-        </div>
+    <!-- INSTRUCTORES -->
+    <section class="instructors">
+        <h3>Profesionales Certificados y Apasionados</h3>
+        <p>Desbloquea el potencial de aprendizaje de tu hijo mientras se divierte. Nuestros profesionales no solo dictan actividades: ¡También se preocupan genuinamente por el bienestar, el progreso y la transformación de cada estudiante!</p>
     </section>
 
     <!-- ACTIVIDADES -->
-    <section id="actividades" class="actividades">
-        <h2>Nuestras Actividades</h2>
-
-
-
-        <!-- ACTIVIDADES GRID -->
-        <div class="actividades-grid">
-            <div class="activity-card" id="club-kids">
+    <section id="actividades">
+        <h2 class="section-title">Nuestras Actividades</h2>
+        
+        <div class="activities-grid">
+            <div class="activity">
                 <div class="activity-icon">🎨</div>
-                <div class="activity-content">
-                    <h3>Club Kids (3-6 años)</h3>
-                    <p>
-                        Estimulación temprana, juego, movimiento y diversión sin presiones. Donde descubren el agua, el arte y la socialización de forma natural.
-                    </p>
-                </div>
+                <h4>Club Kids (3-6 años)</h4>
+                <p>Estimulación temprana, juego, movimiento y diversión. Donde descubren el agua, el arte y la socialización.</p>
             </div>
-
-            <div class="activity-card" id="club-recreativo">
+            
+            <div class="activity">
                 <div class="activity-icon">🏊</div>
-                <div class="activity-content">
-                    <h3>Club Recreativo (7-17 años)</h3>
-                    <p>
-                        Natación, juegos acuáticos, deportes y actividades grupales que generan amistad, confianza y pertenencia.
-                    </p>
-                </div>
+                <h4>Club Recreativo (7-17 años)</h4>
+                <p>Natación, juegos acuáticos, deportes y actividades que generan amistad, confianza y pertenencia.</p>
             </div>
-
-            <div class="activity-card" id="club-joven">
+            
+            <div class="activity">
                 <div class="activity-icon">🚀</div>
-                <div class="activity-content">
-                    <h3>Club Joven (17+ años)</h3>
-                    <p>
-                        Autonomía, socialización, deportes, expresión artística. El espacio donde descubren quiénes son y qué pueden ser.
-                    </p>
-                </div>
+                <h4>Club Joven (17+ años)</h4>
+                <p>Autonomía, socialización, deportes y expresión artística. Donde descubren quiénes son y qué pueden ser.</p>
             </div>
-
-            <div class="activity-card" id="hidroterapia">
+            
+            <div class="activity">
                 <div class="activity-icon">💧</div>
-                <div class="activity-content">
-                    <h3>Hidroterapia Especializada</h3>
-                    <p>
-                        Sesiones terapéuticas individuales o grupales en agua templada con profesionales especializados para rehabilitación y bienestar.
-                    </p>
-                </div>
+                <h4>Hidroterapia</h4>
+                <p>Sesiones terapéuticas individuales o grupales en agua templada con profesionales especializados.</p>
             </div>
-
-            <div class="activity-card" id="deportes">
+            
+            <div class="activity">
                 <div class="activity-icon">⚽</div>
-                <div class="activity-content">
-                    <h3>Deportes Adaptados</h3>
-                    <p>
-                        Fútbol, Atletismo y Natación. Entrenamiento, técnica, compañerismo y la magia de representar a Club Juntos.
-                    </p>
-                </div>
+                <h4>Deportes Adaptados</h4>
+                <p>Fútbol, Atletismo y Natación Competitiva. Entrenamiento, técnica, compañerismo y representación.</p>
             </div>
-
-            <div class="activity-card">
+            
+            <div class="activity">
                 <div class="activity-icon">🎭</div>
-                <div class="activity-content">
-                    <h3>Talleres Artísticos</h3>
-                    <p>
-                        Danza, teatro, expresión corporal. Espacios donde cada cuerpo es escenario, cada voz es importante, cada historia importa.
-                    </p>
-                </div>
+                <h4>Talleres Artísticos</h4>
+                <p>Danza, teatro, expresión corporal. Espacios donde cada cuerpo es escenario, cada voz es importante.</p>
             </div>
         </div>
     </section>
 
-    <!-- RESEÑAS -->
-    <section id="resenas" class="resenas">
-        <h2>Lo que dicen las familias</h2>
-
-        <div class="resenas-grid">
-            <div class="resena-card">
-                <div class="stars">★★★★★</div>
-                <p class="resena-text">
-                    "Hace dos años mi hijo no se metía al agua. Ahora va corriendo a Club Juntos los lunes. 
-                    Ver cómo está con otros chicos, cómo se ríe, cómo sus amigos lo buscan... eso no tiene precio. 
-                    Nosotros también cambiamos."
-                </p>
-                <div class="resena-author">María (mamá)</div>
-                <div class="resena-meta">3 años en el club</div>
+    <!-- TESTIMONIOS -->
+    <section class="testimonials">
+        <h2 class="section-title">Lo Que Dicen Las Familias</h2>
+        
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <div class="stars">★ ★ ★ ★ ★</div>
+                <p class="testimonial-text">"Hace dos años mi hijo no se metía al agua. Ahora va corriendo a Club Juntos los lunes. Ver cómo está con otros chicos, cómo se ríe, cómo sus amigos lo buscan... eso no tiene precio. Nosotros también cambiamos."</p>
+                <div class="testimonial-author">María (mamá)</div>
+                <div class="testimonial-meta">3 años en el club</div>
             </div>
 
-            <div class="resena-card">
-                <div class="stars">★★★★★</div>
-                <p class="resena-text">
-                    "El equipo es increíble. No solo entrenan, acompañan. Mi hija se siente escuchada, 
-                    vista, importante. Eso es lo que buscaba: que no fuera un número, que fuera ella misma."
-                </p>
-                <div class="resena-author">Juan (papá)</div>
-                <div class="resena-meta">2 años en el club</div>
+            <div class="testimonial">
+                <div class="stars">★ ★ ★ ★ ★</div>
+                <p class="testimonial-text">"El equipo es increíble. No solo entrenan, acompañan. Mi hija se siente escuchada, vista, importante. Eso es lo que buscaba: que no fuera un número, que fuera ella misma."</p>
+                <div class="testimonial-author">Juan (papá)</div>
+                <div class="testimonial-meta">2 años en el club</div>
             </div>
 
-            <div class="resena-card">
-                <div class="stars">★★★★★</div>
-                <p class="resena-text">
-                    "Empezamos en hidroterapia por recomendación médica. Ahora venimos porque ama este lugar. 
-                    Ha mejorado mucho su movilidad, pero lo más importante es que brilla cuando llega aquí. 
-                    Eso es lo que nos mantiene volviendo."
-                </p>
-                <div class="resena-author">Laura (mamá)</div>
-                <div class="resena-meta">1 año en el club</div>
+            <div class="testimonial">
+                <div class="stars">★ ★ ★ ★ ★</div>
+                <p class="testimonial-text">"Empezamos en hidroterapia por recomendación médica. Ahora venimos porque ama este lugar. Ha mejorado mucho su movilidad, pero lo más importante es que brilla cuando llega aquí."</p>
+                <div class="testimonial-author">Laura (mamá)</div>
+                <div class="testimonial-meta">1 año en el club</div>
             </div>
         </div>
     </section>
 
-    <!-- FAQs -->
-    <section id="faqs" class="faqs">
-        <h2>Preguntas Frecuentes</h2>
-
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>¿Las obras sociales cubren los servicios de Juntos Salud?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong>Sí.</strong> Muchas obras sociales cubren sesiones de hidroterapia, kinesiología y acompañamiento terapéutico. Esto requiere:</p>
-                    <ul>
-                        <li>Derivación médica específica</li>
-                        <li>Afiliación vigente a la obra social</li>
-                        <li>Cumplimiento del protocolo de autorización</li>
-                    </ul>
-                    <p><strong>Contactanos</strong> directamente y verificamos qué cobertura tiene tu obra social. Ofrecemos opciones de pago flexible si hay cobertura parcial.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>¿Con qué discapacidades trabajamos?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Trabajamos con <strong>todas las discapacidades funcionales</strong>:</p>
-                    <ul>
-                        <li>Discapacidad motriz (parálisis cerebral, lesión medular, etc.)</li>
-                        <li>Discapacidad visual</li>
-                        <li>Discapacidad auditiva</li>
-                        <li>Discapacidad intelectual</li>
-                        <li>Neurodivergencia (autismo, TDAH, etc.)</li>
-                        <li>Trastornos psicosociales</li>
-                    </ul>
-                    <p>Cada programa se personaliza según las necesidades individuales.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>¿Cómo funcionan los acompañantes terapéuticos?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Si tu hijo requiere apoyo, contamos con <strong>acompañantes terapéuticos especializados</strong> que:</p>
-                    <ul>
-                        <li>Trabajan bajo supervisión de nuestro equipo profesional</li>
-                        <li>Se enfocan en facilitar autonomía, no dependencia</li>
-                        <li>Acompañan en agua, en tierra, en socialización</li>
-                        <li>Crean una relación de confianza cálida</li>
-                        <li>Reportan evolución permanentemente a familia y médicos</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>¿Por qué tanto énfasis en actividades grupales?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong>Porque la magia sucede en el grupo.</strong></p>
-                    <p>Años de aislamiento, de no poder hacer "lo que hacen otros". En Club Juntos, tu hijo descubre que <strong>no está solo</strong>, que hay otros como él, que puede jugar, reír, hacer amistades. Eso no se puede comprar en una sesión individual.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>¿Cómo me inscribo?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong>Es simple:</strong></p>
-                    <ul>
-                        <li>Contactanos por WhatsApp: +54 223 680-8522</li>
-                        <li>O por email: clubjuntosmdq@gmail.com</li>
-                        <li>Cuéntanos qué actividad te interesa, la edad de tu hijo/a</li>
-                        <li>Coordinamos una charla inicial gratuita</li>
-                        <li>Realizamos evaluación (si corresponde)</li>
-                        <li>¡Comienzas en la semana!</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <!-- REVIEWS -->
+    <section class="reviews">
+        <p>¿Sabías que tenemos excelentes comentarios de nuestras familias?</p>
+        <div class="review-count">70+</div>
+        <p>Estudiantes y Familias Satisfechas</p>
+        <div class="review-stars">★ ★ ★ ★ ★</div>
     </section>
 
-    <!-- BLOG/NOTICIAS -->
-    <section id="noticias" class="blog">
-        <h2>Club Juntos en Movimiento</h2>
-        <p style="text-align: center; margin-bottom: 3rem; color: var(--gray-dark); font-size: 1.1rem;">
-            Una noticia semanal sobre logros, eventos y vidas que cambian en comunidad
-        </p>
-
-        <div class="blog-grid">
-            <div class="blog-card">
-                <div class="blog-image">🌊</div>
-                <div class="blog-content">
-                    <div class="blog-date">27 de abril de 2026</div>
-                    <h3 class="blog-title">Hidroterapia: Los Primeros Logros del Programa Especializado</h3>
-                    <p class="blog-excerpt">
-                        Familias reportan mejoras inmediatas en movilidad y bienestar emocional. 
-                        El agua templada, los profesionales especializados, la seguridad del grupo...
-                    </p>
-                </div>
-            </div>
-
-            <div class="blog-card">
-                <div class="blog-image">🤝</div>
-                <div class="blog-content">
-                    <div class="blog-date">20 de abril de 2026</div>
-                    <h3 class="blog-title">Sumando Juntos: Voluntarios que Transforman Comunidad</h3>
-                    <p class="blog-excerpt">
-                        Historias de personas que decidieron aportar su tiempo, talento y corazón. 
-                        De cómo una persona puede marcar diferencia en vidas.
-                    </p>
-                </div>
-            </div>
-
-            <div class="blog-card">
-                <div class="blog-image">🏆</div>
-                <div class="blog-content">
-                    <div class="blog-date">13 de abril de 2026</div>
-                    <h3 class="blog-title">Nuestros Chicos Brillaron en la Competencia Regional</h3>
-                    <p class="blog-excerpt">
-                        Club Juntos participó en el Torneo de Natación Adaptada. Medallas, marcas personales, 
-                        pero sobre todo: orgullo, representación, visibilidad.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- VOLUNTARIOS -->
-    <section id="voluntarios" class="actividades">
-        <h2>Sumando Juntos: Voluntariado 2026</h2>
-
-        <div class="nosotros-grid" style="margin-bottom: 4rem;">
-            <div>
-                <h3>Tu tiempo, nuestra comunidad</h3>
-                <p>
-                    Club Juntos crece porque <strong>personas como vos creen en la inclusión</strong>. 
-                    No necesitas ser especialista. Necesitas corazón.
-                </p>
-                <p>
-                    En <strong>Sumando Juntos</strong> buscamos voluntarios que quieran:
-                </p>
-                <ul style="margin-left: 2rem; margin-top: 1rem; margin-bottom: 2rem;">
-                    <li style="margin-bottom: 0.8rem;">Acompañar a chicos en actividades</li>
-                    <li style="margin-bottom: 0.8rem;">Ayudar en organización de eventos</li>
-                    <li style="margin-bottom: 0.8rem;">Aportar tu expertise (abogacía, diseño, etc.)</li>
-                    <li style="margin-bottom: 0.8rem;">Aprender, crecer, transformarte</li>
-                </ul>
-            </div>
-
-            <div style="background: var(--gray-light); padding: 2.5rem; border-radius: 15px;">
-                <h3 style="color: var(--pink);">Formulario de Inscripción</h3>
-
-                <form style="display: flex; flex-direction: column; gap: 1.5rem;" onsubmit="handleVolunteerForm(event)">
-                    <div>
-                        <label style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; display: block;">Nombre Completo *</label>
-                        <input type="text" required placeholder="Tu nombre" style="padding: 0.8rem; border: 1px solid var(--turquoise); border-radius: 8px; width: 100%; font-family: inherit;">
-                    </div>
-
-                    <div>
-                        <label style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; display: block;">Teléfono *</label>
-                        <input type="tel" required placeholder="+54 223 ..." style="padding: 0.8rem; border: 1px solid var(--turquoise); border-radius: 8px; width: 100%; font-family: inherit;">
-                    </div>
-
-                    <div>
-                        <label style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; display: block;">Email *</label>
-                        <input type="email" required placeholder="tu@email.com" style="padding: 0.8rem; border: 1px solid var(--turquoise); border-radius: 8px; width: 100%; font-family: inherit;">
-                    </div>
-
-                    <div>
-                        <label style="font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; display: block;">¿Por qué querés sumarte? *</label>
-                        <textarea required placeholder="Contanos tu motivación..." style="padding: 0.8rem; border: 1px solid var(--turquoise); border-radius: 8px; width: 100%; min-height: 100px; font-family: inherit;" ></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-primary" style="border: none;">
-                        ¡Quiero ser voluntario!
-                    </button>
-                </form>
-            </div>
+    <!-- CTA -->
+    <section>
+        <div class="cta-section">
+            <h3>Innovación en Inclusión</h3>
+            <p>Nos especializamos en transformación integral, ofreciendo un programa que permite a tu familia disfrutar de actividades deportivas, terapéuticas y recreativas con total seguridad, confianza y alegría. Con Club Juntos, aprenderán que la verdadera discapacidad es el miedo a no intentarlo.</p>
+            <button onclick="document.getElementById('contacto').scrollIntoView()">Quiero saber más</button>
         </div>
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="contacto">
-        <h2>Estamos Aquí Para Ti</h2>
-
-        <div class="contacto-grid">
+    <section id="contacto">
+        <div class="contact">
+            <h3>Estamos Aquí Para Ti</h3>
             <div class="contact-info">
-                <h3>Contáctanos</h3>
-
-                <div class="contact-item">
-                    <div class="contact-label">📞 Teléfono</div>
-                    <div class="contact-value">
-                        <a href="tel:+542236808522">+54 223 680-8522</a>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-label">📧 Email Institucional</div>
-                    <div class="contact-value">
-                        <a href="mailto:clubjuntosmdq@gmail.com">clubjuntosmdq@gmail.com</a>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-label">📍 Ubicaciones</div>
-                    <div class="contact-value">
-                        <strong>Sede Centro:</strong> Mar del Plata<br>
-                        <strong>Sede Ampliación Sur:</strong> Calle 483, Mar del Plata
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-label">🌐 Redes Sociales</div>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/clubjuntosmdq/" target="_blank" class="social-link">📱</a>
-                        <a href="https://www.instagram.com/nicomaidanamdq/" target="_blank" class="social-link">👤</a>
-                        <a href="https://wa.me/542236808522" target="_blank" class="social-link">💬</a>
-                    </div>
-                </div>
+                <p><strong>📍 Ubicación:</strong></p>
+                <p>Av. Paso 2430, Mar del Plata</p>
             </div>
-
-            <div>
-                <h3 style="margin-bottom: 2rem;">Envíanos un Mensaje</h3>
-                <form onsubmit="handleContactForm(event)" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div class="form-group">
-                        <label>Nombre Completo *</label>
-                        <input type="text" required placeholder="Tu nombre">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Email *</label>
-                        <input type="email" required placeholder="tu@email.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Teléfono</label>
-                        <input type="tel" placeholder="+54 223 ...">
-                    </div>
-
-                    <div class="form-group">
-                        <label>¿En qué actividad estás interesado?</label>
-                        <input type="text" placeholder="Hidroterapia, Natación, Club Kids...">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Mensaje *</label>
-                        <textarea required placeholder="Cuéntanos tu situación, preguntas, lo que sea..."></textarea>
-                    </div>
-
-                    <button type="submit" class="form-submit">
-                        Enviar Mensaje
-                    </button>
-                </form>
+            <div class="contact-info">
+                <p><strong>📞 Teléfono:</strong></p>
+                <p><a href="tel:+542236808522">+54 223 680-8522</a></p>
             </div>
-        </div>
-
-        <!-- CTA WHATSAPP FLOTANTE -->
-        <div style="position: fixed; bottom: 2rem; right: 2rem; z-index: 100;">
-            <a href="https://wa.me/542236808522?text=Hola%20Club%20Juntos%21%20Quisiera%20consultar%20sobre..." target="_blank" 
-               style="display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; background: linear-gradient(135deg, #25D366, #20BA61); border-radius: 50%; color: white; font-size: 1.8rem; text-decoration: none; box-shadow: 0 0 40px rgba(37, 211, 102, 0.5); transition: all 0.3s ease;"
-               onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 0 60px rgba(37, 211, 102, 0.8)';"
-               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 40px rgba(37, 211, 102, 0.5)';">
-                💬
-            </a>
+            <div class="contact-info">
+                <p><strong>📧 Email:</strong></p>
+                <p><a href="mailto:clubjuntosmdq@gmail.com">clubjuntosmdq@gmail.com</a></p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/clubjuntosmdq/" target="_blank" title="Instagram">📱</a>
+                <a href="https://wa.me/542236808522" target="_blank" title="WhatsApp">💬</a>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <h3 style="color: var(--yellow); margin-bottom: 1rem;">Club Juntos Mar del Plata</h3>
+            <h3 style="margin-bottom: 1rem; color: var(--yellow);">Club Juntos Mar del Plata</h3>
             <p>Asociación Civil con Personería Jurídica - Inscrito bajo matrícula oficial</p>
-            <p style="margin-bottom: 2rem; color: rgba(255,255,255,0.7);">
-                Deporte, Inclusión y Comunidad en Mar del Plata desde 2016
-            </p>
-
+            <p>Deporte, Inclusión y Comunidad en Mar del Plata</p>
+            
             <div class="footer-links">
-                <a href="#inicio">Inicio</a>
                 <a href="#nosotros">Nosotros</a>
                 <a href="#actividades">Actividades</a>
-                <a href="#faqs">FAQs</a>
-                <a href="#noticias">Blog</a>
                 <a href="#contacto">Contacto</a>
             </div>
 
-            <p style="margin-top: 2rem; font-size: 0.9rem;">
-                © 2026 Club Juntos Mar del Plata. Todos los derechos reservados.
-            </p>
+            <p style="margin-top: 2rem; font-size: 0.9rem;">© 2026 Club Juntos Mar del Plata. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <!-- SCRIPTS -->
-    <script>
-        // FAQs Toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                const item = this.parentElement;
-                item.classList.toggle('active');
-
-                document.querySelectorAll('.faq-item').forEach(other => {
-                    if (other !== item && other.classList.contains('active')) {
-                        other.classList.remove('active');
-                    }
-                });
-            });
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Form submissions
-        function handleVolunteerForm(e) {
-            e.preventDefault();
-            alert('¡Gracias por tu interés! Te contactaremos en breve. 💪');
-            e.target.reset();
-        }
-
-        function handleContactForm(e) {
-            e.preventDefault();
-            alert('¡Tu mensaje fue enviado! Nos pondremos en contacto pronto. 🙌');
-            e.target.reset();
-        }
-
-        // Intersection Observer para fade-in
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>
