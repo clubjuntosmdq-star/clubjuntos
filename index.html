@@ -298,18 +298,55 @@
             border-radius: 12px;
             border-left: 4px solid var(--turquoise);
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .feature-box:nth-child(1) {
+            border-left-color: var(--turquoise);
+            background: linear-gradient(135deg, rgba(45, 200, 200, 0.05), rgba(45, 200, 200, 0.02));
+        }
+
+        .feature-box:nth-child(1)::before {
+            background: var(--turquoise);
         }
 
         .feature-box:nth-child(2) {
             border-left-color: var(--yellow);
+            background: linear-gradient(135deg, rgba(245, 200, 66, 0.05), rgba(245, 200, 66, 0.02));
+        }
+
+        .feature-box:nth-child(2)::before {
+            background: var(--yellow);
         }
 
         .feature-box:nth-child(3) {
             border-left-color: var(--pink);
+            background: linear-gradient(135deg, rgba(232, 83, 143, 0.05), rgba(232, 83, 143, 0.02));
+        }
+
+        .feature-box:nth-child(3)::before {
+            background: var(--pink);
         }
 
         .feature-box:nth-child(4) {
             border-left-color: var(--navy);
+            background: linear-gradient(135deg, rgba(27, 42, 107, 0.05), rgba(27, 42, 107, 0.02));
+        }
+
+        .feature-box:nth-child(4)::before {
+            background: var(--navy);
         }
 
         .feature-box h4 {
@@ -346,24 +383,64 @@
             overflow: hidden;
         }
 
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--turquoise), transparent);
+        }
+
+        .activity-card:nth-child(1) {
+            border-top-color: var(--turquoise);
+            background: linear-gradient(135deg, rgba(45, 200, 200, 0.08), rgba(45, 200, 200, 0.03));
+        }
+
         .activity-card:nth-child(2) {
             border-top-color: var(--yellow);
+            background: linear-gradient(135deg, rgba(245, 200, 66, 0.08), rgba(245, 200, 66, 0.03));
+        }
+
+        .activity-card:nth-child(2)::before {
+            background: linear-gradient(90deg, var(--yellow), transparent);
         }
 
         .activity-card:nth-child(3) {
             border-top-color: var(--pink);
+            background: linear-gradient(135deg, rgba(232, 83, 143, 0.08), rgba(232, 83, 143, 0.03));
+        }
+
+        .activity-card:nth-child(3)::before {
+            background: linear-gradient(90deg, var(--pink), transparent);
         }
 
         .activity-card:nth-child(4) {
             border-top-color: var(--navy);
+            background: linear-gradient(135deg, rgba(27, 42, 107, 0.08), rgba(27, 42, 107, 0.03));
+        }
+
+        .activity-card:nth-child(4)::before {
+            background: linear-gradient(90deg, var(--navy), transparent);
         }
 
         .activity-card:nth-child(5) {
             border-top-color: var(--turquoise);
+            background: linear-gradient(135deg, rgba(45, 200, 200, 0.08), rgba(45, 200, 200, 0.03));
+        }
+
+        .activity-card:nth-child(5)::before {
+            background: linear-gradient(90deg, var(--turquoise), transparent);
         }
 
         .activity-card:nth-child(6) {
             border-top-color: var(--yellow);
+            background: linear-gradient(135deg, rgba(245, 200, 66, 0.08), rgba(245, 200, 66, 0.03));
+        }
+
+        .activity-card:nth-child(6)::before {
+            background: linear-gradient(90deg, var(--yellow), transparent);
         }
 
         .activity-card:hover {
@@ -436,7 +513,35 @@
             padding: 2rem;
             border-radius: 12px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--turquoise);
+        }
+
+        .team-member:nth-child(1)::before {
+            background: var(--turquoise);
+        }
+
+        .team-member:nth-child(2)::before {
+            background: var(--yellow);
+        }
+
+        .team-member:nth-child(3)::before {
+            background: var(--pink);
+        }
+
+        .team-member:nth-child(4)::before {
+            background: var(--yellow);
         }
 
         .member-icon {
@@ -472,14 +577,41 @@
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             border-top: 5px solid var(--turquoise);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--turquoise), transparent);
+        }
+
+        .testimonial:nth-child(1) {
+            border-top-color: var(--turquoise);
+            background: linear-gradient(135deg, rgba(45, 200, 200, 0.08), rgba(45, 200, 200, 0.03));
         }
 
         .testimonial:nth-child(2) {
             border-top-color: var(--yellow);
+            background: linear-gradient(135deg, rgba(245, 200, 66, 0.08), rgba(245, 200, 66, 0.03));
+        }
+
+        .testimonial:nth-child(2)::before {
+            background: linear-gradient(90deg, var(--yellow), transparent);
         }
 
         .testimonial:nth-child(3) {
             border-top-color: var(--pink);
+            background: linear-gradient(135deg, rgba(232, 83, 143, 0.08), rgba(232, 83, 143, 0.03));
+        }
+
+        .testimonial:nth-child(3)::before {
+            background: linear-gradient(90deg, var(--pink), transparent);
         }
 
         .testimonial:hover {
