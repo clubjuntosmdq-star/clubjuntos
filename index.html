@@ -265,24 +265,62 @@
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: stretch;
             margin-bottom: 3rem;
         }
 
-        .about-text h3 {
+        .about-block {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--turquoise);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-block:nth-child(2) {
+            border-top-color: var(--yellow);
+            background: linear-gradient(135deg, rgba(245, 200, 66, 0.05), rgba(245, 200, 66, 0.02));
+        }
+
+        .about-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            opacity: 0.08;
+        }
+
+        .about-block:nth-child(1)::before {
+            background: var(--turquoise);
+        }
+
+        .about-block:nth-child(2)::before {
+            background: var(--yellow);
+        }
+
+        .about-block h3 {
             font-size: 1.8rem;
             color: var(--navy);
             margin-bottom: 1.5rem;
             font-weight: 800;
+            position: relative;
+            z-index: 1;
         }
 
-        .about-text p {
+        .about-block p {
             font-size: 1.05rem;
             margin-bottom: 1.5rem;
             line-height: 1.8;
             color: var(--dark);
+            position: relative;
+            z-index: 1;
         }
 
         .about-features {
@@ -881,15 +919,16 @@
         </div>
 
         <div class="about-grid">
-            <div class="about-text">
-                <h3>Inclusión Integral</h3>
-                <p>Club Juntos es una Asociación Civil sin fines de lucro dedicada a la inclusión social y el desarrollo integral de todas las personas.</p>
-                <p>Operamos bajo Personería Jurídica oficial (obtenida en marzo de 2026), acompañando transformaciones todos los días.</p>
+            <div class="about-block">
+                <h3>Club Juntos es una Asociación dedicada al desarrollo integral de las personas con discapacidad</h3>
+                <p>Operamos bajo Personería Jurídica oficial (obtenida en marzo de 2026), acompañando transformaciones todos los días. Somos un espacio donde cada persona cuenta, donde los miedos se transforman en intentos y los intentos en grandes logros.</p>
+                <p>Cada día, chicos y chicas que durante años escucharon "no puedes", descubren que SÍ pueden. Y sus familias, al ser parte de este proceso, sienten que ya no están solos.</p>
             </div>
-            <div class="about-text">
-                <h3>Equipo Especializado</h3>
-                <p>Contamos con 11 profesionales interdisciplinarios (kinesiólogos, docentes de EF, talleristas de artes) altamente capacitados.</p>
-                <p>Acompañamos a 70+ estudiantes activos en un ambiente seguro, cálido y profesional.</p>
+
+            <div class="about-block">
+                <h3>Equipo Especializado y Comprometido</h3>
+                <p>Contamos con 11 profesionales interdisciplinarios (kinesiólogos, docentes de educación física, talleristas de artes) altamente capacitados y comprometidos con la excelencia.</p>
+                <p>Acompañamos a más de 70 estudiantes activos en un ambiente seguro, cálido y profesional. Nuestro equipo no solo entrena, sino que genuinamente se preocupa por el bienestar y el desarrollo integral de cada persona.</p>
             </div>
         </div>
 
